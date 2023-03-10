@@ -1,4 +1,3 @@
-
 import networkx as nx
 
 def create_network_from_edges(path):
@@ -16,3 +15,4 @@ def create_network_from_edges(path):
             node1, node2 = map(int, line.split())
             G.add_edge(node1, node2)
 
+    return G
