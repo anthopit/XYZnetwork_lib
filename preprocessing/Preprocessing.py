@@ -1,6 +1,8 @@
 import pandas as pd
 import networkx as nx
+from tqdm import tqdm
 from datetime import datetime, timedelta
+
 
 ############################################# Utils #############################################
 
@@ -58,7 +60,8 @@ def create_network_from_trailway(path):
     prev_node = 0
     prev_mileage = 0
     prev_dep_time = 0
-    for index, row in df.iterrows():
+    print("Network creation: ")
+    for index, row in tqdm(df.iterrows(), total=df.shape[0]):
         if not G.has_node(row["st_id"]):
             G.add_node(row["st_id"], pos=(row["lon"], row["lat"]))
         if row["st_no"] == st_no_comp:
@@ -90,7 +93,7 @@ def create_network_from_edges(path):
     G = nx.Graph()
 
     # Add nodes and edges to the graph
-    for line in lines:
+    for line in tqdm(lines):
         if not line.startswith("%"):
             node1, node2 = map(int, line.split())
             G.add_edge(node1, node2)
