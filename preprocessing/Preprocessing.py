@@ -63,7 +63,8 @@ def create_network_from_trailway(path):
     print("Network creation: ")
     for index, row in tqdm(df.iterrows(), total=df.shape[0]):
         if not G.has_node(row["st_id"]):
-            G.add_node(row["st_id"], pos=(row["lon"], row["lat"]))
+            # G.add_node(row["st_id"], pos=(row["lon"], row["lat"]))
+            G.add_node(row["st_id"], lon=row["lon"], lat=row["lat"])
         if row["st_no"] == st_no_comp:
             G.add_edge(prev_node, row["st_id"], arr_time=convertTimetoMinute(row["arr_time"], row["date"]),
                        dep_time=prev_dep_time, train=row["train"], train_max_speed=getTrainMaxSpeed(row["train"]),
