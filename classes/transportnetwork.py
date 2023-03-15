@@ -29,33 +29,28 @@ class TransportNetwork:
 
     is_dynamic: bool
     is_interval: bool
-    time_arguments: str
-    time_interval_arguments: List[Tuple[str, str]]
+    time_arguments: str or List[str]
 
-    # def convert_multigraph_to_graph(self):
-    #     """
-    #     Convert a multidigraph to a multigraph
-    #     """
-    #     if self.multidigraph is None:
-    #         raise Exception("No multidigraph to convert")
-    #
-    #     self.graph = self.multidigraph
-    #
-    #     for edge in list(self.multidigraph.edges):
-    #         if edge[2] != 0:
-    #             self.graph.remove_edge(edge[0], edge[1], key=edge[2])
+    def convert_multigraph_to_graph(self):
+        """
+        Convert a multidigraph to a multigraph
+        """
+        if self.multidigraph is None:
+            raise Exception("No multidigraph to convert")
+
+        self.graph = self.multidigraph
+
+        for edge in list(self.multidigraph.edges):
+            if edge[2] != 0:
+                self.graph.remove_edge(edge[0], edge[1], key=edge[2])
+
+
 
     def __init__(self, graph,
-                    dirgraph=None, \
-                    multigraph=None, \
-                    multidigraph=None, \
-                    is_weighted=False,  \
                     nodes_weight=None, \
                     edges_weight=None, \
-                    is_spatial = False, \
                     pos_argument = None, \
-                    is_dynamic = False, \
-                    is_interval = False):
+                    time_arguments = None):
 
 
         ### Fill the networkx grqph depending on the type of graph give by the user
@@ -72,8 +67,7 @@ class TransportNetwork:
 
         ## Spatial attributes ##
 
-        if (is_spatial):
-            self.is_spatial = is_spatial
+        if (pos_argument is not None):
             if type(pos_argument) is list and len(pos_argument) == 2:
                 self.pos_argument = pos_argument
                 try:
@@ -89,11 +83,28 @@ class TransportNetwork:
             else:
                 raise TypeError(f"pos_argument must be a list of strings (e.g. ['lon', 'lat']) or a string (e.g. 'pos')")
 
+            self.is_spatial = True
+
         ## Weighted attributes ##
-        if (is_weighted):
-            self.is_weighted = is_weighted
+
+        if (nodes_weight is not None or edges_weight is not None):
             self.nodes_weight = nodes_weight
             self.edges_weight = edges_weight
+
+            self.is_weighted = True
+
+        ## Dynamic attributes ##
+
+        if (time_arguments is not None):
+            if (type(time_arguments) is str):
+                self.time_arguments = time_arguments
+                self.is_interval = False
+            elif (type(time_arguments) is list and len(time_arguments) == 2):
+                self.time_arguments = time_arguments
+                self.is_interval = True
+            else:
+                raise TypeError(f"time_arguments must be a list of strings (e.g. ['start', 'end']) or a string (e.g. 'time')")
+
 
 
     def get_max_lat(self):
@@ -107,6 +118,7 @@ class TransportNetwork:
 
     def get_min_lon(self):
         return min(self.pos_dict.values(), key=lambda x: x[0])[0]
+
 
 
     def __str__(self):
