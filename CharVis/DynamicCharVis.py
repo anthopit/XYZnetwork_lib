@@ -1,5 +1,14 @@
-import TransportNetwork as TN
+from typing import List, Tuple
+
+import defaultGraph as TN
 
 class DynamicGraph(TN.GraphDefault):
+
+    is_interval: bool = False
+    time_arguments: str = None
+    time_interval_arguments: List[Tuple[str, str]] = None
     def __init__(self):
-        self.graphType = TN.GraphType.DYNAMIC
+        self.isDynamic = True
+
+    def getGraphTypeStr(self):
+        return "Dynamic"
