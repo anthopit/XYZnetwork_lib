@@ -81,3 +81,10 @@ class GraphDefault:
         ""
 
 
+######################################## Default functions without OOP ########################################
+
+def map_network(TN, is_spatial=True):
+    """
+    Plot a network on a map
+    """
+    pass

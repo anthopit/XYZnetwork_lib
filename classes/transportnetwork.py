@@ -31,18 +31,44 @@ class TransportNetwork:
     is_interval: bool
     time_arguments: str or List[str]
 
-    def convert_multigraph_to_graph(self):
+    def convert_multidigraph_to_digraph(self):
         """
         Convert a multidigraph to a multigraph
         """
         if self.multidigraph is None:
             raise Exception("No multidigraph to convert")
+        else:
+            DG = nx.DiGraph(self.multidigraph)
 
-        self.graph = self.multidigraph
+            return DG
 
-        for edge in list(self.multidigraph.edges):
-            if edge[2] != 0:
-                self.graph.remove_edge(edge[0], edge[1], key=edge[2])
+    def convert_multidirgraph_to_multigraph(self):
+        """
+        Convert a multidigraph to a multigraph
+        """
+        if self.multidigraph is None:
+            raise Exception("No multidigraph to convert")
+        else:
+            DG = nx.MultiGraph(self.multidigraph)
+            DG.to_undirected()
+
+            return DG
+
+
+
+    def convert_dirgraph_to_graph(self):
+        """
+        Convert a directed graph to an undirected graph
+        """
+        if self.dirgraph is None:
+            raise Exception("No directed graph to convert")
+        else:
+            G = nx.Graph(self.dirgraph)
+            G.to_undirected()
+
+            return G
+
+
 
 
 
@@ -57,7 +83,9 @@ class TransportNetwork:
 
         if graph.is_directed() and graph.is_multigraph():
             self.multidigraph = graph
-            # self.convert_multigraph_to_graph()
+            self.multigraph = self.convert_multidirgraph_to_multigraph()
+            self.dirgraph = self.convert_multidigraph_to_digraph()
+            self.graph = self.convert_dirgraph_to_graph()
         elif graph.is_directed():
             self.dirgraph = graph
         elif graph.is_multigraph():
@@ -128,17 +156,17 @@ class TransportNetwork:
 
         for graph in graph_type:
             if graph is not None:
-                num_nodes = self.multidigraph.number_of_nodes()
-                num_edges = self.multidigraph.number_of_edges()
+                num_nodes = graph.number_of_nodes()
+                num_edges = graph.number_of_edges()
 
-                string_to_print += f"Graph type: {type(self.multidigraph)}\n"
+                string_to_print += f"Graph type: {type(graph)}\n"
                 string_to_print += f"- Number of nodes: {num_nodes}\n"
-                nodes_attributes = set(chain.from_iterable(d.keys() for *_, d in self.multidigraph.nodes(data=True)))
+                nodes_attributes = set(chain.from_iterable(d.keys() for *_, d in graph.nodes(data=True)))
                 for attr in nodes_attributes:
                     string_to_print += " |"
                     string_to_print += f"--- {attr}\n"
                 string_to_print += f"- Number of edges: {num_edges}\n"
-                edges_attributes = set(chain.from_iterable(d.keys() for *_, d in self.multidigraph.edges(data=True)))
+                edges_attributes = set(chain.from_iterable(d.keys() for *_, d in graph.edges(data=True)))
                 for attr in edges_attributes:
                     string_to_print += " |"
                     string_to_print += f"--- {attr}\n"
