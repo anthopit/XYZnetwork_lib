@@ -1,6 +1,6 @@
 from typing import List, Tuple
 
-import defaultGraph as TN
+import DefaultCharVis as TN
 
 class DynamicGraph(TN.GraphDefault):
 

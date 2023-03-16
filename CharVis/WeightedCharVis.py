@@ -1,4 +1,4 @@
-import defaultGraph as TN
+import DefaultCharVis as TN
 
 class WeightedGraph(TN.GraphDefault):
 
