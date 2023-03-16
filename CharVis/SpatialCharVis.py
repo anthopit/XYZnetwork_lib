@@ -1,5 +1,5 @@
 from typing import List, Tuple
-import defaultGraph as TN
+import DefaultCharVis as TN
 
 class SpatialGraph(TN.GraphDefault):
 
