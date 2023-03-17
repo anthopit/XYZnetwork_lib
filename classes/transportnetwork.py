@@ -123,10 +123,11 @@ class TransportNetwork:
 
         ## Dynamic attributes ##
 
+        self.is_interval = False
+
         if (time_arguments is not None):
             if (type(time_arguments) is str):
                 self.time_arguments = time_arguments
-                self.is_interval = False
             elif (type(time_arguments) is list and len(time_arguments) == 2):
                 self.time_arguments = time_arguments
                 self.is_interval = True
@@ -146,6 +147,18 @@ class TransportNetwork:
 
     def get_min_lon(self):
         return min(self.pos_dict.values(), key=lambda x: x[0])[0]
+
+    def get_max_time(self):
+        if (self.is_interval):
+            return max(self.multidigraph.edges(data=True), key=lambda x: x[2][self.time_arguments[1]])[2][self.time_arguments[1]]
+        else:
+            return max(self.multidigraph.edges(data=True), key=lambda x: x[2][self.time_arguments])[2][self.time_arguments]
+
+    def get_min_time(self):
+        if (self.is_interval):
+            return min(self.multidigraph.edges(data=True), key=lambda x: x[2][self.time_arguments[0]])[2][self.time_arguments[0]]
+        else:
+            return min(self.multidigraph.edges(data=True), key=lambda x: x[2][self.time_arguments])[2][self.time_arguments]
 
 
 
