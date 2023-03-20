@@ -22,6 +22,8 @@ class TransportNetwork:
     pos_argument = None
     pos_dict = {}
 
+    spring_pos_dict = {}
+
     is_weighted: bool
     nodes_weight_argument: str
 
@@ -95,6 +97,8 @@ class TransportNetwork:
 
         ## Spatial attributes ##
 
+        self.is_spatial = False
+
         if (pos_argument is not None):
             if type(pos_argument) is list and len(pos_argument) == 2:
                 self.pos_argument = pos_argument
@@ -133,7 +137,6 @@ class TransportNetwork:
                 self.is_interval = True
             else:
                 raise TypeError(f"time_arguments must be a list of strings (e.g. ['start', 'end']) or a string (e.g. 'time')")
-
 
 
     def get_max_lat(self):
