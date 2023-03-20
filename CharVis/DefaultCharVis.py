@@ -98,6 +98,7 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
     elif TN.is_spatial and spatial:
         pos = TN.pos_dict
 
+    print(pos)
 
     # Define the edges and nodes positions
     edge_x = []
