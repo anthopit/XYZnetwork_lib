@@ -26,8 +26,7 @@ class TransportNetwork:
 
     is_weighted: bool
     nodes_weight_argument: str
-
-    edges_weight: str
+    edges_weight_argument: str
 
     is_dynamic: bool
     is_interval: bool
@@ -75,8 +74,8 @@ class TransportNetwork:
 
 
     def __init__(self, graph,
-                    nodes_weight=None, \
-                    edges_weight=None, \
+                    nodes_weight_argument=None, \
+                    edges_weight_argument=None, \
                     pos_argument = None, \
                     time_arguments = None):
 
@@ -119,11 +118,15 @@ class TransportNetwork:
 
         ## Weighted attributes ##
 
-        if (nodes_weight is not None or edges_weight is not None):
-            self.nodes_weight = nodes_weight
-            self.edges_weight = edges_weight
+        if (nodes_weight_argument is not None or edges_weight_argument is not None):
+            self.nodes_weight_argument = nodes_weight_argument
+            self.edges_weight_argument = edges_weight_argument
 
             self.is_weighted = True
+        else:
+            self.is_weighted = False
+            self.nodes_weight_argument = None
+            self.edges_weight_argument = None
 
         ## Dynamic attributes ##
 
@@ -162,6 +165,21 @@ class TransportNetwork:
             return min(self.multidigraph.edges(data=True), key=lambda x: x[2][self.time_arguments[0]])[2][self.time_arguments[0]]
         else:
             return min(self.multidigraph.edges(data=True), key=lambda x: x[2][self.time_arguments])[2][self.time_arguments]
+
+
+    def get_node_weight_dict(self):
+        if (self.nodes_weight_argument is not None):
+            return nx.get_node_attributes(self.graph, self.nodes_weight_argument)
+        else:
+            raise Exception("No nodes weight argument associated to the graph")
+
+    def get_edge_weight_dict(self):
+        if (self.edges_weight_argument is not None):
+            dict =  nx.get_edge_attributes(self.graph, self.edges_weight_argument)
+            dict = {k: float(v) for k, v in dict.items()}
+            return dict
+        else:
+            raise Exception("No edges weight argument associated to the graph")
 
 
 

@@ -92,13 +92,14 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
     pos = {}
     if TN.is_spatial == False or spatial == False:
         if TN.spring_pos_dict == {}:
+            print("Generating spring layout, this may take a while...")
             TN.spring_pos_dict = nx.spring_layout(TN.graph)
         pos = TN.spring_pos_dict
 
     elif TN.is_spatial and spatial:
         pos = TN.pos_dict
 
-    print(pos)
+    #TODO : add ineractuive etiquette
 
     # Define the edges and nodes positions
     edge_x = []
