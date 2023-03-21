@@ -135,9 +135,11 @@ class TransportNetwork:
         if (time_arguments is not None):
             if (type(time_arguments) is str):
                 self.time_arguments = time_arguments
+                self.is_dynamic = True
             elif (type(time_arguments) is list and len(time_arguments) == 2):
                 self.time_arguments = time_arguments
                 self.is_interval = True
+                self.is_dynamic = True
             else:
                 raise TypeError(f"time_arguments must be a list of strings (e.g. ['start', 'end']) or a string (e.g. 'time')")
 
