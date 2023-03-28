@@ -21,14 +21,13 @@ def getTrainMaxSpeed(train_id):
             return "120"
 
 
-def convertTimetoMinute(time, day):
+def convertTimetoMinute(time, day=None):
 
     """
     Process outliers time datas
     Some arrive and depart time are in fraction of a day, so we need to convert them to minutes
     ex: 0.8884 = 21:30:00
     """
-
     try:
         time_float = float(time)
         # Convert the fraction of a day to a timedelta object
@@ -38,7 +37,20 @@ def convertTimetoMinute(time, day):
     except:
         pass
 
-    if day == "Day 1":
+    if type(time) == str:
+        try:
+            time = datetime.strptime(time, "%H:%M:%S")
+        except:
+            time = time.replace("24:", "23:")
+            time = datetime.strptime(time, "%H:%M:%S")
+            time += timedelta(hours=1)
+
+    elif type(time) == datetime:
+        pass
+    else:
+        raise ValueError("Time format not recognized")
+
+    if day == "Day 1" or day == None:
         minutes = time.hour * 60 + time.minute
     elif day == "Day 2":
         minutes = time.hour * 60 + time.minute + 24 * 60
@@ -98,6 +110,47 @@ def create_network_from_trailway(path):
                     if v[2]["distance"] > 0:
                         u[2]["distance"] = v[2]["distance"]
                         break
+
+    return G
+
+
+def create_network_from_GTFS(path):
+    df_stop_time = pd.read_csv(path + '/stop_times.txt')
+    df_stop = pd.read_csv(path + '/stops.txt')
+    df_trip = pd.read_csv(path + '/trips.txt')
+    df_shape = pd.read_csv(path + '/shapes.txt')
+
+    # Merge the two dataframes by keeping the stop sequence order
+    global_transport_df = pd.merge(df_stop_time, df_stop, on='stop_id', how='left', sort=False)
+    gtfs_df = pd.merge(global_transport_df, df_trip, on='trip_id', how='left', sort=False)
+
+    G = nx.MultiDiGraph()
+
+    st_no_comp = 0
+    prev_node = 0
+    prev_mileage = 0
+    prev_dep_time = 0
+    print("Network creation: ")
+    for index, row in tqdm(gtfs_df.iterrows(), total=gtfs_df.shape[0]):
+        if not G.has_node(row["stop_id"]):
+            G.add_node(row["stop_id"], lon=row["stop_lon"], lat=row["stop_lat"])
+        if row["stop_sequence"] == st_no_comp:
+            G.add_edge(prev_node, row["stop_id"], \
+                       arrival_time=convertTimetoMinute(row["arrival_time"]),
+                       departure_time=prev_dep_time, \
+                       trip_id=row["trip_id"], \
+                       distance=row["shape_dist_traveled"] - prev_mileage)
+
+            st_no_comp = row["stop_sequence"] + 1
+            prev_node = row["stop_id"]
+            prev_mileage = row["shape_dist_traveled"]
+            prev_dep_time = convertTimetoMinute(row["departure_time"])
+
+        else:
+            prev_dep_time = convertTimetoMinute(row["departure_time"])
+            st_no_comp = row["stop_sequence"] + 1
+            prev_node = row["stop_id"]
+            prev_mileage = 0
 
     return G
 
