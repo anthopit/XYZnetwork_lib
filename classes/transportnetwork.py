@@ -18,15 +18,18 @@ class TransportNetwork:
     multigraph: nx.MultiGraph = None
     multidigraph: nx.MultiDiGraph = None
 
+    spring_pos_dict = {}
+
     is_spatial: bool
     pos_argument = None
     pos_dict = {}
 
-    spring_pos_dict = {}
-
     is_weighted: bool
     nodes_weight_argument: str
     edges_weight_argument: str
+
+    is_distance: bool
+    distance_argument: str
 
     is_dynamic: bool
     is_interval: bool
@@ -77,7 +80,24 @@ class TransportNetwork:
                     nodes_weight_argument=None, \
                     edges_weight_argument=None, \
                     pos_argument = None, \
-                    time_arguments = None):
+                    time_arguments = None, \
+                    distance_argument = None):
+
+        if nodes_weight_argument is not None:
+            if type(nodes_weight_argument) is not str:
+                raise TypeError("nodes_weight_argument must be a string")
+        elif edges_weight_argument is not None:
+            if type(edges_weight_argument) is not str:
+                raise TypeError("edges_weight_argument must be a string")
+        elif pos_argument is not None:
+            if type(pos_argument) is not list[str]:
+                raise TypeError("pos_argument must be a list of strings")
+        elif time_arguments is not None:
+            if type(time_arguments) is not list[str] or type(time_arguments) is not str:
+                raise TypeError("pos_argument must be a list of strings (e.g. ['lon', 'lat']) or a string (e.g. 'pos')")
+        elif distance_argument is not None:
+            if type(distance_argument) is not str:
+                raise TypeError("distance_argument must be a string")
 
 
         ### Fill the networkx grqph depending on the type of graph give by the user
@@ -111,8 +131,6 @@ class TransportNetwork:
                 self.pos_dict = nx.get_node_attributes(self.multidigraph, self.pos_argument)
                 if len(self.pos_dict) == 0:
                     raise NameError(f"The nodes does not have a '{self.pos_argument}' attribute")
-            else:
-                raise TypeError(f"pos_argument must be a list of strings (e.g. ['lon', 'lat']) or a string (e.g. 'pos')")
 
             self.is_spatial = True
 
@@ -140,8 +158,11 @@ class TransportNetwork:
                 self.time_arguments = time_arguments
                 self.is_interval = True
                 self.is_dynamic = True
-            else:
-                raise TypeError(f"time_arguments must be a list of strings (e.g. ['start', 'end']) or a string (e.g. 'time')")
+
+       ## Distance attributes ##
+        if (distance_argument is not None):
+            self.distance_argument = distance_argument
+            self.is_distance = True
 
 
     def get_max_lat(self):
