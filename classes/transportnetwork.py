@@ -90,10 +90,10 @@ class TransportNetwork:
             if type(edges_weight_argument) is not str:
                 raise TypeError("edges_weight_argument must be a string")
         elif pos_argument is not None:
-            if type(pos_argument) is not list[str]:
+            if type(pos_argument) is not list or len(pos_argument) != 2:
                 raise TypeError("pos_argument must be a list of strings")
         elif time_arguments is not None:
-            if type(time_arguments) is not list[str] or type(time_arguments) is not str:
+            if type(time_arguments) is not list or type(time_arguments) is not str:
                 raise TypeError("pos_argument must be a list of strings (e.g. ['lon', 'lat']) or a string (e.g. 'pos')")
         elif distance_argument is not None:
             if type(distance_argument) is not str:
