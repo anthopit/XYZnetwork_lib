@@ -80,8 +80,8 @@ def create_network_from_trailway(path):
             G.add_node(row["st_id"], lon=row["lon"], lat=row["lat"])
         if row["st_no"] == st_no_comp:
             G.add_edge(prev_node, row["st_id"], \
-                       arr_time=convertTimetoMinute(row["arr_time"], row["date"]),
                        dep_time=prev_dep_time, \
+                       arr_time=convertTimetoMinute(row["arr_time"], row["date"]), \
                        train=row["train"], \
                        train_max_speed=getTrainMaxSpeed(row["train"]),
                        day=row["date"], \
