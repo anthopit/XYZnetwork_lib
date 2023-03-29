@@ -1,0 +1,694 @@
+stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station,wheelchair_boarding,platform_code,city_name,ext_siri2_id
+275,HECHA,Abadia,,43.37451869,-1.75196058,,,1,,0,,,
+266,HEAGE,Agerrea,,43.37215664,-1.74717936,,,1,,0,,,
+1106,BUAGU,Agerreberri,,43.34260980,-1.73936390,,,1,,0,,,
+556,AHCRO,Ahetze Croisement ~ Ahetze Bidegurutzea,,43.41790791,-1.54880038,,,1,,0,,,
+209,HEAIZ,Aizpurdi St Vincent ~ Aizpurdi San Bixente,,43.35622300,-1.77440000,,,1,,0,,,
+308,SJACO,Akotz,,43.41271930,-1.61783100,,,1,,0,,,
+1512,HAALDA,Aldabidea,,43.39506000,-1.30960000,,,1,,0,,,
+309,SJALT,Alturan,,43.38904000,-1.62044000,,,1,,0,,,
+1493,SJALTB,Alturan Bi,,43.38834350,-1.62387100,,,1,,0,,,
+1506,SOUAME,Amespétou,,43.33596000,-1.50753200,,,1,,0,,,
+726,SJAND2,Andenea,,43.38988480,-1.64775280,,,1,,0,,,
+1323,ARARAN,Arantzola,,43.42286600,-1.54835400,,,1,,0,,,
+361,SPINR,Artzirin,,43.35625353,-1.56118855,,,1,,0,,,
+1283,HEASC,Ascoubia,,43.37736000,-1.74391000,,,1,,0,,,
+1281,HEASP,Asporotsttipi,,43.37694030,-1.73925160,,,1,,0,,,
+20,HEATA,Atabala,,43.36434000,-1.76531000,,,1,,0,,,
+268,HEAUT,Autoport ~ Autoportua,,43.34654700,-1.77071000,,,1,,0,,,
+241,CIAVB,Avenue de la Baie ~ Badiako Etorbidea,,43.38546300,-1.67828700,,,1,,0,,,
+1382,CANAVA,Avenue de Navarre,,43.35877000,-1.39872600,,,1,,0,,,
+310,SJAXU,Axular,,43.38615500,-1.65563300,,,1,,0,,,
+1485,BIGARL,Azkenean,,43.34264366,-1.74563596,,,1,,0,,,
+722,SJAIC2,Aïce Errota ~ Haize Errota,,43.39443960,-1.65287490,,,1,,0,,,
+269,HEBAR,Barrendegi,,43.35622700,-1.76931700,,,1,,0,,,
+270,HEBAS,Bas Quartier ~ Partxetegia,,43.35896800,-1.77165800,,,1,,0,,,
+548,HEBEL,Belcenia ~ Beltzenea,,43.36169167,-1.77234881,,,1,,0,,,
+311,SJBEL,Belharra,,43.41220590,-1.61423340,,,1,,0,,,
+242,CIBER,Berastegia,,43.37986500,-1.67456750,,,1,,0,,,
+561,URBER,Berroeta,,43.34803500,-1.68979800,,,1,,0,,,
+243,CIBIB,Bibliothèque ~ Liburutegia,,43.38154500,-1.66474500,,,1,,0,,,
+1509,SPBILA,Bilanoa,,43.35626400,-1.56557700,,,1,,0,,,
+1360,CABITX,Bitxa Eder,,43.35563700,-1.41453100,,,1,,0,,,
+244,CIBOR,Bordagain,,43.38293430,-1.67597320,,,1,,0,,,
+1348,SOBOUR,Bourg,,43.34087100,-1.47421100,,,1,,0,,,
+369,URBOU,Bourg ~ Herri Barnea (Urrugne),,43.36242700,-1.69893800,,,1,,0,,Urrugne,
+27,BUBRG,Bourg ~ Herria Barne,,43.33355700,-1.74406800,,,1,,0,,,
+1345,ASBUD,Burdin Bidea,,43.34681000,-1.62371000,,,1,,0,,,
+368,URBEH,Béhobie ~ Pausu,,43.34594300,-1.76358200,,,1,,0,,,
+825,URCA0,Camieta ~ Kamieta,,43.37474000,-1.67387000,,,1,,0,,,
+319,SJDUM,Camping Duna Munguy,,43.41835300,-1.62096300,,,1,,0,,,
+1315,CIJUAN,Camping Juantcho,,43.39338960,-1.69386025,,,1,,0,,,
+1139,SOAME,Carrière,,43.33303408,-1.48954782,,,1,,0,,,
+371,URCAR,Carrière ~ Harrobia,,43.33405190,-1.68315230,,,1,,0,,,
+271,HECAS,Casa Esperenza,,43.35562800,-1.77784700,,,1,,0,,,
+272,HECCI,Centre Commercial ~ Merkataritza Gunea (Hendaye),,43.34953620,-1.77149254,,,1,,0,,Hendaye,
+313,SJCCI,Centre Commercial ~ Merkataritza Gunea (Saint-Jean-de-Luz),,43.40529200,-1.62566200,,,1,,0,,Saint-Jean-de-Luz,
+814,URCCI3,Centre Commercial ~ Merkataritza Gunea (Urrugne),,43.37478110,-1.67763050,,,1,,0,,Urrugne,
+314,SJCHA,Chantaco  LP Arrue ~ Xantako  Arrue LP,,43.37521500,-1.63871500,,,1,,0,,,
+379,UROLH,Chapelle d'Olhette ~ Olhetako Kapera,,43.33522390,-1.66813420,,,1,,0,,,
+354,SPCHE,Cherchebruit ~ Herburua,,43.32175410,-1.55031640,,,1,,0,,,
+31,SJCHI,Chipienia ~ Xipienia,,43.36233000,-1.76583000,,,1,,0,,,
+297,HEPAL,Chèvrefeuilles,,43.37310000,-1.77256000,,,1,,0,,,
+1078,HECHÊ,Chênes ~ Haritzak,,43.34985860,-1.77914370,,,1,,0,,,
+245,CICIM,Cimetière Marin ~ Itsas Hilerria,,43.38903550,-1.68092100,,,1,,0,,,
+315,SJCIM,Cimetière Saint Joseph ~ San Josepe Hilerria,,43.39157843,-1.64640041,,,1,,0,,,
+276,HECIN,Cinéma ~ Zinegela,,43.35512146,-1.77440439,,,1,,0,,,
+317,SJCLO,Clos Saint-Vincent,,43.39286740,-1.64120340,,,1,,0,,,
+304,SACOL,Col de Saint Ignace ~ San Inazioko Lepoa,,43.32525500,-1.60056800,,,1,,0,,,
+288,HEIRA,Collège Irandatz ~ Irandatz Kolegioa,,43.35270000,-1.77636000,,,1,,0,,,
+1272,HECOM0,Commissariat,,43.35073050,-1.78232250,,,1,,0,,,
+704,HERON0,Consulat ~ Kontsuletxea,,43.36527950,-1.76985650,,,1,,0,,,
+739,SJCOU2,Coulomme,,43.39421870,-1.64412330,,,1,,0,,,
+589,CICRX,Croix Blanche ~ Gurutze Zuria,,43.38000000,-1.67142000,,,1,,0,,,
+273,HECED,Cèdres ~ Zedroak,,43.36668800,-1.76997000,,,1,,0,,,
+229,AIDAN,Dantxaria ~ Dantxarinea,,43.29348200,-1.50475000,,,1,,0,,,
+248,CIKEX,Delaunay,,43.37948700,-1.66810500,,,1,,0,,,
+277,HEDEN,Denentzat,,43.34391300,-1.76532300,,,1,,0,,,
+318,SJDIG,Digue aux Chevaux ~ Zaldien Diga,,43.39400500,-1.65983800,,,1,,0,,,
+278,HEDON,Dongoxenea,,43.36934300,-1.75055060,,,1,,0,,,
+1258,HEDOR0,Dorrondeguy,,43.36848440,-1.74673500,,,1,,0,,,
+331,SJDUHA,Duhartia,,43.41469800,-1.61650000,,,1,,0,,,
+355,SPECO,Ecole d'Amotz ~ Amotzeko Eskola,,43.33536800,-1.54871700,,,1,,0,,,
+373,UREGL,Eglise de Zokoa ~ Zokoako Eliza,,43.39099515,-1.68737411,,,1,,0,,,
+279,HEEGL,Eglise Sainte Anne ~ Santa Ana Eliza,,43.37388000,-1.77026000,,,1,,0,,,
+1070,SJEHPA,EHPAD Urthaburu ~ Urthaburu zahar etxea,,43.40094300,-1.63310000,,,1,,0,,,
+280,HEEHP,EHPAD ~ Zahar Etxea,,43.37636300,-1.75686800,,,1,,0,,,
+281,HEEMP,Empereur ~ Enperadore,,43.36689800,-1.75677700,,,1,,0,,,
+744,SJERW2,Erromardi Wauthier,,43.39926940,-1.64300270,,,1,,0,,,
+282,HEERR,Errondonea,,43.35928000,-1.76335000,,,1,,0,,,
+226,AHERR,Errotazahar,,43.40670270,-1.56794550,,,1,,0,,,
+823,SJLAN,Espace Lana ~ Lana Eremua,,43.39688700,-1.64057800,,,1,,0,,,
+218,SJBAZ,Etxebazter,,43.39830000,-1.65592200,,,1,,0,,,
+316,SJCLI,Etxebiaga,,43.40023558,-1.63940610,,,1,,0,,,
+1351,SOALEG,Etxetoa,,43.33989000,-1.47039900,,,1,,0,,,
+746,SJFAR0,Fargeot,,43.38509840,-1.65301210,,,1,,0,,,
+1332,IRFICO,Ficoba,,43.34734600,-1.78713800,,,1,,0,,,
+228,AIAIN,Fronton ~ Pilota Plaza,,43.30716300,-1.49891500,,,1,,0,,,
+284,HEGAL,Galbarreta,,43.37362933,-1.75541881,,,1,,0,,,
+374,URGAL,Galtzaburu,,43.37617000,-1.67032000,,,1,,0,,,
+322,SJGAM,Gambetta,,43.38996700,-1.65886500,,,1,,0,,,
+1371,CASNCF,Gare,,43.36514400,-1.39697900,,,1,,0,,,
+286,HEGAR,Gare Centre d’Hendaye ~ Hendaia Hiri-barneko Geltokia,,43.35334424,-1.78080294,,,1,,0,,,
+240,NEGRES,Gare de Biarritz,,43.45972300,-1.54579800,,,1,,0,,,
+285,HEGAP,Gare Plage d’Hendaye ~ Hendaia Hondarraitzeko Geltokia,,43.36960000,-1.76515000,,,1,,0,,,
+1363,CAGARE,Gare Routière,,43.36024800,-1.40811800,,,1,,0,,,
+323,SJGAR,Gare SNCF ~ SNCF Geltokia,,43.38558300,-1.66222000,,,1,,0,,,
+1080,BUAZK,Garlatz,,43.34598990,-1.73956420,,,1,,0,,,
+206,BUGAZ,Gazteluberri,,43.34468680,-1.73611340,,,1,,0,,,
+546,AHGAZ,Gazteluberria,,43.39854340,-1.58915680,,,1,,0,,,
+294,HEOFF,Grande Plage ~ Hondartza Nagusia,,43.37314436,-1.77472322,,,1,,0,,,
+305,SAGRO,Grottes de Sare ~ Sarako Lezeak,,43.26821400,-1.57158700,,,1,,0,,,
+1387,ARNAHI,Gure Nahia,,43.42563600,-1.55278000,,,1,,0,,,
+750,SJHAI3,Haize Kantari Scolaire,,43.39211840,-1.63432900,,,1,,0,,,
+328,SJHLL,Halles,,43.38788500,-1.66060300,,,1,,0,,,
+325,SJHAL,Halte Routière ~ Autobus Geltokia,,43.38623090,-1.66021830,,,1,,0,,,
+326,SJHAR,Hariztegi,,43.39222848,-1.64264109,,,1,,0,,,
+211,HEHAR,Hariztian,,43.37133150,-1.75629818,,,1,,0,,,
+590,AHHAR,Haroztegia,,43.40852630,-1.56388240,,,1,,0,,,
+1321,HARRIT,Harritx,,43.45708300,-1.54427500,,,1,,0,,,
+838,HEHAT,Hatchondo,,43.36386331,-1.76138842,,,1,,0,,,
+1357,ESHAIT,Haïtzaga,,43.34407600,-1.43784600,,,1,,0,,,
+1067,HENHAI,Haïçabia,,43.37863930,-1.73392070,,,1,,0,,,
+1268,HEHEG,Hegoaldea,,43.35781790,-1.77466080,,,1,,0,,,
+1266,BIHEG0,Hegobus,,43.33825340,-1.75095950,,,1,,0,,,
+358,SPHEL,Helbarrun,,43.36103200,-1.60975000,,,1,,0,,,
+1254,URHER,Herboure,,43.33385220,-1.68622700,,,1,,0,,,
+360,SPIBN,Ibarrun,,43.35611000,-1.56898700,,,1,,0,,,
+329,SJICH,Ichaca ~ Ixaka,,43.38672677,-1.64992205,,,1,,0,,,
+1627,SJLILA,Ilargia,,43.39874750,-1.64194200,,,1,,0,,,
+247,CIIRI,Iris,,43.37710000,-1.66286300,,,1,,0,,,
+362,SPITH,Ithurraldea,,43.34680020,-1.54385450,,,1,,0,,,
+216,SJITUR,Iturriko Etxea,,43.38825086,-1.64903286,,,1,,0,,,
+239,BUITU,Iturrixilo,,43.33427700,-1.74842700,,,1,,0,,,
+332,SJJAI,Jai Alai,,43.39275700,-1.65251200,,,1,,0,,,
+333,SJJAL,Jaldai,,43.40996200,-1.61879000,,,1,,0,,,
+334,SJJAR,Jardin Botanique ~ Baratze Botanikoa,,43.40255200,-1.65239300,,,1,,0,,,
+227,AHLAR,Joanetaenea,,43.40146700,-1.57912300,,,1,,0,,,
+289,HEJON,Joncaux ~ Intzura,,43.34483200,-1.76938500,,,1,,0,,,
+376,URKAL,Kalitxoa,,43.38713200,-1.68966800,,,1,,0,,,
+587,SJKA1,Karsinenia 1 ~ Kartsinenea 1,,43.39542463,-1.63479235,,,1,,0,,,
+591,SJKA2,Karsinenia 2 ~ Kartsinenea 2,,43.39623800,-1.63035800,,,1,,0,,,
+1285,URKEX,Kexiloa,,43.37762000,-1.67315000,,,1,,0,,,
+1082,BUKUR,Kurleku  Errondonea,,43.34209650,-1.73468900,,,1,,0,,,
+230,ARHEG,La Chapelle ~ Kapera,,43.42575250,-1.54867470,,,1,,0,,,
+1317,LABOUR,Labourd,,43.45341300,-1.54380300,,,1,,0,,,
+337,SJLAF,Lafitenea,,43.41348300,-1.62550700,,,1,,0,,,
+338,SJLAY,Laiatz,,43.39879000,-1.64019500,,,1,,0,,,
+1072,SJLAM,Lambrigot,,43.39727180,-1.64747850,,,1,,0,,,
+233,ASLAN,Lanazia Larre Lore,,43.35701000,-1.63178000,,,1,,0,,,
+208,BULAR,Larretchekoborda,,43.34148996,-1.72794127,,,1,,0,,,
+378,URLAR,Larruleta,,43.36884058,-1.68450223,,,1,,0,,,
+212,HELAR,Larrun,,43.36805270,-1.76499150,,,1,,0,,,
+290,HEJUM,Les 2 Jumeaux ~ Dunbarriak,,43.37550000,-1.76190800,,,1,,0,,,
+327,SJHAU,Les Hauts,,43.39397109,-1.64165468,,,1,,0,,,
+291,HELIL,Lilas ~ Amatxi-Liliak,,43.37269000,-1.76823000,,,1,,0,,,
+292,HELIS,Lizardi  Goiara,,43.37007000,-1.76084700,,,1,,0,,,
+238,LORELA,Lore Landa,,43.44597500,-1.54499800,,,1,,0,,,
+357,SPEST,Lot. Estekorena,,43.34093000,-1.54927000,,,1,,0,,,
+718,SALUR3,Lur Berri,,43.31219800,-1.58237800,,,1,,0,,,
+234,ASLUR,Lur Eder,,43.35210500,-1.62779500,,,1,,0,,,
+249,CILYC,Lycée Maritime ~ Itsas Lizeoa,,43.38337709,-1.68998023,,,1,,0,,,
+339,SJLEO,Léon Dongaitz,,43.39613000,-1.63244000,,,1,,0,,,
+698,HEMAI2,Mairie - Eglise ~ Herriko Etxea - Eliza,,43.35844220,-1.77431250,,,1,,0,,,
+231,ARMAI,Mairie ~ Herriko Etxea (Arbonne),,43.43218773,-1.55167818,,,1,,0,,Arbonne,
+250,CIMAI,Mairie ~ Herriko Etxea (Ciboure),,43.38431037,-1.66646963,,,1,,0,,Ciboure,
+340,SJMAI,Mairie ~ Herriko Etxea (Saint-Jean-de-Luz),,43.38708700,-1.66268200,,,1,,0,,Saint-Jean-de-Luz,
+251,CIMAL,Maldagora,,43.37534500,-1.65941500,,,1,,0,,,
+252,CIMAR,Marinela,,43.38058062,-1.66466438,,,1,,0,,,
+1354,ESMEND,Mendi Alde Bourg,,43.33952000,-1.44477000,,,1,,0,,,
+1334,IRMEND,Mendibil,,43.34023600,-1.79035700,,,1,,0,,,
+1074,SJNDP,N.D. de la Paix,,43.39926070,-1.65161310,,,1,,0,,,
+1331,IRNAFA,Nafarroa 18,,43.33936000,-1.78414000,,,1,,0,,,
+342,SJNOU,Nouveau Cimetière ~ Hilerri Berria,,43.39649300,-1.63611500,,,1,,0,,,
+246,CIGOL,Oihanalde,,43.37949050,-1.66262050,,,1,,0,,,
+295,HEOLI,Oliviers ~ Olibondoak,,43.37226800,-1.78076700,,,1,,0,,,
+549,HEFLO,Orangers,,43.37006028,-1.77996026,,,1,,0,,,
+296,HEORI,Orio,,43.36210000,-1.76196000,,,1,,0,,,
+1343,HEJAS,Palmier ~ Palmondoa,,43.37198000,-1.77248000,,,1,,0,,,
+343,SJPAU,Paul Gelos,,43.39658250,-1.65758200,,,1,,0,,,
+347,SJRIC,Paul Ricau,,43.39023642,-1.64994315,,,1,,0,,,
+1260,HENPAU,Pausoa,,43.36065530,-1.75948350,,,1,,0,,,
+253,CIPET,Petit Bois,,43.37609000,-1.66155500,,,1,,0,,,
+254,CIPIE,Pierre Benoit,,43.38801500,-1.67732700,,,1,,0,,,
+255,CIPIL,Pilota Plaza,,43.38692800,-1.68478650,,,1,,0,,,
+321,SJESP,Place d'Espagne ~ Espainiako Plaza,,43.38300700,-1.65582500,,,1,,0,,,
+346,SJRHU,Place du Labourd ~ Lapurdiko Plaza,,43.38381800,-1.65868800,,,1,,0,,,
+1385,HAHARA,Place Harana,,43.38475400,-1.30365400,,,1,,0,,,
+1365,CAPLAC,Place Sorhainde,,43.36128900,-1.40125800,,,1,,0,,,
+225,AHBRG,Place ~ Plaza (Ahetze),,43.40419300,-1.57167000,,,1,,0,,Ahetze,
+615,ASPLA0,Place ~ Plaza (Ascain),,43.34505500,-1.62102700,,,1,,0,,Ascain,
+341,SJMAY,Plage de Mayarco ~ Maiarkobaitako Hondartza,,43.41854700,-1.62369200,,,1,,0,,,
+256,CIPLA,Plage de Zokoa ~ Zokoako Hondartza,,43.38975935,-1.68379725,,,1,,0,,,
+320,SJERR,Plage Erromardi ~ Erromardi Hondartza,,43.40393800,-1.64225200,,,1,,0,,,
+303,IRFER,Plaza San Juan,,43.33932300,-1.78904300,,,1,,0,,,
+353,SPAMO,Pont d'Amotz ~ Amotzeko Zubia,,43.32920000,-1.54475000,,,1,,0,,,
+364,SPPON,Pont de Zumabia ~ Zumabiako zubia,,43.36481200,-1.59029700,,,1,,0,,,
+1368,CAPONT,Pont des Thermes,,43.35572860,-1.39082120,,,1,,0,,,
+1299,HEPIT,Pont International ~ Nazioarteko Zubia,,43.35107320,-1.78328700,,,1,,0,,,
+307,SAPOR,Portua,,43.30947500,-1.57246150,,,1,,0,,,
+1340,HEPOT0,Potenia,,43.37313000,-1.76047000,,,1,,0,,,
+1319,POUTCH,Poutchinot,,43.45599700,-1.54357100,,,1,,0,,,
+380,URPUT,Putillenea,,43.38559200,-1.69296700,,,1,,0,,,
+804,SPQUA2,Quartier Lac 1 ~ Aintzira Auzoa 1,,43.34423300,-1.52896800,,,1,,0,,,
+365,SPQUA,Quartier Lac 2 ~ Aintzira Auzoa 2,,43.34357460,-1.52817433,,,1,,0,,,
+1516,HEQUOR,Quartier Orio,,43.36273000,-1.76053000,,,1,,0,,,
+223,SJRAV,Ravel,,43.38501810,-1.66102780,,,1,,0,,,
+824,URRD8,RD810 Bourg ~ RD810 Herri Barnea,,43.36081200,-1.69956500,,,1,,0,,,
+344,SJREN,René Lahetjuzan,,43.39564000,-1.62962000,,,1,,0,,,
+839,HERIC,Richelieu,,43.34393000,-1.76839000,,,1,,0,,,
+348,SJROS,Rostand,,43.40273730,-1.64434170,,,1,,0,,,
+349,SJSAG,Sagardian,,43.38829410,-1.65224960,,,1,,0,,,
+786,SJSJO0,Saint Joseph ~ San Josepe,,43.39218110,-1.64660022,,,1,,0,,,
+345,SJRES,Sainte-Barbe ~ Santa Barbara,,43.40190330,-1.65608290,,,1,,0,,,
+538,CISTH,Sainte-Croix ~ Gurutze Saindua,,43.37214355,-1.65901818,,,1,,0,,,
+236,ASSER,Serres,,43.36207800,-1.63652300,,,1,,0,,,
+551,SJSIL,Silabia,,43.40200520,-1.62724430,,,1,,0,,,
+259,CISPE,Speraber,,43.38097255,-1.66808730,,,1,,0,,,
+232,ARSTA,Stade ~ Estadioa (Arbonne),,43.43694000,-1.55099000,,,1,,0,,Arbonne,
+826,URSTA,Stade ~ Estadioa (Urrugne),,43.36303000,-1.69405000,,,1,,0,,Urrugne,
+350,SJTRI,Trikaldi,,43.39653500,-1.64573500,,,1,,0,,,
+300,HETUL,Tulipiers ~ Tulipondoak,,43.37034800,-1.77228700,,,1,,0,,,
+214,HETXI,Txingudi,,43.36972460,-1.77319150,,,1,,0,,,
+596,AHHAM,Uhazaldea,,43.40684000,-1.54328000,,,1,,0,,,
+260,CIUNT,Untxin,,43.38584500,-1.68662700,,,1,,0,,,
+1328,SJURB,Ur Bidea,,43.38245000,-1.64928000,,,1,,0,,,
+788,SJURD3,Urdazuri,,43.38246440,-1.65257215,,,1,,0,,,
+302,IRBEH,URRUGNE - Behobie,,43.34297000,-1.75967500,,,1,,0,,,
+237,ASVIE,Vierge ~ Ama Birjina,,43.34854800,-1.62403000,,,1,,0,,,
+550,HEVIE,Vieux Fort ~ Gazteluzahar,,43.36057360,-1.77428590,,,1,,0,,,
+274,HECEN,Ville ~ Hiri Barnea,,43.35980270,-1.77552540,,,1,,0,,,
+1068,HENTRI,Water Sport Center,,43.36820850,-1.78138240,,,1,,0,,,
+366,SPXAN,Xan Ithurria Gantxiki,,43.35470500,-1.54888500,,,1,,0,,,
+836,SJXIM,Ximista,,43.40024000,-1.64223000,,,1,,0,,,
+367,SPZIL,Z.A. Lizardia ~ Lizardia A.E.,,43.35767000,-1.57456500,,,1,,0,,,
+258,CISAI,Zaldi Xurito,,43.37259500,-1.65801300,,,1,,0,,,
+224,SJSAN,Zantzu,,43.39989440,-1.64752580,,,1,,0,,,
+588,HEZO1,Zopite 1,,43.37015700,-1.75539700,,,1,,0,,,
+592,HEZO2,Zopite 2,,43.36770270,-1.75053710,,,1,,0,,,
+261,CIZUB,Zubiburu,,43.38249000,-1.66627700,,,1,,0,,,
+9003,HECHA1,Abadia,Direction ~ Norabidea: EHPAD / Autoport / Halte Routière,43.37465300,-1.75187700,,,0,275,0,,,9003
+9004,HECHA2,Abadia,Direction ~ Norabidea: Plaza San Juan / Grande Plage / Water Sport Center,43.37437500,-1.75205000,,,0,275,0,,,9004
+9005,HEAGE1,Agerrea,Direction ~ Norabidea: Autoport,43.37202300,-1.74678800,,,0,266,0,,,9005
+9006,HEAGE2,Agerrea,Direction ~ Norabidea: Grande Plage,43.37230300,-1.74760800,,,0,266,0,,,9006
+7040,BUAGU2,Agerreberri,Direction ~ Norabidea: Biriatou Bourg,43.34260980,-1.73936390,,,0,1106,0,,,7040
+9947,BUAGU1,Agerreberri,Direction ~ Norabidea: Vieux Fort,43.34260980,-1.73936390,,,0,1106,0,,,9947
+9007,AHCRO1,Ahetze Croisement ~ Ahetze Bidegurutzea,Direction ~ Norabidea: Biarritz Gare,43.41754000,-1.54892000,,,0,556,0,,,9007
+9008,AHCRO2,Ahetze Croisement ~ Ahetze Bidegurutzea,Direction ~ Norabidea: Ahetze / Halte Routière,43.41821450,-1.54870070,,,0,556,0,,,9008
+9009,HEAIZ1,Aizpurdi St Vincent ~ Aizpurdi San Bixente,Direction ~ Norabidea: Autoport / Béhobia,43.35622300,-1.77440000,,,0,209,0,,,9009
+9869,HEAIZ2,Aizpurdi St Vincent ~ Aizpurdi San Bixente,Direction ~ Norabidea: Grande Plage,43.35622300,-1.77440000,,,0,209,0,,,9869
+9010,SJACO1,Akotz,Direction ~ Norabidea: Zaldi Xurito,43.41271930,-1.61783100,,,0,308,0,,,9010
+9297,SJACO3,Akotz,Direction ~ Norabidea: Bayonne Place des Basques / Hendaye Grande Plage / St Jean de Luz Halte Routière,43.41264820,-1.61709900,,,0,,0,,,9297
+9903,SJACO2,Akotz,Direction ~ Norabidea: Lafiténia,43.41271930,-1.61783100,,,0,308,0,,,9903
+9973,HAALD2,Aldabidea,Direction ~ Norabidea: Hasparren,43.39506000,-1.30960000,,,0,1512,0,,,9973
+9828,SOAL01,Alegera,Direction ~ Norabidea: Halte Routière,43.33989000,-1.47039900,,,0,1351,0,,,9828
+9011,SJALT3,Alturan,Direction ~ Norabidea: Urrugne - Bourg,43.38904000,-1.62044000,,,0,309,0,,,9011
+10010,SJALB2,Alturan Bi,Direction ~ Norabidea: Alturan,43.38814000,-1.62377000,,,0,1493,0,,,10010
+9804,SJALB1,Alturan Bi,Direction ~ Norabidea: Urrugne - Bourg,43.38854700,-1.62397200,,,0,1493,0,,,9804
+9968,SOUAM1,Amespetou,Direction ~ Norabidea: Halte Routière,43.33596000,-1.50753200,,,0,1506,0,,,9968
+9969,SOUAM2,Amespetou,Direction ~ Norabidea: Cambo les Bains Gare,43.33596000,-1.50753200,,,0,1506,0,,,9969
+6141,SJAND2,Andenea,Direction ~ Norabidea: Urrugne - Bourg,43.38988480,-1.64775280,,,0,726,0,,,6141
+9811,ARARA0,Arantzola,Direction ~ Norabidea: Ahetze / Halte Routière,43.42286600,-1.54835400,,,0,1323,0,,,9811
+9100,SPIN01,Artzirin,Direction ~ Norabidea: Halte Routière / St Pée - Pont d'Amotz / Dantxaria,43.35621425,-1.56113842,,,0,361,0,,,9100
+9842,SPIN02,Artzirin,Direction ~ Norabidea: Halte Routière,43.35629281,-1.56123868,,,0,361,0,,,9842
+9249,HEASC1,Ascoubia,Direction ~ Norabidea: Halte Routière,43.37736000,-1.74391000,,,0,1283,0,,,9249
+9884,HEASC2,Ascoubia,Direction ~ Norabidea: Water Sport Center,43.37736000,-1.74391000,,,0,1283,0,,,9884
+9248,HEASP1,Asporotsttipi,Direction ~ Norabidea: Halte Routière,43.37694030,-1.73925160,,,0,1281,0,,,9248
+9885,HEASP2,Asporotsttipi,Direction ~ Norabidea: Water Sport Center,43.37694030,-1.73925160,,,0,1281,0,,,9885
+9227,HEATA1,Atabala,Direction ~ Norabidea: Béhobia,43.36434000,-1.76531000,,,0,20,0,,,9227
+9861,HEATA2,Atabala,Direction ~ Norabidea: Grande Plage,43.36434000,-1.76531000,,,0,20,0,,,9861
+9015,HEAUT1,Autoport ~ Autoportua,Direction ~ Norabidea: Béhobia,43.34654700,-1.77071000,,,0,268,0,,,9015
+9016,HEAUT2,Autoport ~ Autoportua,Direction ~ Norabidea: Grande Plage,43.34715242,-1.77041628,,,0,268,0,,,9016
+9017,CIAVB1,Avenue de la Baie ~ Badiako Etorbidea,Direction ~ Norabidea: Halte Routière,43.38546300,-1.67828700,,,0,241,0,,,9017
+9894,CIAVB2,Avenue de la Baie ~ Badiako Etorbidea,Direction ~ Norabidea: Water Sport Center,43.38546300,-1.67828700,,,0,241,0,,,9894
+9851,CANA01,Avenue de Navarre,Direction ~ Norabidea: Halte Routière,43.35877000,-1.39872600,,,0,1382,0,,,9851
+9852,CANA02,Avenue de Navarre,Direction ~ Norabidea: Cambo les Bains Gare,43.35877000,-1.39872600,,,0,1382,0,,,9852
+9018,SJAXU1,Axular,Direction ~ Norabidea: Zaldi Xurito,43.38615500,-1.65563300,,,0,310,0,,,9018
+9919,SJAXU2,Axular,Direction ~ Norabidea: Lafiténia,43.38615500,-1.65563300,,,0,310,0,,,9919
+9216,BUGAR3,Azkenean,Direction ~ Norabidea: Vieux Fort / Biriatou Bourg,43.34264366,-1.74563596,,,0,1485,0,,,9216
+137,AERO01,Aéroport de Biarritz,Direction ~ Norabidea: Bayonne Place des Basques / Hendaye Grande Plage / St Jean de Luz Halte Routière,43.47217804,-1.53280760,,,0,,0,,,137
+6138,SJAIC2,Aïce Errota _ Haize Errota,Direction ~ Norabidea: Urrugne - Bourg,43.39443960,-1.65287490,,,0,722,0,,,6138
+9272,BARB11,Barbarenia,Direction ~ Norabidea: Bayonne Place des Basques,43.45002275,-1.55984558,,,0,,0,,,9272
+9273,BARB12,Barbarenia,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.45006095,-1.55985337,,,0,,0,,,9273
+9019,HEBAR1,Barrendegi,Direction ~ Norabidea: Autoport / Béhobia,43.35622700,-1.76931700,,,0,269,0,,,9019
+9867,HEBAR2,Barrendegi,Direction ~ Norabidea: Grande Plage,43.35622700,-1.76931700,,,0,269,0,,,9867
+9020,HEBAS1,Bas Quartier ~ Partxetegia,Direction ~ Norabidea: Autoport / Béhobia,43.35896800,-1.77165800,,,0,270,0,,,9020
+9868,HEBAS2,Bas Quartier ~ Partxetegia,Direction ~ Norabidea: Grande Plage,43.35896800,-1.77165800,,,0,270,0,,,9868
+9104,IRBEH3,Behobia,Direction ~ Norabidea: Grande Plage,43.34297000,-1.75967500,,,0,302,0,,,9104
+9022,HEBEL1,Belcenia ~ Beltzenea,Direction ~ Norabidea: EHPAD,43.36199120,-1.77208780,,,0,548,0,,,9022
+9023,HEBEL2,Belcenia ~ Beltzenea,Direction ~ Norabidea: Grande Plage / Plaza San Juan,43.36159770,-1.77243070,,,0,548,0,,,9023
+9024,SJBEL1,Belharra,Direction ~ Norabidea: Zaldi Xurito,43.41220590,-1.61423340,,,0,311,0,,,9024
+9259,SJBEL1,Belharra,Direction ~ Norabidea: Bayonne Place des Basques,43.41151400,-1.61494500,,,0,,0,,,9259
+9260,SJBEL2,Belharra,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.41151400,-1.61494500,,,0,,0,,,9260
+9904,SJBEL2,Belharra,Direction ~ Norabidea: Lafiténia,43.41220590,-1.61423340,,,0,311,0,,,9904
+9025,CIBER1,Berastegia,Direction ~ Norabidea: Halte Routière,43.37984000,-1.67443200,,,0,242,0,,,9025
+9026,CIBER2,Berastegia,Direction ~ Norabidea: Water Sport Center,43.37989000,-1.67470300,,,0,242,0,,,9026
+111,BRNM02,Bernain-Montòri,Direction ~ Norabidea: Bayonne Place des Basques,43.48149704,-1.50997692,,,0,,0,,,111
+112,BRNM01,Bernain-Montòri,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.48159688,-1.51003851,,,0,,0,,,112
+9027,URBER0,Berroeta,Direction ~ Norabidea: Alturan,43.34803500,-1.68979800,,,0,561,0,,,9027
+9028,CIBIB1,Bibliothèque ~ Liburutegia,Direction ~ Norabidea: Zaldi Xurito / Urrugne - Bourg,43.38154500,-1.66474500,,,0,243,0,,,9028
+9921,CIBIB2,Bibliothèque ~ Liburutegia,Direction ~ Norabidea: Lafiténia / Alturan,43.38154500,-1.66474500,,,0,243,0,,,9921
+9264,BIDE02,Bide Artean,Direction ~ Norabidea: Bayonne Place des Basques,43.44554284,-1.58325193,,,0,,0,,,9264
+9265,BIDE01,Bide Artean,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.44573306,-1.58319180,,,0,,0,,,9265
+9970,SPBIL1,Bilanoa,Direction ~ Norabidea: Halte Routière / St Pée - Pont d'Amotz / Dantxaria,43.35626400,-1.56557700,,,0,1509,0,,,9970
+9971,SPBIL2,Bilanoa,Direction ~ Norabidea: Halte Routière,43.35626400,-1.56557700,,,0,1509,0,,,9971
+9029,CIBOR1,Bordagain,Direction ~ Norabidea: Halte Routière,43.38316700,-1.67617500,,,0,244,0,,,9029
+9030,CIBOR2,Bordagain,Direction ~ Norabidea: Water Sport Center,43.38270160,-1.67577140,,,0,244,0,,,9030
+9826,SOBO01,Bourg,Direction ~ Norabidea: Halte Routière,43.34087100,-1.47421100,,,0,1348,0,,,9826
+9827,SOBO02,Bourg,Direction ~ Norabidea: Cambo les Bains Gare,43.34087100,-1.47421100,,,0,1348,0,,,9827
+9031,BUBRG3,Bourg ~ Herri Barnea (Biriatou),Direction ~ Norabidea: Vieux Fort,43.33355700,-1.74406800,,,0,27,0,,Biriatou,9031
+9032,URBOU3,Bourg ~ Herri Barnea (Urrugne),Direction ~ Norabidea: Alturan,43.36242700,-1.69893800,,,0,369,0,,Urrugne,9032
+9823,ASBUD,Burdin Bidea,Direction ~ Norabidea: Halte Routière,43.34681000,-1.62371000,,,0,1345,0,,,9823
+230:0,URBEH1,Béhobie,Direction ~ Norabidea: Bayonne Place des Basques,43.34597000,-1.76391500,,,0,,0,,,230:0
+231:0,URBEH2,Béhobie,Direction ~ Norabidea: Hendaye Grande Plage,43.34605917,-1.76400894,,,0,,0,,,231:0
+9021,URBEH1,Béhobie ~ Pausu,Direction ~ Norabidea: Béhobia,43.34594300,-1.76358200,,,0,368,0,,,9021
+9875,URBEH2,Béhobie ~ Pausu,Direction ~ Norabidea: Grande Plage,43.34594300,-1.76358200,,,0,368,0,,,9875
+9033,URCA01,Camieta ~ Kamieta,Direction ~ Norabidea: Urrugne - Bourg,43.37474000,-1.67387000,,,0,825,0,,,9033
+9944,URCA02,Camieta ~ Kamieta,Direction ~ Norabidea: Alturan,43.37474000,-1.67387000,,,0,825,0,,,9944
+9834,CABI01,Camping Bistaeder,Direction ~ Norabidea: Halte Routière,43.35563700,-1.41453100,,,0,1360,0,,,9834
+9835,CABI02,Camping Bistaeder,Direction ~ Norabidea: Cambo les Bains Gare,43.35563700,-1.41453100,,,0,1360,0,,,9835
+9034,SJDUM1,Camping Duna Munguy,Direction ~ Norabidea: Zaldi Xurito,43.41835300,-1.62096300,,,0,319,0,,,9034
+9901,SJDUM2,Camping Duna Munguy,Direction ~ Norabidea: Lafiténia,43.41835300,-1.62096300,,,0,319,0,,,9901
+9807,CIJUA1,Camping Juantcho,Direction ~ Norabidea: Halte Routière,43.39357170,-1.69334490,,,0,1315,0,,,9807
+9887,CIJUA2,Camping Juantcho,Direction ~ Norabidea: Water Sport Center,43.39320750,-1.69437560,,,0,1315,0,,,9887
+9262,CRRI02,Carricartenea,Direction ~ Norabidea: Bayonne Place des Basques,43.43578000,-1.59332190,,,0,,0,,,9262
+9263,CRRI01,Carricartenea,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.43559536,-1.59358533,,,0,,0,,,9263
+9824,SOAM01,Carrière,Direction ~ Norabidea: Halte Routière,43.33303408,-1.48954782,,,0,1139,0,,,9824
+9825,SOAM02,Carrière,Direction ~ Norabidea: Cambo les Bains Gare,43.33303408,-1.48954782,,,0,1139,0,,,9825
+9038,HECAS1,Casa Esperenza,Direction ~ Norabidea: Plaza San Juan / EHPAD / Autoport,43.35562800,-1.77784700,,,0,271,0,,,9038
+9278,CASS01,Cassin,Direction ~ Norabidea: Bayonne Place des Basques,43.48095000,-1.48079800,,,0,,0,,,9278
+9284,CASS02,Cassin,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.48123236,-1.48031123,,,0,,0,,,9284
+206:0,SJCCI1,Centre commercial,Direction ~ Norabidea: Bayonne Place des Basques,43.40529200,-1.62566200,,,0,,0,,,206:0
+207,SJCCI2,Centre commercial,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.40529200,-1.62566200,,,0,,0,,,207
+305:0,HECCI2,Centre Commercial,Direction ~ Norabidea: Bayonne Place des Basques,43.34940700,-1.77137670,,,0,,0,,,305:0
+313:0,HECCI1,Centre Commercial,Direction ~ Norabidea: Hendaye Grande Plage,43.34959149,-1.77155423,,,0,,0,,,313:0
+9040,HECCI1,Centre Commercial ~ Merkataritza Gunea (Hendaye),Direction ~ Norabidea: Grande Plage,43.34966630,-1.77160670,,,0,272,0,,Hendaye,9040
+9871,HECCI2,Centre Commercial ~ Merkataritza Gunea (Hendaye),Direction ~ Norabidea: Autoport / Béhobia,43.34941820,-1.77138900,,,0,272,0,,Hendaye,9871
+9041,SJCCI1,Centre Commercial ~ Merkataritza Gunea (Saint-Jean-de-Luz),Direction ~ Norabidea: Zaldi Xurito,43.40529200,-1.62566200,,,0,313,0,,Saint-Jean-de-Luz,9041
+9906,SJCCI2,Centre Commercial ~ Merkataritza Gunea (Saint-Jean-de-Luz),Direction ~ Norabidea: Lafiténia,43.40529200,-1.62566200,,,0,313,0,,Saint-Jean-de-Luz,9906
+8021,URCCI3,Centre Commercial ~ Merkataritza Gunea (Urrugne),Direction ~ Norabidea: Urrugne - Bourg / Alturan,43.37478110,-1.67763050,,,0,814,0,,Urrugne,8021
+9266,CHAI02,Chaillas,Direction ~ Norabidea: Bayonne Place des Basques,43.44655027,-1.58027520,,,0,,0,,,9266
+9267,CHAI01,Chaillas,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.44659332,-1.58051803,,,0,,0,,,9267
+9042,SJCHA3,Chantaco  LP Arrue ~ Xantako  Arrue LP,Direction ~ Norabidea: Halte Routière,43.37521500,-1.63871500,,,0,314,0,,,9042
+9043,UROLH3,Chapelle d'Olhette ~ Olhetako Kapera,Direction ~ Norabidea: Alturan,43.33522390,-1.66813420,,,0,379,0,,,9043
+9044,SPCHE1,Cherchebruit ~ Herburua,Direction ~ Norabidea: Dantxaria,43.32175410,-1.55031640,,,0,354,0,,,9044
+9899,SPCHE2,Cherchebruit ~ Herburua,Direction ~ Norabidea: Halte Routière,43.32175410,-1.55031640,,,0,354,0,,,9899
+9222,SJCHI3,Chipienia ~ Xipienia,Direction ~ Norabidea: Grande Plage / Béhobia,43.36233000,-1.76583000,,,0,31,0,,,9222
+9268,BIDUT1,Chutiqueta (Bidart),Direction ~ Norabidea: Bayonne Place des Basques,43.44896886,-1.57084299,,,0,,0,,Bidart,9268
+9269,BIDUT2,Chutiqueta (Bidart),Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.45073199,-1.56458419,,,0,,0,,Bidart,9269
+9818,HEPAL1,Chèvrefeuilles,Direction ~ Norabidea: EHPAD / Autoport / Béhobia,43.37310000,-1.77256000,,,0,297,0,,,9818
+9224,HECHE2,Chênes,Direction ~ Norabidea: Hendaye Grande Plage,43.34986248,-1.77913513,,,0,,0,,,9224
+9300,HECHE1,Chênes,Direction ~ Norabidea: Bayonne Place des Basques,43.34954500,-1.77753450,,,0,,0,,,9300
+7006,HECHE1,Chênes ~ Haritzak,Direction ~ Norabidea: Autoport,43.34985860,-1.77914370,,,0,1078,0,,,7006
+9883,HECHE2,Chênes ~ Haritzak,Direction ~ Norabidea: Grande Plage,43.34985860,-1.77914370,,,0,1078,0,,,9883
+9045,CICIM1,Cimetière Marin ~ Itsas Hilerria,Direction ~ Norabidea: Halte Routière,43.38901300,-1.68106700,,,0,245,0,,,9045
+9046,CICIM2,Cimetière Marin ~ Itsas Hilerria,Direction ~ Norabidea: Water Sport Center,43.38905800,-1.68077500,,,0,245,0,,,9046
+9047,SJCIM1,Cimetière Saint Joseph ~ San Josepe Hilerria,Direction ~ Norabidea: Zaldi Xurito,43.39163570,-1.64601770,,,0,315,0,,,9047
+9048,SJCIM2,Cimetière Saint Joseph ~ San Josepe Hilerria,Direction ~ Norabidea: Lafiténia,43.39153070,-1.64671933,,,0,315,0,,,9048
+9049,HECIN1,Cinéma ~ Zinegela,Direction ~ Norabidea: Autoport / Béhobia,43.35515000,-1.77449000,,,0,276,0,,,9049
+9870,HECIN2,Cinéma ~ Zinegela,Direction ~ Norabidea: Grande Plage,43.35509000,-1.77431000,,,0,276,0,,,9870
+9050,SJCLO1,Clos Saint-Vincent,Direction ~ Norabidea: Zaldi Xurito,43.39286740,-1.64120340,,,0,317,0,,,9050
+9913,SJCLO2,Clos Saint-Vincent,Direction ~ Norabidea: Lafiténia,43.39286740,-1.64120340,,,0,317,0,,,9913
+9051,SACOL0,Col de Saint Ignace ~ San Inazioko Lepoa,Direction ~ Norabidea: Halte Routière / Lur Berri,43.32525500,-1.60056800,,,0,304,0,,,9051
+9101,HEIRA1,Collège Irandatz ~ Irandatz Kolegioa,Direction ~ Norabidea: Autoport / Béhobia,43.35270000,-1.77636000,,,0,288,0,,,9101
+9102,HEIRA2,Collège Irandatz ~ Irandatz Kolegioa,Direction ~ Norabidea: Grande Plage,43.35270000,-1.77636000,,,0,288,0,,,9102
+9245,HECOM2,Commissariat ~ Komisaldegia,Direction ~ Norabidea: Grande Plage,43.35073050,-1.78232250,,,0,1272,0,,,9245
+6129,HERON3,Consulat ~ Kontsuletxea,Direction ~ Norabidea: Autoport,43.36527950,-1.76985650,,,0,704,0,,,6129
+6152,SJCOU2,Coulomme,Direction ~ Norabidea: Urrugne - Bourg,43.39421870,-1.64412330,,,0,739,0,,,6152
+9052,CICRX1,Croix Blanche ~ Gurutze Zuria,Direction ~ Norabidea: Water Sport Center / Halte Routière,43.38000000,-1.67142000,,,0,589,0,,,9052
+1053,URCRO1,Croix des Bouquets,Direction ~ Norabidea: Bayonne Place des Basques,43.35181901,-1.73879940,,,0,,0,,,1053
+9225,URCRO2,Croix des Bouquets,Direction ~ Norabidea: Hendaye Grande Plage,43.35174600,-1.73882890,,,0,,0,,,9225
+9039,HECED0,Cèdres ~ Zedroak,Direction ~ Norabidea: Plaza San Juan / EHPAD,43.36668800,-1.76997000,,,0,273,0,,,9039
+9053,AIDAN3,Dantxaria ~ Dantxarinea,Direction ~ Norabidea: Halte Routière,43.29348200,-1.50475000,,,0,229,0,,,9053
+9054,CIKEX1,Delaunay,Direction ~ Norabidea: Urrugne - Bourg,43.37948700,-1.66810500,,,0,248,0,,,9054
+9942,CIKEX2,Delaunay,Direction ~ Norabidea: Alturan,43.37948700,-1.66810500,,,0,248,0,,,9942
+9055,HEDEN1,Denentzat,Direction ~ Norabidea: Béhobia,43.34391300,-1.76532300,,,0,277,0,,,9055
+9874,HEDEN2,Denentzat,Direction ~ Norabidea: Grande Plage,43.34391300,-1.76532300,,,0,277,0,,,9874
+9056,SJDIG1,Digue aux Chevaux ~ Zaldien Diga,Direction ~ Norabidea: Urrugne - Bourg,43.39400500,-1.65983800,,,0,318,0,,,9056
+9940,SJDIG2,Digue aux Chevaux ~ Zaldien Diga,Direction ~ Norabidea: Alturan,43.39400500,-1.65983800,,,0,318,0,,,9940
+9057,HEDON1,Dongoxenea,Direction ~ Norabidea: Autoport,43.36949000,-1.75075000,,,0,278,0,,,9057
+9058,HEDON2,Dongoxenea,Direction ~ Norabidea: Grande Plage,43.36918200,-1.75033220,,,0,278,0,,,9058
+9238,HEDOR1,Dorrondeguy,Direction ~ Norabidea: Autoport,43.36848440,-1.74673500,,,0,1258,0,,,9238
+9877,HEDOR2,Dorrondeguy,Direction ~ Norabidea: Grande Plage,43.36848440,-1.74673500,,,0,1258,0,,,9877
+9036,SJDUH1,Duhartia,Direction ~ Norabidea: Zaldi Xurito,43.41469800,-1.61650000,,,0,331,0,,,9036
+9902,SJDUH2,Duhartia,Direction ~ Norabidea: Lafiténia,43.41469800,-1.61650000,,,0,331,0,,,9902
+9059,SPECO1,Ecole d'Amotz ~ Amotzeko Eskola,Direction ~ Norabidea: St Pée - Pont d'Amotz / Dantxaria,43.33536800,-1.54871700,,,0,355,0,,,9059
+9897,SPECO2,Ecole d'Amotz ~ Amotzeko Eskola,Direction ~ Norabidea: Halte Routière,43.33536800,-1.54871700,,,0,355,0,,,9897
+146,BIMA02,Eglise (Bidart),Direction ~ Norabidea: Bayonne Place des Basques,43.43794600,-1.58944200,,,0,,0,,Bidart,146
+147,BIMA01,Eglise (Bidart),Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.43870600,-1.58884500,,,0,,0,,Bidart,147
+167,GUEEG1,Eglise (Guéthary),Direction ~ Norabidea: Bayonne Place des Basques,43.42103000,-1.60591000,,,0,,0,,Guéthary,167
+168,GUEEG2,Eglise (Guéthary),Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.42041584,-1.60717266,,,0,,0,,Guéthary,168
+9060,UREGL1,Eglise de Zokoa ~ Zokoako Eliza,Direction ~ Norabidea: Halte Routière,43.39098500,-1.68772800,,,0,373,0,,,9060
+9061,UREGL2,Eglise de Zokoa ~ Zokoako Eliza,Direction ~ Norabidea: Water Sport Center,43.39100530,-1.68702022,,,0,373,0,,,9061
+9062,HEEGL1,Eglise Sainte Anne ~ Santa Ana Eliza,Direction ~ Norabidea: Plaza San Juan / EHPAD / Autoport,43.37388000,-1.77026000,,,0,279,0,,,9062
+9855,HEEGL2,Eglise Sainte Anne ~ Santa Ana Eliza,Direction ~ Norabidea: Grande Plage,43.37388000,-1.77026000,,,0,279,0,,,9855
+9231,SJEHP1,EHPAD Urthaburu ~ Urthaburu zahar etxea,Direction ~ Norabidea: Zaldi Xurito,43.40094300,-1.63310000,,,0,1070,0,,,9231
+9928,SJEHP2,EHPAD Urthaburu ~ Urthaburu zahar etxea,Direction ~ Norabidea: Lafiténia,43.40094300,-1.63310000,,,0,1070,0,,,9928
+9063,HEEHP3,EHPAD ~ Zahar Etxea,Direction ~ Norabidea: Plaza San Juan,43.37636300,-1.75686800,,,0,280,0,,,9063
+9064,HEEMP1,Empereur ~ Enperadore,Direction ~ Norabidea: Autoport,43.36689800,-1.75677700,,,0,281,0,,,9064
+9880,HEEMP2,Empereur ~ Enperadore,Direction ~ Norabidea: Grande Plage,43.36689800,-1.75677700,,,0,281,0,,,9880
+148,ERRE02,Erretegia,Direction ~ Norabidea: Bayonne Place des Basques,43.44277200,-1.58524290,,,0,,0,,,148
+149,ERRE01,Erretegia,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.44341400,-1.58521100,,,0,,0,,,149
+6157,SJERW2,Erromardi Wauthier,Direction ~ Norabidea: Alturan,43.39926940,-1.64300270,,,0,744,0,,,6157
+9933,SJERW1,Erromardi Wauthier,Direction ~ Norabidea: Urrugne - Bourg,43.39926940,-1.64300270,,,0,744,0,,,9933
+9865,HEERR1,Errondonea,Direction ~ Norabidea: Autoport / Béhobia,43.35928000,-1.76335000,,,0,282,0,,,9865
+9866,HEERR2,Errondonea,Direction ~ Norabidea: Grande Plage,43.35928000,-1.76335000,,,0,282,0,,,9866
+9067,AHERR1,Errotazahar,Direction ~ Norabidea: Biarritz Gare,43.40670270,-1.56794550,,,0,226,0,,,9067
+9961,AHERR2,Errotazahar,Direction ~ Norabidea: Ahetze / Halte Routière,43.40670270,-1.56794550,,,0,226,0,,,9961
+9068,SJLAN1,Espace Lana ~ Lana Eremua,Direction ~ Norabidea: Zaldi Xurito,43.39688700,-1.64057800,,,0,823,0,,,9068
+9911,SJLAN2,Espace Lana ~ Lana Eremua,Direction ~ Norabidea: Lafiténia,43.39688700,-1.64057800,,,0,823,0,,,9911
+169,GUEES1,Estalo,Direction ~ Norabidea: Bayonne Place des Basques,43.42487000,-1.60437600,,,0,,0,,,169
+170,GUEES2,Estalo,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.42506513,-1.60441319,,,0,,0,,,170
+9069,SJBAZ1,Etxebazter,Direction ~ Norabidea: Urrugne - Bourg,43.39830000,-1.65592200,,,0,218,0,,,9069
+9939,SJBAZ2,Etxebazter,Direction ~ Norabidea: Alturan,43.39830000,-1.65592200,,,0,218,0,,,9939
+210,SJETX1,Etxebiaga,Direction ~ Norabidea: Bayonne Place des Basques,43.40059700,-1.63843450,,,0,,0,,,210
+9070,SJETX1,Etxebiaga,Direction ~ Norabidea: Zaldi Xurito,43.40118820,-1.63785510,,,0,316,0,,,9070
+9071,SJETX2,Etxebiaga,Direction ~ Norabidea: Lafiténia,43.39960050,-1.64044010,,,0,316,0,,,9071
+9258,SJETX2,Etxebiaga,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.39981000,-1.64018300,,,0,,0,,,9258
+9829,SOAL02,Etxetoa,Direction ~ Norabidea: Cambo les Bains Gare,43.33989000,-1.47039900,,,0,1351,0,,,9829
+9282,FAL01,Fal,Direction ~ Norabidea: Bayonne Place des Basques / Hendaye Grande Plage,43.46232800,-1.55271700,,,0,,0,,,9282
+6159,SJFAR0,Fargeot,Direction ~ Norabidea: Alturan,43.38509840,-1.65301210,,,0,746,0,,,6159
+9815,IRFI03,Ficoba,Direction ~ Norabidea: Plaza San Juan / EHPAD,43.34734600,-1.78713800,,,0,1332,0,,,9815
+9074,AIAIN1,Fronton ~ Pilota Plaza,Direction ~ Norabidea: Dantxaria,43.30716300,-1.49891500,,,0,228,0,,,9074
+9900,AIAIN2,Fronton ~ Pilota Plaza,Direction ~ Norabidea: Halte Routière,43.30716300,-1.49891500,,,0,228,0,,,9900
+9075,HEGAL1,Galbarreta,Direction ~ Norabidea: EHPAD / Autoport / Béhobia,43.37367000,-1.75584500,,,0,284,0,,,9075
+9076,HEGAL2,Galbarreta,Direction ~ Norabidea: Plaza San Juan / Grande Plage / Water Sport Center,43.37357070,-1.75480430,,,0,284,0,,,9076
+9077,URGAL1,Galtzaburu,Direction ~ Norabidea: Urrugne - Bourg,43.37617000,-1.67032000,,,0,374,0,,,9077
+9943,URGAL2,Galtzaburu,Direction ~ Norabidea: Alturan,43.37617000,-1.67032000,,,0,374,0,,,9943
+9078,SJGAM1,Gambetta,Direction ~ Norabidea: Urrugne - Bourg,43.38996700,-1.65886500,,,0,322,0,,,9078
+9941,SJGAM2,Gambetta,Direction ~ Norabidea: Alturan,43.38996700,-1.65886500,,,0,322,0,,,9941
+9080,HEGAR1,Gare Centre d’Hendaye ~ Hendaia Hiri-barneko Geltokia,Direction ~ Norabidea: Plaza San Juan / Autoport,43.35337953,-1.78086616,,,0,286,0,,,9080
+9882,HEGAR2,Gare Centre d’Hendaye ~ Hendaia Hiri-barneko Geltokia,Direction ~ Norabidea: EHPAD / Grande Plage,43.35330800,-1.78073800,,,0,286,0,,,9882
+10034,NEGR02,Gare de Biarritz,,43.45972300,-1.54579800,,,0,240,0,,,10034
+9001,NEGR01,Gare de Biarritz,Direction ~ Norabidea: Ahetze / Halte Routière,43.45972300,-1.54579800,,,0,240,0,,,9001
+9079,HEGAP3,Gare Plage d’Hendaye ~ Hendaia Hondarraitzeko Geltokia,Direction ~ Norabidea: Grande Plage / Béhobia / Water Sport Center,43.36960000,-1.76515000,,,0,285,0,,,9079
+9836,CAGA03,Gare Routière,Direction ~ Norabidea: Halte Routière / Cambo les Bains Gare,43.36024800,-1.40811800,,,0,1363,0,,,9836
+9841,CASN03,Gare SNCF (Cambo-les-Bains),Direction ~ Norabidea: Halte Routière,43.36514400,-1.39697900,,,0,1371,0,,Cambo-les-Bains,9841
+181,HEGAR1,Gare SNCF (Hendaye),Direction ~ Norabidea: Bayonne Place des Basques,43.35325000,-1.78100910,,,0,,0,,Hendaye,181
+182,HEGAR2,Gare SNCF (Hendaye),Direction ~ Norabidea: Hendaye Grande Plage,43.35324892,-1.78085648,,,0,,0,,Hendaye,182
+9081,SJGAR2,Gare SNCF ~ SNCF Geltokia,Direction ~ Norabidea: Lafiténia / Alturan / Halte Routière,43.38558300,-1.66222000,,,0,323,0,,,9081
+7009,BIASK1,Garlatz,Direction ~ Norabidea: Vieux Fort,43.34598990,-1.73956420,,,0,1080,0,,,7009
+9954,BIASK2,Garlatz,Direction ~ Norabidea: Biriatou Bourg,43.34598990,-1.73956420,,,0,1080,0,,,9954
+7008,BUGAZ2,Gazteluberri,Direction ~ Norabidea: Biriatou Bourg,43.34468680,-1.73611340,,,0,206,0,,,7008
+9948,BUGAZ1,Gazteluberri,Direction ~ Norabidea: Vieux Fort,43.34468680,-1.73611340,,,0,206,0,,,9948
+9082,AHGAZ1,Gazteluberria,Direction ~ Norabidea: Biarritz Gare,43.39854340,-1.58915680,,,0,546,0,,,9082
+9959,AHGAZ2,Gazteluberria,Direction ~ Norabidea: Halte Routière,43.39854340,-1.58915680,,,0,546,0,,,9959
+184,HEOFF3,Grande Plage,Direction ~ Norabidea: Bayonne Place des Basques,43.37302185,-1.77552503,,,0,,0,,,184
+9084,HEOFF2,Grande Plage ~ Hondartza Nagusia,Direction ~ Norabidea: Water Sport Center,43.37350760,-1.77232580,,,0,294,0,,,9084
+9820,HEOFF3,Grande Plage ~ Hondartza Nagusia,Direction ~ Norabidea: Autoport / Béhobia,43.37311000,-1.77495000,,,0,294,0,,,9820
+9085,SAGRO0,Grottes de Sare ~ Sarako Lezeak,Direction ~ Norabidea: Halte Routière,43.26821400,-1.57158700,,,0,305,0,,,9085
+9854,ARNAH3,Gure Nahia,Direction ~ Norabidea: Biarritz Gare / Halte Routière,43.42563600,-1.55278000,,,0,1387,0,,,9854
+8217,SJHAI3,Haize Kantari Scolaire,Direction ~ Norabidea: Urrugne - Bourg,43.39211840,-1.63432900,,,0,750,0,,,8217
+9089,SJHLL2,Halles,Direction ~ Norabidea: Urrugne - Bourg,43.38788500,-1.66060300,,,0,328,0,,,9089
+212:0,SJHAL3,Halte Routière,Direction ~ Norabidea: Bayonne Place des Basques / Hendaye Grande Plage,43.38626500,-1.66016900,,,0,,0,,,212:0
+9090,SJHAL3,Halte Routière ~ Autobus Geltokia,Direction ~ Norabidea: Zaldi Xurito / Urrugne - Bourg / Lafiténia,43.38623090,-1.66021830,,,0,325,0,,,9090
+9093,SJHAR1,Hariztegi,Direction ~ Norabidea: Zaldi Xurito,43.39226650,-1.64267000,,,0,326,0,,,9093
+9914,SJHAR2,Hariztegi,Direction ~ Norabidea: Lafiténia,43.39219680,-1.64261700,,,0,326,0,,,9914
+9094,HEHAR1,Hariztian,Direction ~ Norabidea: Béhobia,43.37133150,-1.75629818,,,0,211,0,,,9094
+9858,HEHAR2,Hariztian,Direction ~ Norabidea: Grande Plage,43.37133150,-1.75629818,,,0,211,0,,,9858
+9095,AHHAR1,Haroztegia,Direction ~ Norabidea: Biarritz Gare,43.40852630,-1.56388240,,,0,590,0,,,9095
+9962,AHHAR2,Haroztegia,Direction ~ Norabidea: Ahetze / Halte Routière,43.40852630,-1.56388240,,,0,590,0,,,9962
+9810,HARI02,Harritx,Direction ~ Norabidea: Biarritz Gare,43.45708300,-1.54427500,,,0,1321,0,,,9810
+9967,HARI01,Harritx,Direction ~ Norabidea: Ahetze / Halte Routière,43.45708300,-1.54427500,,,0,1321,0,,,9967
+9220,HEHAT1,Hatchondo,Direction ~ Norabidea: Autoport / Béhobia,43.36387430,-1.76142020,,,0,838,0,,,9220
+9862,HEHAT2,Hatchondo,Direction ~ Norabidea: Grande Plage,43.36385140,-1.76135400,,,0,838,0,,,9862
+9832,ESHA01,Haïtzaga,Direction ~ Norabidea: Halte Routière,43.34407000,-1.43784000,,,0,1357,0,,,9832
+9833,ESHA02,Haïtzaga,Direction ~ Norabidea: Cambo les Bains Gare,43.34408000,-1.43785000,,,0,1357,0,,,9833
+9229,HEHAI1,Haïçabia,Direction ~ Norabidea: Halte Routière,43.37863930,-1.73392070,,,0,1067,0,,,9229
+9886,HEHAI2,Haïçabia,Direction ~ Norabidea: Water Sport Center,43.37863930,-1.73392070,,,0,1067,0,,,9886
+9243,HEHE2,Hegoaldea,Direction ~ Norabidea: Autoport / Béhobia,43.35781790,-1.77466080,,,0,1268,0,,,9243
+9242,BIHEG2,Hegobus,Direction ~ Norabidea: Biriatou Bourg,43.33825340,-1.75095950,,,0,1266,0,,,9242
+9953,BIHEG1,Hegobus,Direction ~ Norabidea: Vieux Fort,43.33825340,-1.75095950,,,0,1266,0,,,9953
+9096,SPHE01,Helbarrun,Direction ~ Norabidea: Halte Routière / St Pée - Pont d'Amotz / Dantxaria,43.36103200,-1.60975000,,,0,358,0,,,9096
+9846,SPHE02,Helbarrun,Direction ~ Norabidea: Halte Routière,43.36103200,-1.60975000,,,0,358,0,,,9846
+9236,URHER0,Herboure,Direction ~ Norabidea: Alturan,43.33385220,-1.68622700,,,0,1254,0,,,9236
+9098,SPIB01,Ibarrun,Direction ~ Norabidea: Halte Routière / St Pée - Pont d'Amotz / Dantxaria,43.35611000,-1.56898700,,,0,360,0,,,9098
+9843,SPIB02,Ibarrun,Direction ~ Norabidea: Halte Routière,43.35611000,-1.56898700,,,0,360,0,,,9843
+9099,SJICH1,Ichaca ~ Ixaka,Direction ~ Norabidea: Zaldi Xurito,43.38675890,-1.64997490,,,0,329,0,,,9099
+9916,SJICH2,Ichaca ~ Ixaka,Direction ~ Norabidea: Lafiténia,43.38670000,-1.64987800,,,0,329,0,,,9916
+10029,SJLIL1,Ilargia,Direction ~ Norabidea: Urrugne - Bourg,43.39879200,-1.64200000,,,0,1627,0,,,10029
+10033,SJLIL2,Ilargia,Direction ~ Norabidea: Alturan,43.39870300,-1.64188400,,,0,1627,0,,,10033
+9643,SJLIL1,Ilargia,Direction ~ Norabidea: Bayonne Place des Basques,43.39881695,-1.64170580,,,0,,0,,,9643
+9644,SJLIL2,Ilargia,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.39852345,-1.64239128,,,0,,0,,,9644
+9103,CIIRI1,Iris,Direction ~ Norabidea: Zaldi Xurito,43.37710000,-1.66286300,,,0,247,0,,,9103
+9924,CIIRI2,Iris,Direction ~ Norabidea: Lafiténia,43.37710000,-1.66286300,,,0,247,0,,,9924
+9106,SPITH1,Ithurraldea,Direction ~ Norabidea: Halte Routière,43.34680020,-1.54385450,,,0,362,0,,,9106
+9107,SPITH2,Ithurraldea,Direction ~ Norabidea: Cambo les Bains Gare,43.34691854,-1.54500233,,,0,362,0,,,9107
+9108,SJITU1,Iturriko Etxea,Direction ~ Norabidea: Zaldi Xurito,43.38827830,-1.64906390,,,0,216,0,,,9108
+9915,SJITU2,Iturriko Etxea,Direction ~ Norabidea: Lafiténia,43.38822800,-1.64900700,,,0,216,0,,,9915
+9109,BUITU2,Iturrixilo,Direction ~ Norabidea: Biriatou Bourg,43.33427700,-1.74842700,,,0,239,0,,,9109
+9952,BUITU1,Iturrixilo,Direction ~ Norabidea: Vieux Fort,43.33427700,-1.74842700,,,0,239,0,,,9952
+214:0,SJJAI1,Jai Alai,Direction ~ Norabidea: Bayonne Place des Basques,43.39261200,-1.65256360,,,0,,0,,,214:0
+215,SJJAI2,Jai Alai,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.39268732,-1.65262087,,,0,,0,,,215
+9110,SJJAI1,Jai Alai,Direction ~ Norabidea: Biarritz Gare,43.39275700,-1.65251200,,,0,332,0,,,9110
+9957,SJJAI2,Jai Alai,Direction ~ Norabidea: Halte Routière,43.39275700,-1.65251200,,,0,332,0,,,9957
+9111,SJJAL1,Jaldai,Direction ~ Norabidea: Zaldi Xurito,43.40996200,-1.61879000,,,0,333,0,,,9111
+9905,SJJAL2,Jaldai,Direction ~ Norabidea: Lafiténia,43.40996200,-1.61879000,,,0,333,0,,,9905
+9112,SJJAR0,Jardin Botanique ~ Baratze Botanikoa,Direction ~ Norabidea: Urrugne - Bourg,43.40255200,-1.65239300,,,0,334,0,,,9112
+9113,AHLAR1,Joanetaenea,Direction ~ Norabidea: Biarritz Gare,43.40146700,-1.57912300,,,0,227,0,,,9113
+9960,AHLAR2,Joanetaenea,Direction ~ Norabidea: Halte Routière,43.40146700,-1.57912300,,,0,227,0,,,9960
+9114,URCAR0,Jolimont,Direction ~ Norabidea: Alturan,43.33405190,-1.68315230,,,0,371,0,,,9114
+9115,HEJON1,Joncaux ~ Intzura,Direction ~ Norabidea: Béhobia,43.34483200,-1.76938500,,,0,289,0,,,9115
+9872,HEJON2,Joncaux ~ Intzura,Direction ~ Norabidea: Grande Plage,43.34483200,-1.76938500,,,0,289,0,,,9872
+9116,URKAL1,Kalitxoa,Direction ~ Norabidea: Halte Routière,43.38713200,-1.68966800,,,0,376,0,,,9116
+9888,URKAL2,Kalitxoa,Direction ~ Norabidea: Water Sport Center,43.38713200,-1.68966800,,,0,376,0,,,9888
+9117,SJKA11,Karsinenia 1 ~ Kartsinenea 1,Direction ~ Norabidea: Urrugne - Bourg / Alturan,43.39542800,-1.63479800,,,0,587,0,,,9117
+9118,SJKA12,Karsinenia 1 ~ Kartsinenea 1,Direction ~ Norabidea: Urrugne - Bourg,43.39529300,-1.63457200,,,0,587,0,,,9118
+9119,SJKA21,Karsinenia 2 ~ Kartsinenea 2,Direction ~ Norabidea: Urrugne - Bourg,43.39623800,-1.63035800,,,0,591,0,,,9119
+9930,SJKA22,Karsinenia 2 ~ Kartsinenea 2,Direction ~ Norabidea: Alturan,43.39623800,-1.63035800,,,0,591,0,,,9930
+9299,URKEX2,Kechiloa,Direction ~ Norabidea: Hendaye Grande Plage,43.37773058,-1.67315474,,,0,,0,,,9299
+9221,URKEX0,Kexiloa,Direction ~ Norabidea: Dantxaria,43.37762000,-1.67315000,,,0,1285,0,,,9221
+7011,BUKUR2,Kurleku  Errondonea,Direction ~ Norabidea: Biriatou Bourg,43.34209650,-1.73468900,,,0,1082,0,,,7011
+9949,BUKUR1,Kurleku  Errondonea,Direction ~ Norabidea: Vieux Fort,43.34209650,-1.73468900,,,0,1082,0,,,9949
+9013,ARHEG1,La Chapelle ~ Kapera,Direction ~ Norabidea: Biarritz Gare,43.42575250,-1.54867470,,,0,230,0,,,9013
+9963,ARHEG2,La Chapelle ~ Kapera,Direction ~ Norabidea: Ahetze / Halte Routière,43.42575250,-1.54867470,,,0,230,0,,,9963
+153,BIDSO1,La Source,Direction ~ Norabidea: Bayonne Place des Basques,43.44746000,-1.57398880,,,0,,0,,,153
+154,BIDSO2,La Source,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.44797300,-1.57304200,,,0,,0,,,154
+9808,LABO02,Labourd,Direction ~ Norabidea: Biarritz Gare,43.45341300,-1.54380300,,,0,1317,0,,,9808
+9965,LABO01,Labourd,Direction ~ Norabidea: Ahetze / Halte Routière,43.45341300,-1.54380300,,,0,1317,0,,,9965
+9121,SJLAF3,Lafitenea,Direction ~ Norabidea: Zaldi Xurito,43.41348300,-1.62550700,,,0,337,0,,,9121
+9122,SJLAY1,Laiatz,Direction ~ Norabidea: Zaldi Xurito / Urrugne - Bourg,43.39879000,-1.64019500,,,0,338,0,,,9122
+9910,SJLAY2,Laiatz,Direction ~ Norabidea: Lafiténia / Alturan,43.39879000,-1.64019500,,,0,338,0,,,9910
+9232,SJLAM1,Lambrigot,Direction ~ Norabidea: Urrugne - Bourg,43.39727180,-1.64747850,,,0,1072,0,,,9232
+9937,SJLAM2,Lambrigot,Direction ~ Norabidea: Alturan,43.39727180,-1.64747850,,,0,1072,0,,,9937
+9123,ASLA01,Lanazia Larre Lore,Direction ~ Norabidea: Halte Routière / Lur Berri,43.35701000,-1.63178000,,,0,233,0,,,9123
+9848,ASLA02,Lanazia Larre Lore,Direction ~ Norabidea: Halte Routière,43.35701000,-1.63178000,,,0,233,0,,,9848
+5006,BULAR2,Larretxekoborda,Direction ~ Norabidea: Biriatou Bourg,43.34148743,-1.72794063,,,0,208,0,,,5006
+7012,BULAR1,Larretxekoborda,Direction ~ Norabidea: Vieux Fort,43.34149333,-1.72794213,,,0,208,0,,,7012
+241:0,URLAR1,Larruleta,Direction ~ Norabidea: Bayonne Place des Basques,43.36886527,-1.68441695,,,0,,0,,,241:0
+242:0,URLAR2,Larruleta,Direction ~ Norabidea: Hendaye Grande Plage,43.36889166,-1.68450685,,,0,,0,,,242:0
+9124,URLAR1,Larruleta,Direction ~ Norabidea: Urrugne - Bourg,43.36881425,-1.68448073,,,0,378,0,,,9124
+9945,URLAR2,Larruleta,Direction ~ Norabidea: Alturan,43.36886691,-1.68452372,,,0,378,0,,,9945
+9125,HELAR1,Larrun,Direction ~ Norabidea: Béhobia,43.36805270,-1.76499150,,,0,212,0,,,9125
+9860,HELAR2,Larrun,Direction ~ Norabidea: Grande Plage,43.36805270,-1.76499150,,,0,212,0,,,9860
+9270,BIDBU1,Larrun Burua,Direction ~ Norabidea: Bayonne Place des Basques,43.45068109,-1.56460042,,,0,,0,,,9270
+9271,BIDBU2,Larrun Burua,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.45077886,-1.56459484,,,0,,0,,,9271
+9279,BALAU1,Lauga,Direction ~ Norabidea: Bayonne Place des Basques,43.48463200,-1.47630300,,,0,,0,,,9279
+9285,BALAU2,Lauga,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.48370478,-1.47674826,,,0,,0,,,9285
+9127,HEJUM1,Les 2 Jumeaux ~ Dunbarriak,Direction ~ Norabidea: Plaza San Juan / EHPAD / Autoport,43.37550000,-1.76190800,,,0,290,0,,,9127
+9876,HEJUM2,Les 2 Jumeaux ~ Dunbarriak,Direction ~ Norabidea: Grande Plage,43.37550000,-1.76190800,,,0,290,0,,,9876
+9128,SJHAU1,Les Hauts,Direction ~ Norabidea: Zaldi Xurito,43.39396640,-1.64168070,,,0,327,0,,,9128
+9912,SJHAU2,Les Hauts,Direction ~ Norabidea: Lafiténia,43.39397500,-1.64163300,,,0,327,0,,,9912
+9129,HELIL1,Lilas ~ Amatxi-Liliak,Direction ~ Norabidea: Béhobia / Halte Routière,43.37269000,-1.76823000,,,0,291,0,,,9129
+9856,HELIL2,Lilas ~ Amatxi-Liliak,Direction ~ Norabidea: Grande Plage / Water Sport Center,43.37269000,-1.76823000,,,0,291,0,,,9856
+9130,HELIS1,Lizardi Goiara,Direction ~ Norabidea: Béhobia,43.37007000,-1.76084700,,,0,292,0,,,9130
+9859,HELIS2,Lizardi Goiara,Direction ~ Norabidea: Grande Plage,43.37007000,-1.76084700,,,0,292,0,,,9859
+9002,LORE02,Lore Landa,Direction ~ Norabidea: Biarritz Gare,43.44597500,-1.54499800,,,0,238,0,,,9002
+9964,LORE01,Lore Landa,Direction ~ Norabidea: Ahetze / Halte Routière,43.44597500,-1.54499800,,,0,238,0,,,9964
+9131,SPEST1,Lot. Estekorena,Direction ~ Norabidea: St Pée - Pont d'Amotz / Dantxaria,43.34093000,-1.54927000,,,0,357,0,,,9131
+9896,SPEST2,Lot. Estekorena,Direction ~ Norabidea: Halte Routière,43.34093000,-1.54927000,,,0,357,0,,,9896
+9132,SALUR3,Lur Berri,Direction ~ Norabidea: Halte Routière,43.31219800,-1.58237800,,,0,718,0,,,9132
+9133,ASLU01,Lur Eder,Direction ~ Norabidea: Halte Routière / Lur Berri,43.35210500,-1.62779500,,,0,234,0,,,9133
+9847,ASLU02,Lur Eder,Direction ~ Norabidea: Halte Routière,43.35210500,-1.62779500,,,0,234,0,,,9847
+9134,CILYC1,Lycée Maritime ~ Itsas Lizeoa,Direction ~ Norabidea: Halte Routière,43.38337439,-1.68997842,,,0,249,0,,,9134
+9890,CILYC2,Lycée Maritime ~ Itsas Lizeoa,Direction ~ Norabidea: Water Sport Center,43.38338056,-1.68998256,,,0,249,0,,,9890
+9126,SJLEO1,Léon Dongaitz,Direction ~ Norabidea: Urrugne - Bourg,43.39613000,-1.63244000,,,0,339,0,,,9126
+9931,SJLEO2,Léon Dongaitz,Direction ~ Norabidea: Alturan,43.39613000,-1.63244000,,,0,339,0,,,9931
+9135,HEMAI2,Mairie - Eglise ~ Herriko Etxea - Eliza,Direction ~ Norabidea: Grande Plage,43.35844220,-1.77431250,,,0,698,0,,,9135
+9137,ARMAI1,Mairie ~ Herriko Etxea (Arbonne),Direction ~ Norabidea: Biarritz Gare,43.43233500,-1.55191000,,,0,231,0,,Arbonne,9137
+9138,ARMAI2,Mairie ~ Herriko Etxea (Arbonne),Direction ~ Norabidea: Ahetze / Halte Routière,43.43206500,-1.55148500,,,0,231,0,,Arbonne,9138
+9139,CIMAI1,Mairie ~ Herriko Etxea (Ciboure),Direction ~ Norabidea: Zaldi Xurito / Urrugne - Bourg,43.38445300,-1.66600800,,,0,250,0,,Ciboure,9139
+9140,CIMAI2,Mairie ~ Herriko Etxea (Ciboure),Direction ~ Norabidea: Lafiténia / Alturan / Water Sport Center,43.38421200,-1.66678800,,,0,250,0,,Ciboure,9140
+9142,SJMAI2,Mairie ~ Herriko Etxea (Saint-Jean-de-Luz),Direction ~ Norabidea: Urrugne - Bourg,43.38708700,-1.66268200,,,0,340,0,,Saint-Jean-de-Luz,9142
+9143,CIMAL1,Maldagora,Direction ~ Norabidea: Zaldi Xurito,43.37534500,-1.65941500,,,0,251,0,,,9143
+9926,CIMAL2,Maldagora,Direction ~ Norabidea: Lafiténia,43.37534500,-1.65941500,,,0,251,0,,,9926
+9145,CIMAR1,Marinela,Direction ~ Norabidea: Zaldi Xurito / Urrugne - Bourg,43.38060000,-1.66470000,,,0,252,0,,,9145
+9922,CIMAR2,Marinela,Direction ~ Norabidea: Lafiténia / Alturan,43.38056300,-1.66463200,,,0,252,0,,,9922
+9830,ESME01,Mendi Alde Bourg,Direction ~ Norabidea: Halte Routière,43.33952000,-1.44477000,,,0,1354,0,,,9830
+9831,ESME02,Mendi Alde Bourg,Direction ~ Norabidea: Cambo les Bains Gare,43.33952000,-1.44477000,,,0,1354,0,,,9831
+9816,IRME03,Mendibil,Direction ~ Norabidea: Plaza San Juan,43.34023600,-1.79035700,,,0,1334,0,,,9816
+9814,IRNA01,Nafarroa 18,Direction ~ Norabidea: EHPAD,43.33936000,-1.78414000,,,0,1331,0,,,9814
+9233,SJNDP1,Notre Dame de la Paix ~ Bakearen ama,Direction ~ Norabidea: Urrugne - Bourg,43.39926070,-1.65161310,,,0,1074,0,,,9233
+9938,SJNDP2,Notre Dame de la Paix ~ Bakearen ama,Direction ~ Norabidea: Alturan,43.39926070,-1.65161310,,,0,1074,0,,,9938
+9148,SJNOU1,Nouveau Cimetière ~ Hilerri Berria,Direction ~ Norabidea: Urrugne - Bourg,43.39649300,-1.63611500,,,0,342,0,,,9148
+9932,SJNOU2,Nouveau Cimetière ~ Hilerri Berria,Direction ~ Norabidea: Alturan,43.39649300,-1.63611500,,,0,342,0,,,9932
+9149,CIGOL1,Oihanalde,Direction ~ Norabidea: Zaldi Xurito,43.37949050,-1.66262050,,,0,246,0,,,9149
+9923,CIGOL2,Oihanalde,Direction ~ Norabidea: Lafiténia,43.37949050,-1.66262050,,,0,246,0,,,9923
+9150,HEOLI1,Oliviers ~ Olibondoak,Direction ~ Norabidea: Water Sport Center,43.37226800,-1.78076700,,,0,295,0,,,9150
+9073,HEFLO1,Orangers,Direction ~ Norabidea: Halte Routière,43.37006028,-1.77996026,,,0,549,0,,,9073
+9863,HEORI1,Orio,Direction ~ Norabidea: Béhobia,43.36210000,-1.76196000,,,0,296,0,,,9863
+9864,HEORI2,Orio,Direction ~ Norabidea: Grande Plage,43.36210000,-1.76196000,,,0,296,0,,,9864
+9822,HEJAS,Palmier ~ Palmondoa,Direction ~ Norabidea: Plaza San Juan,43.37198000,-1.77248000,,,0,1343,0,,,9822
+9154,SJPAU1,Paul Gelos,Direction ~ Norabidea: Urrugne - Bourg,43.39667800,-1.65748700,,,0,343,0,,,9154
+9155,SJPAU2,Paul Gelos,Direction ~ Norabidea: Alturan,43.39648700,-1.65767700,,,0,343,0,,,9155
+9156,SJRIC1,Paul Ricau,Direction ~ Norabidea: Zaldi Xurito,43.39059020,-1.65009740,,,0,347,0,,,9156
+9157,SJRIC2,Paul Ricau,Direction ~ Norabidea: Lafiténia,43.38994160,-1.64981460,,,0,347,0,,,9157
+9239,HENPA1,Pausoa,Direction ~ Norabidea: Autoport,43.36065530,-1.75948350,,,0,1260,0,,,9239
+9976,HENPA2,Pausoa,Direction ~ Norabidea: Grande Plage,43.36065530,-1.75948350,,,0,1260,0,,,9976
+9158,CIPET1,Petit Bois,Direction ~ Norabidea: Zaldi Xurito,43.37609000,-1.66155500,,,0,253,0,,,9158
+9925,CIPET2,Petit Bois,Direction ~ Norabidea: Lafiténia,43.37609000,-1.66155500,,,0,253,0,,,9925
+9159,CIPIE1,Pierre Benoit,Direction ~ Norabidea: Halte Routière,43.38801500,-1.67732700,,,0,254,0,,,9159
+9893,CIPIE2,Pierre Benoit,Direction ~ Norabidea: Water Sport Center,43.38801500,-1.67732700,,,0,254,0,,,9893
+9160,CIPIL1,Pilota Plaza,Direction ~ Norabidea: Halte Routière,43.38698800,-1.68456500,,,0,255,0,,,9160
+9161,CIPIL2,Pilota Plaza,Direction ~ Norabidea: Water Sport Center,43.38686800,-1.68500800,,,0,255,0,,,9161
+9164,SJESP1,Place d'Espagne ~ Espainiako Plaza,Direction ~ Norabidea: Zaldi Xurito,43.38300700,-1.65582500,,,0,321,0,,,9164
+9917,SJESP2,Place d'Espagne ~ Espainiako Plaza,Direction ~ Norabidea: Lafiténia,43.38300700,-1.65582500,,,0,321,0,,,9917
+1262,BASQ04,Place des Basques,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.49364200,-1.47904800,,,0,,0,,,1262
+9165,SJRHU1,Place du Labourd ~ Lapurdiko Plaza,Direction ~ Norabidea: Zaldi Xurito,43.38381800,-1.65868800,,,0,346,0,,,9165
+9918,SJRHU2,Place du Labourd ~ Lapurdiko Plaza,Direction ~ Norabidea: Lafiténia,43.38381800,-1.65868800,,,0,346,0,,,9918
+9853,HAHA03,Place Harana,Direction ~ Norabidea: Halte Routière,43.38475400,-1.30365400,,,0,1385,0,,,9853
+9837,CAPL01,Place Sorhainde,Direction ~ Norabidea: Halte Routière,43.36128900,-1.40125800,,,0,1365,0,,,9837
+9838,CAPL02,Place Sorhainde,Direction ~ Norabidea: Cambo les Bains Gare,43.36128900,-1.40125800,,,0,1365,0,,,9838
+9162,AHBRG3,Place ~ Plaza (Ahetze),Direction ~ Norabidea: Biarritz Gare / Halte Routière,43.40419300,-1.57167000,,,0,225,0,,Ahetze,9162
+9163,ASPLA0,Place ~ Plaza (Ascain),Direction ~ Norabidea: Lur Berri,43.34505500,-1.62102700,,,0,615,0,,Ascain,9163
+151,BIDP02,Plage,Direction ~ Norabidea: Bayonne Place des Basques,43.43245700,-1.59620400,,,0,,0,,,151
+152,BIDP01,Plage,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.43258100,-1.59617700,,,0,,0,,,152
+9166,SJMAY1,Plage de Mayarco ~ Maiarkobaitako Hondartza,Direction ~ Norabidea: Zaldi Xurito,43.41854700,-1.62369200,,,0,341,0,,,9166
+9927,SJMAY2,Plage de Mayarco ~ Maiarkobaitako Hondartza,Direction ~ Norabidea: Lafiténia,43.41854700,-1.62369200,,,0,341,0,,,9927
+9168,CIPLA1,Plage de Zokoa ~ Zokoako Hondartza,Direction ~ Norabidea: Halte Routière,43.38970360,-1.68371240,,,0,256,0,,,9168
+9892,CIPLA2,Plage de Zokoa ~ Zokoako Hondartza,Direction ~ Norabidea: Water Sport Center,43.38981510,-1.68388210,,,0,256,0,,,9892
+9035,SJERR1,Plage Erromardie ~ Erromardi Hondartza,Direction ~ Norabidea: Urrugne - Bourg,43.40393800,-1.64225200,,,0,320,0,,,9035
+9935,SJERR2,Plage Erromardie ~ Erromardi Hondartza,Direction ~ Norabidea: Alturan,43.40393800,-1.64225200,,,0,320,0,,,9935
+9105,IRFER3,Plaza San Juan,Direction ~ Norabidea: EHPAD,43.33932300,-1.78904300,,,0,303,0,,,9105
+9170,SPAMO1,Pont d'Amotz ~ Amotzeko Zubia,Direction ~ Norabidea: Dantxaria,43.32920000,-1.54475000,,,0,353,0,,,9170
+9898,SPAMO2,Pont d'Amotz ~ Amotzeko Zubia,Direction ~ Norabidea: Halte Routière,43.32920000,-1.54475000,,,0,353,0,,,9898
+9171,SPPO01,Pont de Zumabia ~ Zumabiako zubia,Direction ~ Norabidea: Halte Routière / St Pée - Pont d'Amotz / Dantxaria,43.36481200,-1.59029700,,,0,364,0,,,9171
+9845,SPPO02,Pont de Zumabia ~ Zumabiako zubia,Direction ~ Norabidea: Halte Routière,43.36481200,-1.59029700,,,0,364,0,,,9845
+9839,CAPO01,Pont des Thermes,Direction ~ Norabidea: Halte Routière,43.35565000,-1.39085000,,,0,1368,0,,,9839
+9840,CAPO02,Pont des Thermes,Direction ~ Norabidea: Cambo les Bains Gare,43.35578100,-1.39080200,,,0,1368,0,,,9840
+9800,HEPIT1,Pont International ~ Nazioarteko Zubia,Direction ~ Norabidea: Autoport,43.35107320,-1.78328700,,,0,1299,0,,,9800
+9173,SAPOR1,Portua,Direction ~ Norabidea: Halte Routière,43.30902500,-1.57262300,,,0,307,0,,,9173
+9174,SAPOR2,Portua,Direction ~ Norabidea: Grottes de Sare,43.30992500,-1.57230000,,,0,307,0,,,9174
+9821,HEPOT1,Potenia,Direction ~ Norabidea: Béhobia / Halte Routière,43.37313000,-1.76047000,,,0,1340,0,,,9821
+9857,HEPOT2,Potenia,Direction ~ Norabidea: Grande Plage / Water Sport Center,43.37313000,-1.76047000,,,0,1340,0,,,9857
+9809,POUT02,Poutchinots,Direction ~ Norabidea: Biarritz Gare,43.45599700,-1.54357100,,,0,1319,0,,,9809
+9966,POUT01,Poutchinots,Direction ~ Norabidea: Ahetze / Halte Routière,43.45599700,-1.54357100,,,0,1319,0,,,9966
+9175,URPUT1,Putillenea,Direction ~ Norabidea: Halte Routière,43.38559200,-1.69296700,,,0,380,0,,,9175
+9889,URPUT2,Putillenea,Direction ~ Norabidea: Water Sport Center,43.38559200,-1.69296700,,,0,380,0,,,9889
+9176,SPQUA1,Quartier Lac ~ Aintzira Auzoa,Direction ~ Norabidea: Halte Routière,43.34357460,-1.52817433,,,0,365,0,,,9176
+9177,SPQUA2,Quartier Lac ~ Aintzira Auzoa,Direction ~ Norabidea: Cambo les Bains Gare,43.34423300,-1.52896800,,,0,804,0,,,9177
+9974,HEQUO1,Quartier Orio,Direction ~ Norabidea: Autoport,43.36273000,-1.76053000,,,0,1516,0,,,9974
+9975,HEQUO2,Quartier Orio,Direction ~ Norabidea: Grande Plage,43.36273000,-1.76053000,,,0,1516,0,,,9975
+9178,SJRAV0,Ravel,Direction ~ Norabidea: Urrugne - Bourg,43.38501810,-1.66102780,,,0,223,0,,,9178
+232:0,URBOU1,RD 810 Bourg,Direction ~ Norabidea: Bayonne Place des Basques,43.36081300,-1.69948520,,,0,,0,,,232:0
+233:0,URBOU2,RD 810 Bourg,Direction ~ Norabidea: Hendaye Grande Plage,43.36089180,-1.69976548,,,0,,0,,,233:0
+9179,URBOU1,RD810 Bourg ~ RD810 Herri Barnea,Direction ~ Norabidea: Alturan,43.36081200,-1.69956500,,,0,824,0,,,9179
+9180,SJREN1,René Lahetjuzan,Direction ~ Norabidea: Urrugne - Bourg,43.39564000,-1.62962000,,,0,344,0,,,9180
+9929,SJREN2,René Lahetjuzan,Direction ~ Norabidea: Alturan,43.39564000,-1.62962000,,,0,344,0,,,9929
+9218,HERIC1,Richelieu,Direction ~ Norabidea: Béhobia,43.34393000,-1.76839000,,,0,839,0,,,9218
+9873,HERIC2,Richelieu,Direction ~ Norabidea: Grande Plage,43.34393000,-1.76839000,,,0,839,0,,,9873
+9181,SJROS1,Rostand,Direction ~ Norabidea: Urrugne - Bourg,43.40286460,-1.64435340,,,0,348,0,,,9181
+9182,SJROS2,Rostand,Direction ~ Norabidea: Alturan,43.40261000,-1.64433000,,,0,348,0,,,9182
+9183,SJSAG1,Sagardian,Direction ~ Norabidea: Zaldi Xurito,43.38829410,-1.65224960,,,0,349,0,,,9183
+9283,BAYAN1,Saint André,Direction ~ Norabidea: Bayonne Place des Basques,43.48937365,-1.47188628,,,0,,0,,,9283
+9286,BAYAN2,Saint André,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.49046000,-1.47042000,,,0,,0,,,9286
+6039,SJSJO0,Saint Joseph ~ San Josepe,Direction ~ Norabidea: Urrugne - Bourg,43.39218110,-1.64660022,,,0,786,0,,,6039
+129,STL12,Saint-Léon,Direction ~ Norabidea: Bayonne Place des Basques,43.48765070,-1.48299150,,,0,,0,,,129
+130,STLE09,Saint-Léon,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.48834060,-1.48278500,,,0,,0,,,130
+9465,STLE02,Saint-Léon,Direction ~ Norabidea: Bayonne Place des Basques,43.48717100,-1.48296826,,,0,,0,,,9465
+9186,SJRES2,Sainte-Barbe ~ Santa Barbara,Direction ~ Norabidea: Urrugne - Bourg,43.40190330,-1.65608290,,,0,345,0,,,9186
+9187,CISTH1,Sainte-Croix ~ Gurutze Saindua,Direction ~ Norabidea: Zaldi Xurito,43.37264690,-1.65914500,,,0,538,0,,,9187
+9188,CISTH2,Sainte-Croix ~ Gurutze Saindua,Direction ~ Norabidea: Lafiténia,43.37172410,-1.65891250,,,0,538,0,,,9188
+9189,ASSER1,Serres,Direction ~ Norabidea: Halte Routière / Lur Berri,43.36207800,-1.63652300,,,0,236,0,,,9189
+9849,ASSE02,Serres,Direction ~ Norabidea: Halte Routière,43.36207800,-1.63652300,,,0,236,0,,,9849
+9190,SJSIL1,Silabia,Direction ~ Norabidea: Zaldi Xurito,43.40200520,-1.62724430,,,0,551,0,,,9190
+9907,SJSIL2,Silabia,Direction ~ Norabidea: Lafiténia,43.40200520,-1.62724430,,,0,551,0,,,9907
+310:0,URRSO1,Souhara,Direction ~ Norabidea: Bayonne Place des Basques,43.37605857,-1.67663659,,,0,,0,,,310:0
+318:0,URRSO2,Souhara,Direction ~ Norabidea: Hendaye Grande Plage,43.37500800,-1.67842000,,,0,,0,,,318:0
+311:0,CISPE1,Speraber,Direction ~ Norabidea: Bayonne Place des Basques,43.38129762,-1.66781295,,,0,,0,,,311:0
+319:0,CISPE2,Speraber,Direction ~ Norabidea: Hendaye Grande Plage,43.38148783,-1.66783442,,,0,,0,,,319:0
+9191,CISPE1,Speraber,Direction ~ Norabidea: Halte Routière,43.38125710,-1.66786960,,,0,259,0,,,9191
+9192,CISPE2,Speraber,Direction ~ Norabidea: Water Sport Center,43.38068800,-1.66830500,,,0,259,0,,,9192
+9194,ARSTA3,Stade ~ Estadioa (Arbonne),Direction ~ Norabidea: Biarritz Gare / Ahetze / Halte Routière,43.43694000,-1.55099000,,,0,232,0,,Arbonne,9194
+9193,URSTA1,Stade ~ Estadioa (Urrugne),Direction ~ Norabidea: Urrugne - Bourg,43.36303000,-1.69405000,,,0,826,0,,Urrugne,9193
+218:0,SJTRI1,Trikaldi,Direction ~ Norabidea: Bayonne Place des Basques,43.39658700,-1.64560500,,,0,,0,,,218:0
+219,SJTRI2,Trikaldi,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.39662501,-1.64565074,,,0,,0,,,219
+9196,SJTRI1,Trikaldi,Direction ~ Norabidea: Biarritz Gare,43.39653500,-1.64573500,,,0,350,0,,,9196
+9958,SJTRI2,Trikaldi,Direction ~ Norabidea: Halte Routière,43.39653500,-1.64573500,,,0,350,0,,,9958
+9197,HETUL0,Tulipiers ~ Tulipondoak,Direction ~ Norabidea: Plaza San Juan / EHPAD,43.37034800,-1.77228700,,,0,300,0,,,9197
+9198,HETXI3,Txingudi,Direction ~ Norabidea: Autoport / Consulat,43.36972460,-1.77319150,,,0,214,0,,,9198
+103,BIDH03,Uhabia,Direction ~ Norabidea: Bayonne Place des Basques,43.43050522,-1.59903657,,,0,,0,,,103
+9261,BIDH01,Uhabia,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.43107424,-1.59828369,,,0,,0,,,9261
+9092,ARHAM1,Uhazaldea,Direction ~ Norabidea: Biarritz Gare,43.40684000,-1.54328000,,,0,596,0,,,9092
+9956,ARHAM2,Uhazaldea,Direction ~ Norabidea: Ahetze / Halte Routière,43.40684000,-1.54328000,,,0,596,0,,,9956
+120,UNIO02,Union,Direction ~ Norabidea: Bayonne Place des Basques,43.48297761,-1.50341279,,,0,,0,,,120
+121,UNIO01,Union,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.48302770,-1.50339930,,,0,,0,,,121
+9199,CIUNT1,Untxin,Direction ~ Norabidea: Halte Routière,43.38584500,-1.68662700,,,0,260,0,,,9199
+9891,CIUNT2,Untxin,Direction ~ Norabidea: Water Sport Center,43.38584500,-1.68662700,,,0,260,0,,,9891
+9813,SJUR01,Ur Bidea,Direction ~ Norabidea: Halte Routière / Lur Berri,43.38245000,-1.64928000,,,0,1328,0,,,9813
+9850,SJUR02,Ur Bidea,Direction ~ Norabidea: Halte Routière,43.38245000,-1.64928000,,,0,1328,0,,,9850
+6013,SJURD3,Urdazuri,Direction ~ Norabidea: Urrugne - Bourg,43.38246440,-1.65257215,,,0,788,0,,,6013
+140,VIAD02,Viaduc Gare de Biarritz,Direction ~ Norabidea: Bayonne Place des Basques,43.46070000,-1.54688000,,,0,,0,,,140
+141,VIAD01,Viaduc Gare de Biarritz,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.46076775,-1.54703976,,,0,,0,,,141
+9201,ASVIE0,Vierge ~ Ama Birjina,Direction ~ Norabidea: Lur Berri,43.34854800,-1.62403000,,,0,237,0,,,9201
+9202,HEVIE2,Vieux Fort ~ Gazteluzahar,Direction ~ Norabidea: Grande Plage,43.36057360,-1.77428590,,,0,550,0,,,9202
+9274,VILL02,Villa Pia,Direction ~ Norabidea: Bayonne Place des Basques,43.48499996,-1.49479963,,,0,,0,,,9274
+9275,VILL01,Villa Pia,Direction ~ Norabidea: Hendaye Grande Plage / St Jean de Luz Halte Routière,43.48505007,-1.49481448,,,0,,0,,,9275
+189,HECEN1,Ville,Direction ~ Norabidea: Bayonne Place des Basques,43.35971000,-1.77561440,,,0,,0,,,189
+312,HECEN2,Ville,Direction ~ Norabidea: Hendaye Grande Plage,43.35981473,-1.77549026,,,0,,0,,,312
+9205,HECEN2,Ville ~ Hiri Barnea,Direction ~ Norabidea: Plaza San Juan / EHPAD / Autoport,43.35980270,-1.77552540,,,0,274,0,,,9205
+9230,HEWAT3,Water Sport Center,Direction ~ Norabidea: Halte Routière,43.36820850,-1.78138240,,,0,1068,0,,,9230
+9207,SPXAN3,Xan Ithurria Gantxiki,Direction ~ Norabidea: Halte Routière,43.35470500,-1.54888500,,,0,366,0,,,9207
+9217,SJXIM1,Ximista,Direction ~ Norabidea: Urrugne - Bourg,43.40024000,-1.64223000,,,0,836,0,,,9217
+9934,SJXIM2,Ximista,Direction ~ Norabidea: Alturan,43.40024000,-1.64223000,,,0,836,0,,,9934
+9208,SPZI01,Z.A. Lizardia ~ Lizardia A.E.,Direction ~ Norabidea: Halte Routière / St Pée - Pont d'Amotz / Dantxaria,43.35767000,-1.57456500,,,0,367,0,,,9208
+9844,SPZI02,Z.A. Lizardia ~ Lizardia A.E.,Direction ~ Norabidea: Halte Routière,43.35767000,-1.57456500,,,0,367,0,,,9844
+9209,CISAI3,Zaldi Xurito,Direction ~ Norabidea: Lafiténia,43.37259500,-1.65801300,,,0,258,0,,,9209
+9210,SJSAN1,Zantzu,Direction ~ Norabidea: Urrugne - Bourg,43.39997280,-1.64745060,,,0,224,0,,,9210
+9936,SJSAN2,Zantzu,Direction ~ Norabidea: Alturan,43.39981600,-1.64760100,,,0,224,0,,,9936
+9212,HEZO11,Zopite 1,Direction ~ Norabidea: Autoport,43.37015700,-1.75539700,,,0,588,0,,,9212
+9879,HEZO12,Zopite 1,Direction ~ Norabidea: Grande Plage,43.37015700,-1.75539700,,,0,588,0,,,9879
+9214,HEZO21,Zopite 2,Direction ~ Norabidea: Autoport,43.36770270,-1.75053710,,,0,592,0,,,9214
+9878,HEZO22,Zopite 2,Direction ~ Norabidea: Grande Plage,43.36770270,-1.75053710,,,0,592,0,,,9878
+9215,CIZUB1,Zubiburu,Direction ~ Norabidea: Zaldi Xurito / Urrugne - Bourg,43.38249000,-1.66627700,,,0,261,0,,,9215
+9920,CIZUB2,Zubiburu,Direction ~ Norabidea: Lafiténia / Alturan,43.38249000,-1.66627700,,,0,261,0,,,9920
