@@ -5,9 +5,13 @@ Base file for characteristics & visualisation stuff
 """
 
 from enum import Enum
-import classes.transportnetwork as TN
+import classes.transportnetwork as tn
 import networkx as nx
 import plotly.graph_objects as go
+import pandas as pd
+import plotly.express as px
+from CharVis.WeightedCharVis import *
+import time
 
 class GraphDefault:
 
@@ -28,6 +32,22 @@ class GraphDefault:
         FTM a placeholder, to be changed/deleted
         """
         return "Default"
+
+    def histo_degrees(self):
+        if self.dirgraph:
+            TN = tn.TransportNetwork(self.dirgraph, pos_argument=["lon", "lat"], time_arguments=["dep_time", "arr_time"],
+                                     nodes_weight_argument="lat", edges_weight_argument="train_max_speed")
+            df = pd.DataFrame({"out": list(dict(TN.dirgraph.out_degree).values()), "in": list(dict(TN.dirgraph.in_degree).values())})
+            px.histogram(df).show()
+            map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.out_degree))
+            map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.in_degree))
+        else:
+            TN = tn.TransportNetwork(self.graph, pos_argument=["lon", "lat"], time_arguments=["dep_time", "arr_time"],
+                                     nodes_weight_argument="lat", edges_weight_argument="train_max_speed")
+            degrees = list(dict(TN.graph.degree).values())
+            map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(degrees))
+            px.histogram(degrees)
+
 
     def node_edge_rel(self):
         "Output raw data"
