@@ -11,90 +11,95 @@ import plotly.graph_objects as go
 import pandas as pd
 import plotly.express as px
 from CharVis.WeightedCharVis import *
-from preprocessing import Preprocessing as pp
 import time
 
-G = pp.create_network_from_trailway('../../../data/Railway Data_JL.xlsx')
-TN = tn.TransportNetwork(G, pos_argument=["lon", "lat"], time_arguments=["dep_time", "arr_time"],
-                                 nodes_weight_argument="lat", edges_weight_argument="train_max_speed")
+class GraphDefault:
 
-def compute_degrees(TN):
-    if TN.dirgraph:
-        return list(dict(TN.dirgraph.out_degree).values()), list(dict(TN.dirgraph.in_degree).values())
-    else:
-        return list(dict(TN.graph.degree).values())
+    graph: nx.Graph = None
+    dirgraph: nx.DiGraph = None
+    multigraph: nx.MultiGraph = None
+    multidigraph: nx.MultiDiGraph = None
 
-def plot_hist_degrees(TN):
-    if TN.dirgraph:
-        degreesOut, degreesIn = compute_degrees(TN)
-        df = pd.DataFrame({"out": degreesOut, "in": degreesIn})
-        px.histogram(df).show()
-    else:
-        px.histogram(compute_degrees(TN)).show()
+    def __init__(self):
+        self.isSpatial = False
+        self.isWeighted = False
+        self.isDynamic = False
 
-def map_degrees(TN, is_out_edges = False):
-    if TN.dirgraph:
-        degreesOut, degreesIn = compute_degrees(TN)
-        df = pd.DataFrame({"out": degreesOut, "in": degreesIn})
-        if is_out_edges:
+
+    def getGraphTypeStr(self):
+        """
+        For the moment, returns a string indicating what type of graph it is.
+        FTM a placeholder, to be changed/deleted
+        """
+        return "Default"
+
+    def histo_degrees(self):
+        if self.dirgraph:
+            TN = tn.TransportNetwork(self.dirgraph, pos_argument=["lon", "lat"], time_arguments=["dep_time", "arr_time"],
+                                     nodes_weight_argument="lat", edges_weight_argument="train_max_speed")
+            df = pd.DataFrame({"out": list(dict(TN.dirgraph.out_degree).values()), "in": list(dict(TN.dirgraph.in_degree).values())})
+            px.histogram(df).show()
             map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.out_degree))
-        else:
             map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.in_degree))
-    else:
-        degrees = compute_degrees(TN)
-        map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(degrees))
+        else:
+            TN = tn.TransportNetwork(self.graph, pos_argument=["lon", "lat"], time_arguments=["dep_time", "arr_time"],
+                                     nodes_weight_argument="lat", edges_weight_argument="train_max_speed")
+            degrees = list(dict(TN.graph.degree).values())
+            map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(degrees))
+            px.histogram(degrees)
 
-def node_edge_rel():
-    "Output raw data"
 
-def plot_node_edge_rel():
-    "Plot data given by above function"
+    def node_edge_rel(self):
+        "Output raw data"
 
-def cmpt_eccentricity():
-    "Compute eccentricity, -explanatory"
+    def plot_node_edge_rel(self):
+        "Plot data given by above function"
 
-def plot_eccentricity():
-    "-explanatory"
+    def cmpt_eccentricity(self):
+        "Compute eccentricity, self-explanatory"
 
-def show_eccentricity():
-    "Show results of eccentricity on a map"
-def cmpt_centrality():
-    "Compute centrality"
+    def plot_eccentricity(self):
+        "Self-explanatory"
 
-def plot_centrality():
-    "Plot centrality"
+    def show_eccentricity(self):
+        "Show results of eccentricity on a map"
+    def cmpt_centrality(self):
+        "Compute centrality"
 
-def show_centrality():
-    "Show centrality on map"
+    def plot_centrality(self):
+        "Plot centrality"
 
-def cmpt_cluster_coef():
-    ""
+    def show_centrality(self):
+        "Show centrality on map"
 
-def plot_cluster_coef():
-    ""
+    def cmpt_cluster_coef(self):
+        ""
 
-def cmpt_deg_corr():
-    ""
+    def plot_cluster_coef(self):
+        ""
 
-def plot_deg_corr():
-    ""
+    def cmpt_deg_corr(self):
+        ""
 
-def cmpt_assort():
-    ""
+    def plot_deg_corr(self):
+        ""
 
-def cmpt_community_structure():
-    ""
+    def cmpt_assort(self):
+        ""
 
-def cmpt_deg_distribution():
-    ""
-def plot_community_structure():
-    ""
+    def cmpt_community_structure(self):
+        ""
 
-def plot_deg_distribution():
-    ""
+    def cmpt_deg_distribution(self):
+        ""
+    def plot_community_structure(self):
+        ""
 
-def plot_assort():
-    ""
+    def plot_deg_distribution(self):
+        ""
+
+    def plot_assort(self):
+        ""
 
 
 ######################################## Default functions without OOP ########################################
