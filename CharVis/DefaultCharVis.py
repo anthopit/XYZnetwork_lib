@@ -39,7 +39,9 @@ class GraphDefault:
                                      nodes_weight_argument="lat", edges_weight_argument="train_max_speed")
             df = pd.DataFrame({"out": list(dict(TN.dirgraph.out_degree).values()), "in": list(dict(TN.dirgraph.in_degree).values())})
             px.histogram(df).show()
+            print("Out going edges nodes")
             map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.out_degree))
+            print("In going edges")
             map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.in_degree))
         else:
             TN = tn.TransportNetwork(self.graph, pos_argument=["lon", "lat"], time_arguments=["dep_time", "arr_time"],
