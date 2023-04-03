@@ -8,6 +8,7 @@ from enum import Enum
 from typing import List, Tuple
 import networkx as nx
 from itertools import chain
+import warnings
 
 __all__ = ["TransportNetwork"]
 
@@ -24,9 +25,12 @@ class TransportNetwork:
     pos_argument = None
     pos_dict = {}
 
-    is_weighted: bool
+    is_weighted: [bool, bool]
     nodes_weight_argument: str
     edges_weight_argument: str
+
+    nodes_weight_attr: {}
+    edges_weight_attr: {}
 
     is_distance: bool
     distance_argument: str
@@ -136,15 +140,27 @@ class TransportNetwork:
 
         ## Weighted attributes ##
 
-        if (nodes_weight_argument is not None or edges_weight_argument is not None):
-            self.nodes_weight_argument = nodes_weight_argument
-            self.edges_weight_argument = edges_weight_argument
+        self.is_weighted = [False, False]
 
-            self.is_weighted = True
-        else:
-            self.is_weighted = False
-            self.nodes_weight_argument = None
-            self.edges_weight_argument = None
+        if (nodes_weight_argument is not None) and (edges_weight_argument is not None):
+            try:
+                edges_weight_attr = nx.get_edge_attributes(self.graph, edges_weight_argument)
+                nodes_weight_attr = nx.get_node_attributes(self.graph, nodes_weight_argument)
+
+                if not edges_weight_attr:
+                    warnings.warn(f"Edges do not have a '{edges_weight_argument}' attribute")
+                else:
+                    self.edges_weight_argument = edges_weight_argument
+                    self.is_weighted[1] = True
+
+                if not nodes_weight_attr:
+                    warnings.warn(f"Nodes do not have a '{nodes_weight_argument}' attribute")
+                else:
+                    self.nodes_weight_argument = nodes_weight_argument
+                    self.is_weighted[0] = True
+
+            except AttributeError:
+                pass
 
         ## Dynamic attributes ##
 

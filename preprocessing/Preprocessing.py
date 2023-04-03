@@ -28,6 +28,7 @@ def convertTimetoMinute(time, day=None):
     Some arrive and depart time are in fraction of a day, so we need to convert them to minutes
     ex: 0.8884 = 21:30:00
     """
+
     try:
         time_float = float(time)
         # Convert the fraction of a day to a timedelta object
@@ -37,18 +38,14 @@ def convertTimetoMinute(time, day=None):
     except:
         pass
 
-    if type(time) == str:
+
+    if isinstance(time, str):
         try:
             time = datetime.strptime(time, "%H:%M:%S")
         except:
             time = time.replace("24:", "23:")
             time = datetime.strptime(time, "%H:%M:%S")
             time += timedelta(hours=1)
-
-    elif type(time) == datetime:
-        pass
-    else:
-        raise ValueError("Time format not recognized")
 
     if day == "Day 1" or day == None:
         minutes = time.hour * 60 + time.minute
