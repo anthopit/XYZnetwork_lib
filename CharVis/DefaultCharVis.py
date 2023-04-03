@@ -18,45 +18,31 @@ G = pp.create_network_from_trailway('../../../data/Railway Data_JL.xlsx')
 TN = tn.TransportNetwork(G, pos_argument=["lon", "lat"], time_arguments=["dep_time", "arr_time"],
                                  nodes_weight_argument="lat", edges_weight_argument="train_max_speed")
 
-def compute_degrees():
+def compute_degrees(TN):
     if TN.dirgraph:
-        return {list(dict(TN.dirgraph.out_degree)), list(dict(TN.dirgraph.in_degree).values())}
+        return list(dict(TN.dirgraph.out_degree).values()), list(dict(TN.dirgraph.in_degree).values())
     else:
         return list(dict(TN.graph.degree).values())
 
-def plot_hist_degrees():
+def plot_hist_degrees(TN):
     if TN.dirgraph:
-        listDegrees = compute_degrees()
-        df = pd.DataFrame({"out": listDegrees[1], "in": listDegrees[0]})
+        degreesOut, degreesIn = compute_degrees(TN)
+        df = pd.DataFrame({"out": degreesOut, "in": degreesIn})
         px.histogram(df).show()
     else:
-        px.histogram(compute_degrees())
+        px.histogram(compute_degrees(TN)).show()
 
-def map_degrees():
+def map_degrees(TN):
     if TN.dirgraph:
-        listDegrees = compute_degrees()
-        df = pd.DataFrame({"out": listDegrees[1], "in": listDegrees[0]})
+        degreesOut, degreesIn = compute_degrees(TN)
+        df = pd.DataFrame({"out": degreesOut, "in": degreesIn})
         print("Out going edges nodes")
         map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.out_degree))
         print("In going edges")
         map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.in_degree))
     else:
-        degrees = compute_degrees()
+        degrees = compute_degrees(TN)
         map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(degrees))
-        px.histogram(degrees)
-    
-def histo_degrees():
-    if TN.dirgraph:
-        df = pd.DataFrame({"out": list(dict(TN.dirgraph.out_degree).values()), "in": list(dict(TN.dirgraph.in_degree).values())})
-        px.histogram(df).show()
-        print("Out going edges nodes")
-        map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.out_degree))
-        print("In going edges")
-        map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.in_degree))
-    else:
-        degrees = list(dict(TN.graph.degree).values())
-        map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(degrees))
-        px.histogram(degrees)
 
 
 def node_edge_rel():
