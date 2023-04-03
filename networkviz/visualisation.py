@@ -129,27 +129,29 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
 
     fig.show()
 
-def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True, edge_weigth=False, custom_node_weigth=None, custom_edge_weigth=None, node_size=0):
+def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True, edge_weigth=True, custom_node_weigth=None, custom_edge_weigth=None, node_size=0):
 
     fig = go.Figure()
 
-    if custom_node_weigth is None:
-        node_weigth_dict = TN.get_node_weight_dict()
-        list_node_weigth = list(node_weigth_dict.values())
-        list_node_weigth_scaled = [x * scale for x in list_node_weigth]
-        weight_name = TN.nodes_weight_argument
-    else:
-        list_node_weigth = list(custom_node_weigth.values())
-        list_node_weigth_scaled = [x * scale for x in list_node_weigth]
-        weight_name = "Custom weight"
+    if node_weigth:
+        if custom_node_weigth is None:
+            node_weigth_dict = TN.get_node_weight_dict()
+            list_node_weigth = list(node_weigth_dict.values())
+            list_node_weigth_scaled = [x * scale for x in list_node_weigth]
+            weight_name = TN.nodes_weight_argument
+        else:
+            list_node_weigth = list(custom_node_weigth.values())
+            list_node_weigth_scaled = [x * scale for x in list_node_weigth]
+            weight_name = "Custom weight"
 
-    if custom_edge_weigth is None:
-        edge_weigth_dict = TN.get_edge_weight_dict()
-        list_edge_weigth = list(edge_weigth_dict.values())
-        list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
-    else:
-        list_edge_weigth = list(custom_edge_weigth.values())
-        list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
+    if edge_weigth:
+        if custom_edge_weigth is None and edge_weigth:
+            edge_weigth_dict = TN.get_edge_weight_dict()
+            list_edge_weigth = list(edge_weigth_dict.values())
+            list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
+        else:
+            list_edge_weigth = list(custom_edge_weigth.values())
+            list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
 
 
     # Define the dictionary postions depdending of is the network is spatial or not
