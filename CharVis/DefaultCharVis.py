@@ -5,81 +5,96 @@ Base file for characteristics & visualisation stuff
 """
 
 from enum import Enum
-import classes.transportnetwork as TN
+import classes.transportnetwork as tn
 import networkx as nx
 import plotly.graph_objects as go
+import pandas as pd
+import plotly.express as px
+from CharVis.WeightedCharVis import *
+from preprocessing import Preprocessing as pp
+import time
 
-class GraphDefault:
+G = pp.create_network_from_trailway('../../../data/Railway Data_JL.xlsx')
+TN = tn.TransportNetwork(G, pos_argument=["lon", "lat"], time_arguments=["dep_time", "arr_time"],
+                                 nodes_weight_argument="lat", edges_weight_argument="train_max_speed")
 
-    graph: nx.Graph = None
-    dirgraph: nx.DiGraph = None
-    multigraph: nx.MultiGraph = None
-    multidigraph: nx.MultiDiGraph = None
+def compute_degrees(TN):
+    if TN.dirgraph:
+        return list(dict(TN.dirgraph.out_degree).values()), list(dict(TN.dirgraph.in_degree).values())
+    else:
+        return list(dict(TN.graph.degree).values())
 
-    def __init__(self):
-        self.isSpatial = False
-        self.isWeighted = False
-        self.isDynamic = False
+def plot_hist_degrees(TN):
+    if TN.dirgraph:
+        degreesOut, degreesIn = compute_degrees(TN)
+        df = pd.DataFrame({"out": degreesOut, "in": degreesIn})
+        px.histogram(df).show()
+    else:
+        px.histogram(compute_degrees(TN)).show()
 
+def map_degrees(TN, is_out_edges = False):
+    if TN.dirgraph:
+        degreesOut, degreesIn = compute_degrees(TN)
+        df = pd.DataFrame({"out": degreesOut, "in": degreesIn})
+        if is_out_edges:
+            map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.out_degree))
+        else:
+            map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.in_degree))
+    else:
+        degrees = compute_degrees(TN)
+        map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(degrees))
 
-    def getGraphTypeStr(self):
-        """
-        For the moment, returns a string indicating what type of graph it is.
-        FTM a placeholder, to be changed/deleted
-        """
-        return "Default"
+def node_edge_rel():
+    "Output raw data"
 
-    def node_edge_rel(self):
-        "Output raw data"
+def plot_node_edge_rel():
+    "Plot data given by above function"
 
-    def plot_node_edge_rel(self):
-        "Plot data given by above function"
+def cmpt_eccentricity():
+    "Compute eccentricity, -explanatory"
 
-    def cmpt_eccentricity(self):
-        "Compute eccentricity, self-explanatory"
+def plot_eccentricity():
+    "-explanatory"
 
-    def plot_eccentricity(self):
-        "Self-explanatory"
+def show_eccentricity():
+    "Show results of eccentricity on a map"
+def cmpt_centrality():
+    "Compute centrality"
 
-    def show_eccentricity(self):
-        "Show results of eccentricity on a map"
-    def cmpt_centrality(self):
-        "Compute centrality"
+def plot_centrality():
+    "Plot centrality"
 
-    def plot_centrality(self):
-        "Plot centrality"
+def show_centrality():
+    "Show centrality on map"
 
-    def show_centrality(self):
-        "Show centrality on map"
+def cmpt_cluster_coef():
+    ""
 
-    def cmpt_cluster_coef(self):
-        ""
+def plot_cluster_coef():
+    ""
 
-    def plot_cluster_coef(self):
-        ""
+def cmpt_deg_corr():
+    ""
 
-    def cmpt_deg_corr(self):
-        ""
+def plot_deg_corr():
+    ""
 
-    def plot_deg_corr(self):
-        ""
+def cmpt_assort():
+    ""
 
-    def cmpt_assort(self):
-        ""
+def cmpt_community_structure():
+    ""
 
-    def cmpt_community_structure(self):
-        ""
+def cmpt_deg_distribution():
+    ""
+def plot_community_structure():
+    ""
 
-    def cmpt_deg_distribution(self):
-        ""
-    def plot_community_structure(self):
-        ""
+def plot_deg_distribution():
+    ""
 
-    def plot_deg_distribution(self):
-        ""
-
-    def plot_assort(self):
-        ""
+def plot_assort():
+    ""
 
 
 ######################################## Default functions without OOP ########################################
