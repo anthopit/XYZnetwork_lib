@@ -32,18 +32,17 @@ def plot_hist_degrees(TN):
     else:
         px.histogram(compute_degrees(TN)).show()
 
-def map_degrees(TN):
+def map_degrees(TN, is_out_edges = False):
     if TN.dirgraph:
         degreesOut, degreesIn = compute_degrees(TN)
         df = pd.DataFrame({"out": degreesOut, "in": degreesIn})
-        print("Out going edges nodes")
-        map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.out_degree))
-        print("In going edges")
-        map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.in_degree))
+        if is_out_edges:
+            map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.out_degree))
+        else:
+            map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(TN.dirgraph.in_degree))
     else:
         degrees = compute_degrees(TN)
         map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(degrees))
-
 
 def node_edge_rel():
     "Output raw data"
