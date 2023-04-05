@@ -14,10 +14,6 @@ from CharVis.WeightedCharVis import *
 from preprocessing import Preprocessing as pp
 import time
 
-G = pp.create_network_from_trailway('../../../data/Railway Data_JL.xlsx')
-TN = tn.TransportNetwork(G, pos_argument=["lon", "lat"], time_arguments=["dep_time", "arr_time"],
-                                 nodes_weight_argument="lat", edges_weight_argument="train_max_speed")
-
 def compute_degrees(TN):
     if TN.dirgraph:
         return list(dict(TN.dirgraph.out_degree).values()), list(dict(TN.dirgraph.in_degree).values())
