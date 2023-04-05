@@ -10,8 +10,9 @@ import networkx as nx
 import plotly.graph_objects as go
 import pandas as pd
 import plotly.express as px
+from CharVis.WeightedCharVis import *
 from preprocessing import Preprocessing as pp
-from visualisation.visualisation import map_weighted_network
+import time
 
 def compute_degrees(TN):
     if TN.dirgraph:
@@ -38,6 +39,7 @@ def map_degrees(TN, is_out_edges = False):
     else:
         degrees = compute_degrees(TN)
         map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(degrees))
+
 def node_edge_rel():
     "Output raw data"
 
