@@ -1,6 +1,8 @@
+import numpy as np
 import networkx as nx
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
+import distinctipy as distipy
 
 def convert_minutes_to_ddhhmm(minutes):
     days = minutes // (24 * 60)
@@ -129,7 +131,20 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
 
     fig.show()
 
-def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True, edge_weigth=True, custom_node_weigth=None, custom_edge_weigth=None, node_size=0):
+def create_comm_colors(nb_colors):
+    """
+    Create a list of colors for the communities
+    :param communities: list of communities
+    :return: list of colors
+    """
+    colors = distipy.get_colors(nb_colors)
+    colors = [tuple([i * 255 for i in c]) for c in colors]
+    # convert rgb tuple to hex
+    colors = [f'#{int(c[0]):02x}{int(c[1]):02x}{int(c[2]):02x}' for c in colors]
+
+    return colors
+
+def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True, edge_weigth=True, custom_node_weigth=None, custom_edge_weigth=None, node_size=0, discrete_color=False):
 
     fig = go.Figure()
 
@@ -181,6 +196,10 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
         edge_x.extend([x0, x1, None])
         edge_y.extend([y0, y1, None])
 
+    if discrete_color:
+        comm_colors = create_comm_colors(len(set(list_node_weigth)))
+        node_colors = [comm_colors[node_weigth_dict[node]-1] for node in TN.graph.nodes()]
+
     node_x = []
     node_y = []
     txt = []
@@ -195,11 +214,11 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
     if node_weigth == True:
         maker_style_dict = dict(
                 size= list_node_weigth_scaled if not node_size else node_size,
-                color=list_node_weigth,
+                color=list_node_weigth if not discrete_color else node_colors,
                 sizemode='area',
-                cmin=min(list_node_weigth ),
-                cmax=max(list_node_weigth ),
-                colorbar_title=weight_name,
+                cmin=min(list_node_weigth ) if not discrete_color else None,
+                cmax=max(list_node_weigth ) if not discrete_color else None,
+                colorbar_title=weight_name if not discrete_color else None,
                 reversescale=False)
     else:
         maker_style_dict = dict(
