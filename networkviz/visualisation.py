@@ -27,7 +27,7 @@ def get_gradient_color(value):
     rgba = cmap(norm(value))
     return tuple(int(x * 255) for x in rgba[:3])
 
-def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
+def map_network(TN, spatial=True, generate_html=False, filename="map.html", data=False):
 
     fig = go.Figure()
 
@@ -57,11 +57,13 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
 
     node_x = []
     node_y = []
+    txt = []
     for node in TN.graph.nodes():
         x = pos[node][0]
         y = pos[node][1]
         node_x.append(x)
         node_y.append(y)
+        txt.append(f'Node: {node}')
 
 
     if TN.is_spatial == False or spatial == False:
@@ -82,8 +84,8 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
                 size=5,
                 line_width=2))
 
-        fig.update_layout(
-            showlegend=False,
+        layout = dict(
+            showlegend=True,
             hovermode='closest',
             margin=dict(b=20, l=5, r=5, t=40),
             xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
@@ -91,6 +93,7 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
             width=1200,
             height=900
         )
+
 
     elif TN.is_spatial and spatial:
         edge_trace = go.Scattergeo(
@@ -108,9 +111,12 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
                 reversescale=True,
                 color=[],
                 size=2,
-                line_width=1))
-        fig.update_layout(
-            showlegend=False,
+                line_width=1),
+            text = txt)
+
+
+        layout = dict(
+            showlegend=True,
             geo=dict(
                 projection_type='azimuthal equal area',
                 showland=True,
@@ -122,6 +128,15 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
             width=1200,
             height=900
         )
+
+    if data:
+        edge_trace.line.color = 'grey'
+        return edge_trace, node_trace, layout, pos
+
+
+    fig.update_layout(
+        layout
+    )
 
     fig.add_trace(edge_trace)
     fig.add_trace(node_trace)
@@ -267,9 +282,7 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
             height=900
        )
 
-        fig.update_layout(
-            layout
-        )
+
 
     elif TN.is_spatial and spatial:
         if edge_weigth:
@@ -312,12 +325,12 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
             height=900
         )
 
-        fig.update_layout(
-            layout
-        )
-
     if data:
         return node_trace, edge_trace, layout
+
+    fig.update_layout(
+        layout
+    )
 
     if not edge_weigth:
         fig.add_trace(edge_trace)
