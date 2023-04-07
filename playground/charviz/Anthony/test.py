@@ -11,4 +11,3 @@ TN = tn.TransportNetwork(G2)
 # TN = tn.TransportNetwork(G3)
 
 degree = map_node_degree_analysis(TN)
-print(degree)

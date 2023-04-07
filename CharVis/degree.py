@@ -145,7 +145,7 @@ def plot_distribution_degree_analysis(TN):
 
 
 
-def map_node_degree_analysis(TN):
+def map_node_degree_analysis(TN, scale=5):
 
     if TN.is_directed:
         if TN.is_multi:
@@ -153,8 +153,37 @@ def map_node_degree_analysis(TN):
         else:
             graph = TN.dirgraph
 
-        map_weighted_network(TN, custom_node_weigth=dict(graph.in_degree()), edge_weigth=False)
-        map_weighted_network(TN, custom_node_weigth=dict(graph.out_degree()), edge_weigth=False)
+
+        node_trace_1, edge_trace, layout = map_weighted_network(TN, custom_node_weigth=dict(graph.in_degree()), edge_weigth=False, scale=scale, node_weight_name="Node degree", data=True)
+        node_trace_2, edge_trace, layout  = map_weighted_network(TN, custom_node_weigth=dict(graph.out_degree()), edge_weigth=False, scale=scale, node_weight_name="Node degree", data=True)
+
+        # Set the visible attribute of trace1 to False
+        node_trace_2.visible = False
+
+        # Create the figure and add the two traces
+        fig = go.Figure(data=[edge_trace, node_trace_1, node_trace_2])
+
+        # Add a button to toggle between the two traces
+        fig.update_layout(layout,
+            updatemenus=[{
+            'type': 'buttons',
+            'showactive': True,
+            'buttons': [
+                {
+                    'label': 'in-degree',
+                    'method': 'update',
+                    'args': [{'visible': [True, True, False]}]
+                },
+                {
+                    'label': 'out-degree',
+                    'method': 'update',
+                    'args': [{'visible': [True, False, True]}]
+                }
+            ]
+        }])
+
+        # Show the figure
+        fig.show()
 
     elif not TN.is_directed:
         if TN.is_multi:
