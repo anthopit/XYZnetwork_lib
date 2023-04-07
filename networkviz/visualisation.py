@@ -25,7 +25,7 @@ def get_gradient_color(value):
     rgba = cmap(norm(value))
     return tuple(int(x * 255) for x in rgba[:3])
 
-def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
+def map_network(TN, spatial=True, generate_html=False, filename="map.html", data=False):
 
     fig = go.Figure()
 
@@ -126,6 +126,9 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
 
     if generate_html:
         fig.write_html(filename)
+
+    if data:
+        return fig
 
     fig.show()
 

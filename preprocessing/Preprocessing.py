@@ -108,6 +108,10 @@ def create_network_from_trailway(path):
                         u[2]["distance"] = v[2]["distance"]
                         break
 
+    # Remove self-loops
+    self_loops = [(u, v) for u, v in G.edges() if u == v]
+    G.remove_edges_from(self_loops)
+
     return G
 
 
@@ -148,6 +152,10 @@ def create_network_from_GTFS(path):
             st_no_comp = row["stop_sequence"] + 1
             prev_node = row["stop_id"]
             prev_mileage = 0
+
+    # Remove self-loops
+    self_loops = [(u, v) for u, v in G.edges() if u == v]
+    G.remove_edges_from(self_loops)
 
     return G
 
