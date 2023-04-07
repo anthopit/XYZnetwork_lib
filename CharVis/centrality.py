@@ -7,17 +7,7 @@ from collections import Counter
 
 def compute_centrality_analysis(TN, data=False):
 
-    if TN.is_directed:
-        if TN.is_multi:
-            graph = TN.multidigraph
-        else:
-            graph = TN.dirgraph
-
-    else:
-        if TN.is_multi:
-            graph = TN.multigraph
-        else:
-            graph = TN.graph
+    graph = TN.get_higher_complexity()
 
     if TN.is_directed:
         in_degree_centrality = nx.in_degree_centrality(graph)
@@ -71,17 +61,7 @@ def compute_centrality_analysis(TN, data=False):
 
 def plot_centrality_analysis(TN):
 
-    if TN.is_directed:
-        if TN.is_multi:
-            graph = TN.multidigraph
-        else:
-            graph = TN.dirgraph
-
-    else:
-        if TN.is_multi:
-            graph = TN.multigraph
-        else:
-            graph = TN.graph
+    graph = TN.get_higher_complexity()
 
     if TN.is_directed:
         in_degree_centrality = nx.in_degree_centrality(graph)
@@ -172,17 +152,7 @@ def plot_centrality_analysis(TN):
 
 def map_centrality_anlysis(TN, scale=5):
 
-    if TN.is_directed:
-        if TN.is_multi:
-            graph = TN.multidigraph
-        else:
-            graph = TN.dirgraph
-
-    else:
-        if TN.is_multi:
-            graph = TN.multigraph
-        else:
-            graph = TN.graph
+    graph = TN.get_higher_complexity()
 
     if TN.is_directed:
         eigenvector_centrality = nx.eigenvector_centrality(TN.dirgraph, max_iter=1000)

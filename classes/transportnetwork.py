@@ -192,6 +192,18 @@ class TransportNetwork:
             self.distance_argument = distance_argument
             self.is_distance = True
 
+    def get_higher_complexity(self):
+        if self.is_directed:
+            if self.is_multi:
+                return self.multidigraph
+            else:
+                return self.dirgraph
+
+        else:
+            if self.is_multi:
+                return self.multigraph
+            else:
+                return self.graph
 
     def get_max_lat(self):
         return max(self.pos_dict.values(), key=lambda x: x[1])[1]
