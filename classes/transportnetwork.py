@@ -19,6 +19,9 @@ class TransportNetwork:
     multigraph: nx.MultiGraph = None
     multidigraph: nx.MultiDiGraph = None
 
+    is_directed: bool = False
+    is_multi: bool = False
+
     spring_pos_dict = {}
 
     is_spatial: bool
@@ -111,10 +114,19 @@ class TransportNetwork:
             self.multigraph = self.convert_multidirgraph_to_multigraph()
             self.dirgraph = self.convert_multidigraph_to_digraph()
             self.graph = self.convert_dirgraph_to_graph()
+
+            self.is_directed = True
+            self.is_multi = True
+
         elif graph.is_directed():
             self.dirgraph = graph
+
+            self.is_directed = True
+
         elif graph.is_multigraph():
             self.multigraph = graph
+
+            self.is_multi = True
         else:
             self.graph = graph
 
