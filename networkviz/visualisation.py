@@ -183,7 +183,8 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
             list_edge_weigth = list(edge_weigth_dict.values())
             list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
         else:
-            list_edge_weigth = list(custom_edge_weigth.values())
+            edge_weigth_dict = custom_edge_weigth
+            list_edge_weigth = list(edge_weigth_dict.values())
             list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
 
 
@@ -223,7 +224,8 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
         y = pos[node][1]
         node_x.append(x)
         node_y.append(y)
-        txt.append(f'{node}: {node_weigth_dict[node]}')
+        if node_weigth:
+            txt.append(f'{node}: {node_weigth_dict[node]}')
 
 
     if node_weigth == True:
@@ -252,9 +254,11 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
                     go.Scatter(
                         x=[pos[edge[0]][0], pos[edge[1]][0]],
                         y=[pos[edge[0]][1], pos[edge[1]][1]],
+                        hoverinfo='text',
                         mode='lines',
                         line=dict(width=1, color='rgb' + str(get_gradient_color(list_edge_weigth_scaled[i] / max(list_edge_weigth_scaled)))),
                         opacity=1,
+                        text = f'{edge[0]} - {edge[1]} : {edge_weigth_dict[edge]}'
                     )
                 )
         else:
@@ -291,9 +295,11 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
                     go.Scattergeo(
                         lon=[pos[edge[0]][0], pos[edge[1]][0]],
                         lat=[pos[edge[0]][1], pos[edge[1]][1]],
+                        hoverinfo='text',
                         mode='lines',
                         line=dict(width=1, color='rgb' + str(get_gradient_color(list_edge_weigth_scaled[i] / max(list_edge_weigth_scaled)))),
                         opacity=1,
+                        text=f'Detour: oui'
                     )
                 )
         else:
