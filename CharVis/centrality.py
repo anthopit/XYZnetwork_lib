@@ -150,7 +150,7 @@ def plot_centrality_analysis(TN):
 
     fig.show()
 
-def map_centrality_anlysis(TN, scale=5):
+def map_centrality_analysis(TN, scale=5):
 
     graph = TN.get_higher_complexity()
 
