@@ -448,7 +448,6 @@ def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type=
         node_x = []
         node_y = []
         for node in nodes_to_remove:
-            print(node)
             x = pos[node][0]
             y = pos[node][1]
             node_x.append(x)
@@ -504,10 +503,53 @@ def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type=
                 opacity=0.5,
             )
 
+        # Get all the nodes wihtout any edges
+        isolated_nodes = [node for node in graph.nodes() if graph.degree(node) == 0]
+
+        if len(isolated_nodes) == 0:
+            isolated_node_trace = go.Scatter(
+                x=[], y=[],
+            )
+        else:
+            # Add the remover nodes to the node trace in red
+            # Define the node trace
+            node_x = []
+            node_y = []
+            for node in isolated_nodes:
+                x = pos[node][0]
+                y = pos[node][1]
+                node_x.append(x)
+                node_y.append(y)
+
+            if TN.is_spatial == False:
+                isolated_node_trace = go.Scatter(
+                    x=node_x, y=node_y,
+                    mode='markers',
+                    hoverinfo='text',
+                    marker=dict(
+                        sizemode='area',
+                        reversescale=True,
+                        color='#4c0191',
+                        size=5,
+                    )
+                )
+            else:
+                isolated_node_trace = go.Scattergeo(
+                    lon=node_x, lat=node_y,
+                    mode='markers',
+                    hoverinfo='text',
+                    marker=dict(
+                    sizemode='area',
+                    reversescale=True,
+                    color='#4c0191',
+                    size=5,
+                )
+            )
 
         fig.add_trace(edge_trace)
         fig.add_trace(current_node_trace)
         fig.add_trace(remove_node_trace)
+        fig.add_trace(isolated_node_trace)
 
     # Define the node trace
     node_x = []
@@ -548,7 +590,6 @@ def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type=
         node_x = []
         node_y = []
         for node in node_list:
-            print(node)
             x = pos[node][0]
             y = pos[node][1]
             node_x.append(x)
@@ -605,6 +646,7 @@ def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type=
             )
 
         fig.add_trace(edge_trace)
+        fig.add_trace(edge_trace)
         fig.add_trace(current_node_trace)
         fig.add_trace(remove_node_trace)
 
@@ -617,7 +659,7 @@ def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type=
               ],
     )
     steps.append(step)
-    for i in range(2, len(fig.data), 3):
+    for i in range(2, len(fig.data), 4):
         step = dict(
             method="update",
             args=[{"visible": [False] * len(fig.data)},
@@ -626,12 +668,13 @@ def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type=
         step["args"][0]["visible"][i] = True
         step["args"][0]["visible"][i + 1] = True
         step["args"][0]["visible"][i + 2] = True
+        step["args"][0]["visible"][i + 3] = True
+
         steps.append(step)
 
     # Create and add slider
     sliders = [dict(
-        active=10,
-        currentvalue={"prefix": "Frequency: "},
+        currentvalue={"prefix": "Percentage of disrupted node: "},
         pad={"t": 50},
         steps=steps
     )]
