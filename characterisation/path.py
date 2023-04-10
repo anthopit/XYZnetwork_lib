@@ -2,7 +2,7 @@ import networkx as nx
 from collections import Counter, OrderedDict
 import plotly.graph_objs as go
 import plotly.io as pio
-from networkviz.visualisation import *
+from visualisation.visualisation import *
 
 def compute_shortest_path_analysis(TN):
 

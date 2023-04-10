@@ -1,6 +1,6 @@
 import networkx as nx
 from geopy.distance import distance
-from networkviz.visualisation import *
+from visualisation.visualisation import *
 
 def compute_distances_analysis(TN, data=False):
 

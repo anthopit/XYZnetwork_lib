@@ -3,7 +3,7 @@ import numpy as np
 import plotly.graph_objs as go
 import plotly.io as pio
 from collections import Counter, OrderedDict
-from networkviz.visualisation import *
+from visualisation.visualisation import *
 def compute_page_rank_analysis(TN, data=False):
 
     graph = TN.get_higher_complexity()
