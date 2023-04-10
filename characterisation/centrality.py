@@ -1,7 +1,7 @@
 import networkx as nx
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
-from networkviz.visualisation import *
+from visualisation.visualisation import *
 import plotly.io as pio
 from collections import Counter
 

@@ -10,7 +10,7 @@ import networkx as nx
 import plotly.graph_objects as go
 import pandas as pd
 import plotly.express as px
-from CharVis.WeightedCharVis import *
+from characterisation.WeightedCharVis import *
 from preprocessing import Preprocessing as pp
 import time
 
