@@ -19,6 +19,9 @@ class TransportNetwork:
     multigraph: nx.MultiGraph = None
     multidigraph: nx.MultiDiGraph = None
 
+    is_directed: bool = False
+    is_multi: bool = False
+
     spring_pos_dict = {}
 
     is_spatial: bool
@@ -111,10 +114,19 @@ class TransportNetwork:
             self.multigraph = self.convert_multidirgraph_to_multigraph()
             self.dirgraph = self.convert_multidigraph_to_digraph()
             self.graph = self.convert_dirgraph_to_graph()
+
+            self.is_directed = True
+            self.is_multi = True
+
         elif graph.is_directed():
             self.dirgraph = graph
+
+            self.is_directed = True
+
         elif graph.is_multigraph():
             self.multigraph = graph
+
+            self.is_multi = True
         else:
             self.graph = graph
 
@@ -180,6 +192,18 @@ class TransportNetwork:
             self.distance_argument = distance_argument
             self.is_distance = True
 
+    def get_higher_complexity(self):
+        if self.is_directed:
+            if self.is_multi:
+                return self.multidigraph
+            else:
+                return self.dirgraph
+
+        else:
+            if self.is_multi:
+                return self.multigraph
+            else:
+                return self.graph
 
     def get_max_lat(self):
         return max(self.pos_dict.values(), key=lambda x: x[1])[1]

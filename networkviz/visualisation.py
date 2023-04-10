@@ -27,7 +27,7 @@ def get_gradient_color(value):
     rgba = cmap(norm(value))
     return tuple(int(x * 255) for x in rgba[:3])
 
-def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
+def map_network(TN, spatial=True, generate_html=False, filename="map.html", data=False):
 
     fig = go.Figure()
 
@@ -57,11 +57,13 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
 
     node_x = []
     node_y = []
+    txt = []
     for node in TN.graph.nodes():
         x = pos[node][0]
         y = pos[node][1]
         node_x.append(x)
         node_y.append(y)
+        txt.append(f'Node: {node}')
 
 
     if TN.is_spatial == False or spatial == False:
@@ -82,8 +84,8 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
                 size=5,
                 line_width=2))
 
-        fig.update_layout(
-            showlegend=False,
+        layout = dict(
+            showlegend=True,
             hovermode='closest',
             margin=dict(b=20, l=5, r=5, t=40),
             xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
@@ -91,6 +93,7 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
             width=1200,
             height=900
         )
+
 
     elif TN.is_spatial and spatial:
         edge_trace = go.Scattergeo(
@@ -108,9 +111,12 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
                 reversescale=True,
                 color=[],
                 size=2,
-                line_width=1))
-        fig.update_layout(
-            showlegend=False,
+                line_width=1),
+            text = txt)
+
+
+        layout = dict(
+            showlegend=True,
             geo=dict(
                 projection_type='azimuthal equal area',
                 showland=True,
@@ -122,6 +128,15 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html"):
             width=1200,
             height=900
         )
+
+    if data:
+        edge_trace.line.color = 'grey'
+        return edge_trace, node_trace, layout, pos
+
+
+    fig.update_layout(
+        layout
+    )
 
     fig.add_trace(edge_trace)
     fig.add_trace(node_trace)
@@ -144,7 +159,8 @@ def create_comm_colors(nb_colors):
 
     return colors
 
-def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True, edge_weigth=True, custom_node_weigth=None, custom_edge_weigth=None, node_size=0, discrete_color=False):
+
+def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True, edge_weigth=True, custom_node_weigth=None, custom_edge_weigth=None, node_size=0, discrete_color=False, data=False, node_weight_name="Custom"):
 
     fig = go.Figure()
 
@@ -160,7 +176,8 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
             list_node_weigth = list(node_weigth_dict.values())
             list_node_weigth_normalized = [(x - min(list_node_weigth)) / (max(list_node_weigth) - min(list_node_weigth)) for x in list_node_weigth]
             list_node_weigth_scaled = [x * scale * 40 for x in list_node_weigth_normalized]
-            weight_name = "Custom weight"
+            weight_name = node_weight_name
+
 
     if edge_weigth:
         if custom_edge_weigth is None and edge_weigth:
@@ -168,7 +185,8 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
             list_edge_weigth = list(edge_weigth_dict.values())
             list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
         else:
-            list_edge_weigth = list(custom_edge_weigth.values())
+            edge_weigth_dict = custom_edge_weigth
+            list_edge_weigth = list(edge_weigth_dict.values())
             list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
 
 
@@ -208,7 +226,9 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
         y = pos[node][1]
         node_x.append(x)
         node_y.append(y)
-        txt.append(f'{node}: {node_weigth_dict[node]}')
+        if node_weigth:
+            txt.append(f'{node}: {node_weigth_dict[node]}')
+
 
 
     if node_weigth == True:
@@ -237,9 +257,11 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
                     go.Scatter(
                         x=[pos[edge[0]][0], pos[edge[1]][0]],
                         y=[pos[edge[0]][1], pos[edge[1]][1]],
+                        hoverinfo='text',
                         mode='lines',
                         line=dict(width=1, color='rgb' + str(get_gradient_color(list_edge_weigth_scaled[i] / max(list_edge_weigth_scaled)))),
                         opacity=1,
+                        text = f'{edge[0]} - {edge[1]} : {edge_weigth_dict[edge]}'
                     )
                 )
         else:
@@ -258,15 +280,16 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
             text = txt
         )
 
-        fig.update_layout(
-            showlegend=False,
+        layout = dict(showlegend=False,
             hovermode='closest',
             margin=dict(b=20, l=5, r=5, t=40),
             xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
             yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
             width=1200,
             height=900
-        )
+       )
+
+
 
     elif TN.is_spatial and spatial:
         if edge_weigth:
@@ -275,9 +298,11 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
                     go.Scattergeo(
                         lon=[pos[edge[0]][0], pos[edge[1]][0]],
                         lat=[pos[edge[0]][1], pos[edge[1]][1]],
+                        hoverinfo='text',
                         mode='lines',
                         line=dict(width=1, color='rgb' + str(get_gradient_color(list_edge_weigth_scaled[i] / max(list_edge_weigth_scaled)))),
                         opacity=1,
+                        text=f'Detour: oui'
                     )
                 )
         else:
@@ -295,9 +320,9 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
             marker=maker_style_dict,
             text = txt
         )
-        fig.update_layout(
-            showlegend=False,
-            geo=dict(
+
+        layout = dict(showlegend=False,
+                geo=dict(
                 projection_type='azimuthal equal area',
                 showland=True,
                 landcolor='rgb(243, 243, 243)',
@@ -308,6 +333,13 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
             width=1200,
             height=900
         )
+
+    if data:
+        return node_trace, edge_trace, layout
+
+    fig.update_layout(
+        layout
+    )
 
     if not edge_weigth:
         fig.add_trace(edge_trace)
