@@ -159,6 +159,7 @@ def create_comm_colors(nb_colors):
 
     return colors
 
+
 def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True, edge_weigth=True, custom_node_weigth=None, custom_edge_weigth=None, node_size=0, discrete_color=False, data=False, node_weight_name="Custom"):
 
     fig = go.Figure()
@@ -176,6 +177,7 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
             list_node_weigth_normalized = [(x - min(list_node_weigth)) / (max(list_node_weigth) - min(list_node_weigth)) for x in list_node_weigth]
             list_node_weigth_scaled = [x * scale * 40 for x in list_node_weigth_normalized]
             weight_name = node_weight_name
+
 
     if edge_weigth:
         if custom_edge_weigth is None and edge_weigth:
@@ -226,6 +228,7 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
         node_y.append(y)
         if node_weigth:
             txt.append(f'{node}: {node_weigth_dict[node]}')
+
 
 
     if node_weigth == True:
