@@ -269,7 +269,180 @@ def plot_robustness_analysis(TN, node_attack=True, edge_attack=False, precision=
     fig.show()
 
 
-def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type='random', precision=0.1):
+def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type='random', precision=0.1, custome_node_list=None):
+    fig = go.Figure()
+
+    # Define the dictionary postions depdending of is the network is spatial or not
+    pos = {}
+    if not TN.is_spatial:
+        if TN.spring_pos_dict == {}:
+            print("Generating spring layout, this may take a while...")
+            TN.spring_pos_dict = nx.spring_layout(TN.graph)
+        pos = TN.spring_pos_dict
+
+    elif TN.is_spatial:
+        pos = TN.pos_dict
+
+    if custome_node_list is not None:
+        # create a copy of the graph with all the custom nodes removed
+        graph = TN.graph.copy()
+        graph.remove_nodes_from(custome_node_list)
+
+        # Add the remover nodes to the node trace in red
+        # Define the node trace
+        node_x = []
+        node_y = []
+        for node in custome_node_list:
+            x = pos[node][0]
+            y = pos[node][1]
+            node_x.append(x)
+            node_y.append(y)
+
+        if TN.is_spatial == False:
+            remove_node_trace = go.Scatter(
+                x=node_x, y=node_y,
+                mode='markers',
+                hoverinfo='text',
+                marker=dict(
+                    sizemode='area',
+                    reversescale=True,
+                    color='red',
+                    size=5,
+                )
+            )
+        else:
+            remove_node_trace = go.Scattergeo(
+                lon=node_x, lat=node_y,
+                mode='markers',
+                hoverinfo='text',
+                marker=dict(
+                    sizemode='area',
+                    reversescale=True,
+                    color='red',
+                    size=5,
+                )
+            )
+
+        for node in graph.nodes():
+            x = pos[node][0]
+            y = pos[node][1]
+            node_x.append(x)
+            node_y.append(y)
+
+        if TN.is_spatial == False:
+            node_trace = go.Scatter(
+                x=node_x, y=node_y,
+                mode='markers',
+                hoverinfo='text',
+                marker=dict(
+                    sizemode='area',
+                    reversescale=True,
+                    color='#888',
+                    size=3,
+                )
+            )
+        else:
+            node_trace = go.Scattergeo(
+                lon=node_x, lat=node_y,
+                mode='markers',
+                hoverinfo='text',
+                marker=dict(
+                    sizemode='area',
+                    reversescale=True,
+                    color='#888',
+                    size=3,
+                )
+            )
+
+        lat = []
+        lon = []
+        for edge in graph.edges():
+            x0 = pos[edge[0]][0]
+            y0 = pos[edge[0]][1]
+            x1 = pos[edge[1]][0]
+            y1 = pos[edge[1]][1]
+            lon.extend([x0, x1, None])
+            lat.extend([y0, y1, None])
+
+        if TN.is_spatial == False:
+            edge_trace = go.Scatter(
+                x=lon, y=lat,
+                mode='lines',
+                line=dict(width=1, color='#888'),
+                opacity=0.5,
+            )
+        else:
+            edge_trace = go.Scattergeo(
+                lon=lon, lat=lat,
+                mode='lines',
+                line=dict(width=1, color='#888'),
+                opacity=0.5,
+            )
+
+        # Get all the nodes wihtout any edges
+        isolated_nodes = [node for node in graph.nodes() if graph.degree(node) == 0]
+
+
+        # Add the remover nodes to the node trace in red
+        # Define the node trace
+        node_x = []
+        node_y = []
+        for node in isolated_nodes:
+            x = pos[node][0]
+            y = pos[node][1]
+            node_x.append(x)
+            node_y.append(y)
+
+        if TN.is_spatial == False:
+            isolated_node_trace = go.Scatter(
+                x=node_x, y=node_y,
+                mode='markers',
+                hoverinfo='text',
+                marker=dict(
+                    sizemode='area',
+                    reversescale=True,
+                    color='#4c0191',
+                    size=5,
+                )
+            )
+        else:
+            isolated_node_trace = go.Scattergeo(
+                lon=node_x, lat=node_y,
+                mode='markers',
+                hoverinfo='text',
+                marker=dict(
+                    sizemode='area',
+                    reversescale=True,
+                    color='#4c0191',
+                    size=5,
+                )
+            )
+
+        fig.add_trace(edge_trace)
+        fig.add_trace(node_trace)
+        fig.add_trace(remove_node_trace)
+        fig.add_trace(isolated_node_trace)
+
+        # Define layout of the map
+        fig.update_layout(
+            showlegend=False,
+            geo=dict(
+                projection_type='azimuthal equal area',
+                showland=True,
+                landcolor='rgb(243, 243, 243)',
+                countrycolor='rgb(204, 204, 204)',
+                lataxis=dict(range=[TN.get_min_lat() - 1, TN.get_max_lat() + 1]),  # set the latitude range to [40, 60]
+                lonaxis=dict(range=[TN.get_min_lon() - 1, TN.get_max_lon() + 1]),
+                # set the longitude range to [-10, 20]
+            ),
+            width=1200,
+            height=900,
+        )
+
+        fig.show()
+
+        return 0
+
 
     mask_attack = ['random', 'degree', 'closeness', 'betweenness', 'eigenvector']
     compare_arrays(mask_attack, [attack_type], 'This type of attack is not supported')
@@ -303,19 +476,6 @@ def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type=
         eigenvector_centralities = nx.eigenvector_centrality(TN.graph, max_iter=1000)
         node_list = sorted(eigenvector_centralities.items(), key=lambda x: x[1], reverse=True)
         node_list = [node[0] for node in node_list]
-
-    fig = go.Figure()
-
-    # Define the dictionary postions depdending of is the network is spatial or not
-    pos = {}
-    if not TN.is_spatial:
-        if TN.spring_pos_dict == {}:
-            print("Generating spring layout, this may take a while...")
-            TN.spring_pos_dict = nx.spring_layout(TN.graph)
-        pos = TN.spring_pos_dict
-
-    elif TN.is_spatial:
-        pos = TN.pos_dict
 
     # Define the node trace
     node_x = []
@@ -683,20 +843,33 @@ def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type=
         sliders=sliders
     )
 
+    if TN.is_spatial == False:
+        layout = dict(showlegend=False,
+                      hovermode='closest',
+                      margin=dict(b=20, l=5, r=5, t=40),
+                      xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                      yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                      width=1200,
+                      height=900
+                      )
+    else:
+        layout = dict(showlegend=False,
+            geo=dict(
+                projection_type='azimuthal equal area',
+                showland=True,
+                landcolor='rgb(243, 243, 243)',
+                countrycolor='rgb(204, 204, 204)',
+                lataxis=dict(range=[TN.get_min_lat() - 1, TN.get_max_lat() + 1]),  # set the latitude range to [40, 60]
+                lonaxis=dict(range=[TN.get_min_lon() - 1, TN.get_max_lon() + 1]),
+                # set the longitude range to [-10, 20]
+            ),
+            width=1200,
+            height=900,
+        )
+
     # Define layout of the map
     fig.update_layout(
-        showlegend=False,
-        geo=dict(
-            projection_type='azimuthal equal area',
-            showland=True,
-            landcolor='rgb(243, 243, 243)',
-            countrycolor='rgb(204, 204, 204)',
-            lataxis=dict(range=[TN.get_min_lat() - 1, TN.get_max_lat() + 1]),  # set the latitude range to [40, 60]
-            lonaxis=dict(range=[TN.get_min_lon() - 1, TN.get_max_lon() + 1]),
-            # set the longitude range to [-10, 20]
-        ),
-        width=1200,
-        height=900,
+        layout
     )
 
     fig.show()
