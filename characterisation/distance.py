@@ -7,6 +7,11 @@ def compute_distances_analysis(TN, data=False):
     if not TN.is_distance:
         raise Exception("The network does not have a distance attribute")
 
+    if data:
+        graph = TN.get_higher_complexity()
+    else:
+        graph = TN.graph
+
     # Compute the distance total sum and the average distance
 
     cost = 0
@@ -14,19 +19,19 @@ def compute_distances_analysis(TN, data=False):
     euclidian_distances = {}
     real_distances = {}
     detour = {}
-    for edge in TN.graph.edges():
+    for edge in list(graph.edges):
         # Compute de cost
-        cost += TN.graph.edges[edge][TN.distance_argument]
+        cost += graph.edges[edge][TN.distance_argument]
 
 
         # Compute the euclidian distance
-        lat1, lon1 = TN.graph.nodes[edge[0]][TN.pos_argument[1]], TN.graph.nodes[edge[0]][TN.pos_argument[0]]
-        lat2, lon2 = TN.graph.nodes[edge[1]][TN.pos_argument[1]], TN.graph.nodes[edge[1]][TN.pos_argument[0]]
+        lat1, lon1 = graph.nodes[edge[0]][TN.pos_argument[1]], graph.nodes[edge[0]][TN.pos_argument[0]]
+        lat2, lon2 = graph.nodes[edge[1]][TN.pos_argument[1]], graph.nodes[edge[1]][TN.pos_argument[0]]
 
         euclidian_distances[edge] = distance((lat1, lon1), (lat2, lon2)).km
 
         # Compute the real distance
-        real_distances[edge] = TN.graph.edges[edge][TN.distance_argument]
+        real_distances[edge] = graph.edges[edge][TN.distance_argument]
 
         if real_distances[edge] == 0:
             pass
@@ -43,7 +48,7 @@ def compute_distances_analysis(TN, data=False):
         return euclidian_distances, real_distances, detour
 
     # Compute the average distance
-    average_distance = cost / len(TN.graph.edges())
+    average_distance = cost / len(graph.edges())
 
     average_detour = sum(detour.values()) / len(detour)
 
@@ -64,11 +69,11 @@ def compute_distances_analysis(TN, data=False):
 
 
 
-    for edge in TN.graph.edges():
-        if TN.graph.edges[edge][TN.distance_argument] < 0:
-            TN.graph.edges[edge][TN.distance_argument] = 0
+    for edge in graph.edges():
+        if graph.edges[edge][TN.distance_argument] < 0:
+            graph.edges[edge][TN.distance_argument] = 0
 
-    diameter = nx.diameter(TN.graph, weight=TN.distance_argument)
+    diameter = nx.diameter(graph, weight=TN.distance_argument)
 
     pi_index = cost / diameter
 
