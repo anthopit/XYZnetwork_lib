@@ -2,7 +2,8 @@ import numpy as np
 import networkx as nx
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
-import distinctipy as distipy
+from sklearn.manifold import TSNE
+from visualisation.utils import *
 
 def convert_minutes_to_ddhhmm(minutes):
     days = minutes // (24 * 60)
@@ -145,19 +146,6 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html", data
         fig.write_html(filename)
 
     fig.show()
-
-def create_comm_colors(nb_colors):
-    """
-    Create a list of colors for the communities
-    :param communities: list of communities
-    :return: list of colors
-    """
-    colors = distipy.get_colors(nb_colors)
-    colors = [tuple([i * 255 for i in c]) for c in colors]
-    # convert rgb tuple to hex
-    colors = [f'#{int(c[0]):02x}{int(c[1]):02x}{int(c[2]):02x}' for c in colors]
-
-    return colors
 
 
 def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True, edge_weigth=True, custom_node_weigth=None, custom_edge_weigth=None, node_size=0, discrete_color=False, data=False, node_weight_name="Custom"):
@@ -509,3 +497,41 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
     fig.show()
 
     # #TODO : add ineractuive etiquette
+
+
+
+
+def plot_tsne_embedding(emb_df, node_cluster=None):
+
+    if node_cluster is not None:
+        comm_colors = create_comm_colors(len(set(node_cluster.values())))
+        node_colors = [comm_colors[node_cluster[node] - 1] for node in node_cluster.keys()]
+
+
+    tsne = TSNE(n_components=2)
+    tsne_result = tsne.fit_transform(emb_df.values)
+
+    # Create a Plotly scatter plot
+    scatter_plot = go.Scatter(
+        x=tsne_result[:,0],  # X values
+        y=tsne_result[:,1],  # Y values
+        mode='markers',  # Set the mode to markers to create a scatter plot
+        marker=dict(
+            size=5,  # Set the size of the markers
+            opacity=0.8,  # Set the opacity of the markers
+            color = node_colors if node_cluster is not None else 'blue'
+        )
+    )
+
+    # Set the title of the plot
+    layout = go.Layout(
+        title='Node2vec Embeddings Scatter Plot',
+        width=1200,
+        height=900,
+    )
+
+    # Create a Plotly figure with the scatter plot and the layout
+    fig = go.Figure(data=[scatter_plot], layout=layout)
+
+    # Show the Plotly figure in a browser
+    fig.show()
