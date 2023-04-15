@@ -39,7 +39,6 @@ def map_degrees(TN, is_out_edges = False):
     else:
         degrees = compute_degrees(TN)
         map_weighted_network(TN, spatial=True, scale=17, custom_node_weigth=dict(degrees))
-
 def node_edge_rel():
     "Output raw data"
 
