@@ -509,7 +509,11 @@ def plot_tsne_embedding(emb_df, node_cluster=None):
 
 
     tsne = TSNE(n_components=2)
-    tsne_result = tsne.fit_transform(emb_df.values)
+
+    if isinstance(emb_df, dict):
+        tsne_result = tsne.fit_transform(emb_df.values)
+    else:
+        tsne_result = tsne.fit_transform(emb_df)
 
     # Create a Plotly scatter plot
     scatter_plot = go.Scatter(
