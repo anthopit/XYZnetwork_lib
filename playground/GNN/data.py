@@ -1,4 +1,5 @@
 from torch_geometric.utils import from_networkx
+from torch_geometric.utils import negative_sampling
 from utils import *
 import numpy as np
 def create_data_from_transport_network(TN,
@@ -36,3 +37,34 @@ def create_data_from_transport_network(TN,
     data.val_mask = val_mask
 
     return data
+
+# Prepare the dataset for link prediction
+def create_link_prediction_data(data, train_ratio=0.8):
+    num_nodes = data.num_nodes
+    num_edges = data.num_edges
+
+    # Create positive examples
+    edge_index = data.edge_index
+    pos_examples = edge_index.t().cpu().numpy()
+
+    # Create negative examples
+    neg_examples = negative_sampling(edge_index, num_nodes=num_nodes, num_neg_samples=num_edges).t().cpu().numpy()
+
+    # Combine positive and negative examples
+    all_examples = np.vstack([pos_examples, neg_examples])
+    labels = np.hstack([np.ones(len(pos_examples)), np.zeros(len(neg_examples))])
+
+    # Shuffle and split the dataset
+    indices = np.random.permutation(len(all_examples))
+    train_size = int(train_ratio * len(indices))
+
+    train_indices = indices[:train_size]
+    test_indices = indices[train_size:]
+
+    train_examples = all_examples[train_indices]
+    train_labels = labels[train_indices]
+
+    test_examples = all_examples[test_indices]
+    test_labels = labels[test_indices]
+
+    return train_examples, train_labels, test_examples, test_labels

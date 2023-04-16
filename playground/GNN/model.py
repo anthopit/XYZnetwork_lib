@@ -3,6 +3,46 @@ from torch_geometric.nn import GCNConv, SAGEConv, GATConv, GINConv, GINConv
 from torch.nn import Sequential, Linear, ReLU
 import torch
 
+class GCNLinkPrediction(torch.nn.Module):
+    def __init__(self, model, grad=True):
+        super(GCNLinkPrediction, self).__init__()
+
+        # Use the GNN model
+        self.model = model
+        self.grad = grad
+
+        # Set requires_grad to True for pretrained layers
+        for param in self.model.parameters():
+            param.requires_grad = grad
+
+        if isinstance(model, SSL_GNN):
+            gnn_model = model.gnn
+        else:
+            gnn_model = model
+
+        if gnn_model.output_layer is not None:
+            out_features = gnn_model.output_layer.out_channels
+        else:
+            out_features = gnn_model.hidden_layers[-1].out_channels
+
+        # Add a bilinear layer for link prediction
+        self.link_pred_layer = torch.nn.Bilinear(gnn_model.fc[-1].out_features, gnn_model.fc[-1].out_features, 1)
+
+    def forward(self, x, edge_index):
+        # Get node embeddings from the GNN model
+        if isinstance(self.model, SSL_GNN):
+            node_embeddings = self.model.gnn(x, edge_index)
+        else:
+            node_embeddings = self.model(x, edge_index)
+
+        return node_embeddings
+
+    def predict_link(self, node_embeddings, edge_list):
+        edge_embeddings1 = node_embeddings[edge_list[0]]
+        edge_embeddings2 = node_embeddings[edge_list[1]]
+        scores = self.link_pred_layer(edge_embeddings1, edge_embeddings2)
+        return scores
+
 class SSL_GNN(torch.nn.Module):
     def __init__(self, feat_dim, num_layers, hidden_dim, embed_dim, model='gcn'):
         super(SSL_GNN, self).__init__()

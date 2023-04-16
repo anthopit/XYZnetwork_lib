@@ -8,24 +8,26 @@ from characterisation.page_rank import *
 from networkx import NetworkXNoPath
 from tqdm import tqdm
 import multiprocessing as mp
+import torch.optim as optim
+from sklearn.metrics import roc_auc_score
 
 
 # Load data
-# G = pp.create_network_from_trailway("../../data/Railway Data_JL.xlsx")
-# TN = tn.TransportNetwork(G, pos_argument=['lon', 'lat'], time_arguments=['dep_time', 'arr_time'], distance_argument='distance')
+G = pp.create_network_from_trailway("../../data/Railway Data_JL.xlsx")
+TN = tn.TransportNetwork(G, pos_argument=['lon', 'lat'], time_arguments=['dep_time', 'arr_time'], distance_argument='distance')
 
-G = pp.create_network_from_GTFS("../../data/gtfs")
-TN = tn.TransportNetwork(G, pos_argument=['lon', 'lat'], time_arguments=['dep_time', 'arr_time'])
+# G = pp.create_network_from_GTFS("../../data/gtfs")
+# TN = tn.TransportNetwork(G, pos_argument=['lon', 'lat'], time_arguments=['dep_time', 'arr_time'])
 
 args = {
-    "node_features" : ["distance"], # choices are ["degree_one_hot", "one_hot", "constant", "pagerank", "degree", "betweenness", "closeness", "eigenvector", "clustering", "degree", "betweenness", "closeness", "eigenvector", "clustering", "position", "distance"]
+    "node_features" : ["degree_one_hot"], # choices are ["degree_one_hot", "one_hot", "constant", "pagerank", "degree", "betweenness", "closeness", "eigenvector", "clustering", "degree", "betweenness", "closeness", "eigenvector", "clustering", "position", "distance"]
     "node_attrs" : None,
     "edge_attrs" : None, # choices are ["distance", "dep_time", "arr_time"]
     "train_ratio" : 0.8,
     "val_ratio" : 0.1,
 
     "device" : torch.device("cuda" if torch.cuda.is_available() else "cpu"),
-    "model" : "gat", # choices are ["gcn", "gin", "gat", "sage"]
+    "model" : "gcn", # choices are ["gcn", "gin", "gat", "sage"]
     "layers" : 2,
     "hidden_channels" : 128,
     "dim_embedding" : 64,
@@ -33,7 +35,7 @@ args = {
 
 
     "lr" : 0.001,
-    "epochs" : 100,
+    "epochs" : 20,
     "num_workers" : 4,
 
 
@@ -57,22 +59,114 @@ args = AttributeDict(args)
 #Create data
 data = create_data_from_transport_network(TN, node_features=args.node_features, edge_attrs=args.edge_attrs, train_ratio=args.train_ratio, val_ratio=args.val_ratio, num_workers=args.num_workers)
 
-# print(data.x.shape)
-# print(data.x)
-# model = SSL_GNN(data.num_node_features, args.layers, args.hidden_channels, args.dim_embedding,  model=args.model).to(args.device)
-#
-# print(model)
-#
-# # Move data to device
-# data = data.to(args.device)
-#
-# # Create the optimizer
-# optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
-#
-# # Train model
-#
-# train_self_supervised(data, model, optimizer, args)
-#
+
+ssl_model = SSL_GNN(data.num_node_features, args.layers, args.hidden_channels, args.dim_embedding,  model=args.model).to(args.device)
+
+print(ssl_model)
+
+# Move data to device
+data = data.to(args.device)
+
+# Create the optimizer
+optimizer = torch.optim.Adam(ssl_model.parameters(), lr=args.lr)
+
+# Train model
+
+train_self_supervised(data, ssl_model, optimizer, args)
+
+
+# Create the link prediction model
+link_pred_model = GCNLinkPrediction(ssl_model).to(args.device)
+
+# Prepare the dataset
+train_examples, train_labels, test_examples, test_labels = create_link_prediction_data(data)
+
+# Set up the optimizer and loss function
+optimizer = optim.Adam(link_pred_model.parameters(), lr=0.01)
+criterion = torch.nn.BCEWithLogitsLoss()
+
+roc_aic_scores_pretrain = []
+roc_aic_scores = []
+
+num_epochs = 100
+for epoch in range(num_epochs):
+    link_pred_model.train()
+
+    optimizer.zero_grad()
+
+    node_embeddings = link_pred_model(data.x.to(args.device), data.edge_index.to(args.device))
+    train_scores = link_pred_model.predict_link(node_embeddings, torch.tensor(train_examples, dtype=torch.long).t().to(args.device)).squeeze()
+
+    loss = criterion(train_scores, torch.tensor(train_labels, dtype=torch.float).to(args.device))
+
+    loss.backward()
+    optimizer.step()
+
+    # Evaluate the model on the test set
+    link_pred_model.eval()
+    with torch.no_grad():
+        test_scores = link_pred_model.predict_link(node_embeddings,
+                                                   torch.tensor(test_examples, dtype=torch.long).t().to(
+                                                       args.device)).squeeze()
+        test_labels_tensor = torch.tensor(test_labels, dtype=torch.float).to(args.device)
+        test_loss = criterion(test_scores, test_labels_tensor)
+
+        # Calculate the ROC AUC score
+        test_scores_cpu = test_scores.cpu().detach().numpy()
+        test_labels_cpu = test_labels_tensor.cpu().detach().numpy()
+        roc_auc = roc_auc_score(test_labels_cpu, test_scores_cpu)
+
+        print(f"Epoch {epoch}/{num_epochs}, Loss: {loss.item()}, Test Loss: {test_loss.item()}, ROC AUC: {roc_auc}")
+        roc_aic_scores_pretrain.append(roc_auc)
+
+
+# Set up the optimizer and loss function
+optimizer = optim.Adam(link_pred_model.parameters(), lr=0.01)
+criterion = torch.nn.BCEWithLogitsLoss()
+
+num_epochs = 100
+
+
+model2 = SSL_GNN(data.num_node_features, args.layers, args.hidden_channels, args.dim_embedding,  model=args.model).to(args.device)
+
+# Create another model without pretraining
+link_pred_model_no_pretrain = GCNLinkPrediction(model2).to(args.device)
+
+# Set up the optimizer and loss function for the model without pretraining
+optimizer_no_pretrain = optim.Adam(link_pred_model_no_pretrain.parameters(), lr=0.01)
+
+# Train the model without pretraining
+num_epochs = 100
+for epoch in range(num_epochs):
+    link_pred_model_no_pretrain.train()
+
+    optimizer_no_pretrain.zero_grad()
+
+    node_embeddings_no_pretrain = link_pred_model_no_pretrain(data.x.to(args.device), data.edge_index.to(args.device))
+    train_scores_no_pretrain = link_pred_model_no_pretrain.predict_link(node_embeddings_no_pretrain, torch.tensor(train_examples, dtype=torch.long).t().to(args.device)).squeeze()
+
+    loss_no_pretrain = criterion(train_scores_no_pretrain, torch.tensor(train_labels, dtype=torch.float).to(args.device))
+    loss_no_pretrain.backward()
+    optimizer_no_pretrain.step()
+
+
+    # Evaluate the model without pretraining
+    link_pred_model_no_pretrain.eval()
+    with torch.no_grad():
+        test_scores_no_pretrain = link_pred_model_no_pretrain.predict_link(node_embeddings_no_pretrain, torch.tensor(test_examples, dtype=torch.long).t().to(args.device)).squeeze()
+        test_roc_auc_no_pretrain = roc_auc_score(test_labels, test_scores_no_pretrain.cpu().numpy())
+
+        print(f"Epoch: {epoch + 1}, Loss (No Pretrain): {loss_no_pretrain.item()}, Test ROC-AUC (No Pretrain): {test_roc_auc_no_pretrain}")
+        roc_aic_scores.append(test_roc_auc_no_pretrain)
+
+# Plot the ROC AUC scores
+plt.plot(roc_aic_scores_pretrain, label="Pretrained")
+plt.plot(roc_aic_scores, label="Not Pretrained")
+plt.legend()
+plt.show()
+
+
+
 # emb = get_graph_embedding(data, model)
 #
 # print(emb.shape)
