@@ -50,6 +50,13 @@ class GCN(torch.nn.Module):
         else:
             self.fc = torch.nn.Linear(hidden_dim, embed_dim)
 
+        # Xavier uniform initialization for linear layers
+        for m in self.modules():
+            if isinstance(m, Linear):
+                torch.nn.init.xavier_uniform_(m.weight)
+                if m.bias is not None:
+                    torch.nn.init.zeros_(m.bias)
+
     def forward(self, x, edge_index):
         x = F.relu(self.input_layer(x, edge_index))
         x = F.dropout(x, p=0.5, training=self.training)
@@ -89,6 +96,13 @@ class GraphSAGE(torch.nn.Module):
         else:
             self.fc = torch.nn.Linear(hidden_dim, embed_dim)
 
+        # Xavier uniform initialization for linear layers
+        for m in self.modules():
+            if isinstance(m, Linear):
+                torch.nn.init.xavier_uniform_(m.weight)
+                if m.bias is not None:
+                    torch.nn.init.zeros_(m.bias)
+
     def forward(self, x, edge_index):
         x = F.relu(self.input_layer(x, edge_index))
         x = F.dropout(x, p=0.5, training=self.training)
@@ -127,6 +141,13 @@ class GAT(torch.nn.Module):
             self.fc = Sequential(Linear(embed_dim, hidden_dim), ReLU(), Linear(hidden_dim, embed_dim))
         else:
             self.fc = torch.nn.Linear(hidden_dim, embed_dim)
+
+        # Xavier uniform initialization for linear layers
+        for m in self.modules():
+            if isinstance(m, Linear):
+                torch.nn.init.xavier_uniform_(m.weight)
+                if m.bias is not None:
+                    torch.nn.init.zeros_(m.bias)
 
     def forward(self, x, edge_index):
         x = F.relu(self.input_layer(x, edge_index))
@@ -178,6 +199,13 @@ class GIN(torch.nn.Module):
             self.fc = Sequential(Linear(embed_dim, hidden_dim), ReLU(), Linear(hidden_dim, embed_dim))
         else:
             self.fc = torch.nn.Linear(hidden_dim, embed_dim)
+
+        # Xavier uniform initialization for linear layers
+        for m in self.modules():
+            if isinstance(m, Linear):
+                torch.nn.init.xavier_uniform_(m.weight)
+                if m.bias is not None:
+                    torch.nn.init.zeros_(m.bias)
 
     def forward(self, x, edge_index):
         x = F.relu(self.input_layer(x, edge_index))

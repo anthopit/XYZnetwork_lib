@@ -43,6 +43,8 @@ def train_self_supervised(data, model, optimizer, args):
             best_loss = val_loss.item()
             torch.save(model.state_dict(), args.save)
 
+    print(f'Best Val Loss: {best_loss}')
+
 
 def get_graph_embedding(data, model):
     model.eval()
