@@ -20,14 +20,14 @@ TN = tn.TransportNetwork(G, pos_argument=['lon', 'lat'], time_arguments=['dep_ti
 # TN = tn.TransportNetwork(G, pos_argument=['lon', 'lat'], time_arguments=['dep_time', 'arr_time'])
 
 args = {
-    "node_features" : ["degree_one_hot"], # choices are ["degree_one_hot", "one_hot", "constant", "pagerank", "degree", "betweenness", "closeness", "eigenvector", "clustering", "degree", "betweenness", "closeness", "eigenvector", "clustering", "position", "distance"]
+    "node_features" : ["one_hot"], # choices are ["degree_one_hot", "one_hot", "constant", "pagerank", "degree", "betweenness", "closeness", "eigenvector", "clustering", "degree", "betweenness", "closeness", "eigenvector", "clustering", "position", "distance"]
     "node_attrs" : None,
     "edge_attrs" : None, # choices are ["distance", "dep_time", "arr_time"]
     "train_ratio" : 0.8,
     "val_ratio" : 0.1,
 
     "device" : torch.device("cuda" if torch.cuda.is_available() else "cpu"),
-    "model" : "gcn", # choices are ["gcn", "gin", "gat", "sage"]
+    "model" : "gat", # choices are ["gcn", "gin", "gat", "sage"]
     "layers" : 2,
     "hidden_channels" : 128,
     "dim_embedding" : 64,
@@ -126,11 +126,15 @@ criterion = torch.nn.BCEWithLogitsLoss()
 
 num_epochs = 100
 
+data2 = create_data_from_transport_network(TN, node_features=args.node_features, edge_attrs=args.edge_attrs, train_ratio=args.train_ratio, val_ratio=args.val_ratio, num_workers=args.num_workers)
 
-model2 = SSL_GNN(data.num_node_features, args.layers, args.hidden_channels, args.dim_embedding,  model=args.model).to(args.device)
+model2 = SSL_GNN(data2.num_node_features, args.layers, args.hidden_channels, args.dim_embedding,  model=args.model).to(args.device)
 
 # Create another model without pretraining
 link_pred_model_no_pretrain = GCNLinkPrediction(model2).to(args.device)
+
+# Move data to device
+data2 = data.to(args.device)
 
 # Set up the optimizer and loss function for the model without pretraining
 optimizer_no_pretrain = optim.Adam(link_pred_model_no_pretrain.parameters(), lr=0.01)
