@@ -8,6 +8,7 @@ from enum import Enum
 from typing import List, Tuple
 import networkx as nx
 from itertools import chain
+from geopy.distance import distance
 import warnings
 
 __all__ = ["TransportNetwork"]
@@ -65,8 +66,6 @@ class TransportNetwork:
 
             return DG
 
-
-
     def convert_dirgraph_to_graph(self):
         """
         Convert a directed graph to an undirected graph
@@ -79,8 +78,27 @@ class TransportNetwork:
 
             return G
 
+    def updata_graph(self, graph):
+        if graph.is_directed() and graph.is_multigraph():
+            self.multidigraph = graph
+            self.multigraph = self.convert_multidirgraph_to_multigraph()
+            self.dirgraph = self.convert_multidigraph_to_digraph()
+            self.graph = self.convert_dirgraph_to_graph()
 
+            self.is_directed = True
+            self.is_multi = True
 
+        elif graph.is_directed():
+            self.dirgraph = graph
+
+            self.is_directed = True
+
+        elif graph.is_multigraph():
+            self.multigraph = graph
+
+            self.is_multi = True
+        else:
+            self.graph = graph
 
 
     def __init__(self, graph,
@@ -147,6 +165,21 @@ class TransportNetwork:
                 self.pos_dict = nx.get_node_attributes(self.multidigraph, self.pos_argument)
                 if len(self.pos_dict) == 0:
                     raise NameError(f"The nodes does not have a '{self.pos_argument}' attribute")
+
+            # Add the euclidian distance for each edges as an attribute
+            graph_temp = self.get_higher_complexity()
+            for edge in list(graph_temp .edges):
+
+                # Compute the euclidian distance
+                lat1, lon1 = graph.nodes[edge[0]][self.pos_argument[1]], graph.nodes[edge[0]][self.pos_argument[0]]
+                lat2, lon2 = graph.nodes[edge[1]][self.pos_argument[1]], graph.nodes[edge[1]][self.pos_argument[0]]
+
+                euclidian_distances = distance((lat1, lon1), (lat2, lon2)).km
+
+                # Add the euclidian distance as an attribute
+                graph_temp.edges[edge]['euclidian_distance'] = euclidian_distances
+
+            self.updata_graph(graph_temp)
 
             self.is_spatial = True
 
