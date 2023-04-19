@@ -10,9 +10,8 @@ import networkx as nx
 import plotly.graph_objects as go
 import pandas as pd
 import plotly.express as px
-from CharVis.WeightedCharVis import *
 from preprocessing import Preprocessing as pp
-import time
+from visualisation.visualisation import map_weighted_network
 
 def compute_degrees(TN):
     if TN.dirgraph:
