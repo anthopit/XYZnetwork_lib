@@ -21,8 +21,8 @@ def get_max_deg(data):
         max_deg = int(deg)
     return max_deg
 
-def cat_node_feature(data, TN, cat=True, feature='degree_one_hot', num_workers=1):
-
+def cat_node_feature(data, graph, TN, cat=True, feature='degree_one_hot', num_workers=1):
+    G = graph
     if feature == 'degree_one_hot':
         # Compute the degree of each node
         # and one-hot encode it
@@ -38,22 +38,18 @@ def cat_node_feature(data, TN, cat=True, feature='degree_one_hot', num_workers=1
     elif feature == "constant":
         f = torch.ones(data.num_nodes, 1)
     elif feature == "pagerank":
-        G = TN.get_higher_complexity()
         pagerank = nx.pagerank(G)
         pagerank_features = [pagerank[node] for node in G.nodes()]
         f = torch.tensor(pagerank_features).view(-1, 1).float()
     elif feature == "degree":
-        G = TN.get_higher_complexity()
         degree_c = nx.degree_centrality(G)
         degree_features = [degree_c[node] for node in G.nodes()]
         f = torch.tensor(degree_features).view(-1, 1).float()
     elif feature == "betweenness":
-        G = TN.get_higher_complexity()
         centrality = nx.betweenness_centrality(G)
         centrality_features = [centrality[node] for node in G.nodes()]
         f = torch.tensor(centrality_features).view(-1, 1).float()
     elif feature == "closeness":
-        G = TN.get_higher_complexity()
         centrality = nx.closeness_centrality(G)
         centrality_features = [centrality[node] for node in G.nodes()]
         f = torch.tensor(centrality_features).view(-1, 1).float()
@@ -68,17 +64,28 @@ def cat_node_feature(data, TN, cat=True, feature='degree_one_hot', num_workers=1
         clustering_coefficient_features = [clustering_coefficient[node] for node in G.nodes()]
         f = torch.tensor(clustering_coefficient_features).view(-1, 1).float()
     elif feature == "position":
-        print(num_workers)
-        anchor_sets = generate_anchor_sets_networkx(TN.get_higher_complexity(), c=0.5)
-        shortest_paths = compute_shortest_paths_parallel(TN.get_higher_complexity(), anchor_sets, num_workers)
-        shortest_paths_list = [shortest_paths[node] for node in TN.graph.nodes]
+        anchor_sets = generate_anchor_sets_networkx(G, c=0.5)
+        shortest_paths = compute_shortest_paths_parallel(G, anchor_sets, num_workers)
+        shortest_paths_list = [shortest_paths[node] for node in G.nodes]
         f = torch.tensor(shortest_paths_list, dtype=torch.float)
-    # elif feature == "distance":
-    #     if TN.is_distance:
-    #
-    #     elif TN.is_spatial:
-    #     else:
-    #         raise ValueError
+    elif feature == "distance":
+        # if TN.is_distance:
+        #     # Put all the attributes "distance" from the graph with a distance equal to 0 or less than 0 to 50
+        #     # (the maximum distance in the graph)
+        #     for edge in G.edges:
+        #         if G.edges[edge]["distance"] <= 0:
+        #             G.edges[edge]["distance"] = 50
+        #     anchor_sets = generate_anchor_sets_networkx(G, c=0.5)
+        #     shortest_paths = compute_shortest_paths_parallel(G, anchor_sets, num_workers, weight='euclidian_distance')
+        #     shortest_paths_list = [shortest_paths[node] for node in G.nodes]
+        #     f = torch.tensor(shortest_paths_list, dtype=torch.float)
+        if TN.is_spatial:
+            anchor_sets = generate_anchor_sets_networkx(G, c=1)
+            shortest_paths = compute_shortest_paths_parallel(G, anchor_sets, num_workers, weight='euclidian_distance')
+            shortest_paths_list = [shortest_paths[node] for node in G.nodes]
+            f = torch.tensor(shortest_paths_list, dtype=torch.float)
+        else:
+            raise ValueError
     else:
         raise NotImplementedError
 
@@ -162,26 +169,29 @@ def generate_anchor_sets_networkx(graph, c=0.5):
     return anchorset_list
 
 def shortest_paths_worker(args):
-    G, node, anchor_sets, output_dict = args
+    G, node, anchor_sets, output_dict, weight = args
     shortest_paths = []
     for anchor_set in anchor_sets:
         anchor_set_shortest_paths = []
         for anchor in anchor_set:
             try:
-                path_length = nx.shortest_path_length(G, source=node, target=anchor)
+                if weight is not None:
+                    path_length = nx.shortest_path_length(G, source=node, target=anchor, weight=weight)
+                else:
+                    path_length = nx.shortest_path_length(G, source=node, target=anchor)
             except NetworkXNoPath:
                 path_length = 100
             anchor_set_shortest_paths.append(path_length)
         shortest_paths.append(min(anchor_set_shortest_paths))
     output_dict[node] = shortest_paths
 
-def compute_shortest_paths_parallel(G, anchor_sets, num_workers):
+def compute_shortest_paths_parallel(G, anchor_sets, num_workers, weight=None):
     nodes = list(G.nodes)
     manager = mp.Manager()
     output_dict = manager.dict()
 
     with mp.Pool(num_workers) as pool:
-        for _ in tqdm(pool.imap_unordered(shortest_paths_worker, [(G, node, anchor_sets, output_dict) for node in nodes]), total=len(nodes)):
+        for _ in tqdm(pool.imap_unordered(shortest_paths_worker, [(G, node, anchor_sets, output_dict, weight) for node in nodes]), total=len(nodes)):
             pass
 
     return output_dict
