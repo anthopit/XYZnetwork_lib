@@ -21,7 +21,7 @@ def get_gradient_color(value):
     cmap_name (str): The name of the Matplotlib colormap to use.
 
     Returns:
-    tuple: A tuple represG.edges((1351, 692))enting the RGB values of the color at the given value on the gradient.
+    tuple: A tuple representing the RGB values of the color at the given value on the gradient.
     """
     cmap = plt.get_cmap('viridis')
     norm = plt.Normalize(vmin=0, vmax=1)
