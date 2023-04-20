@@ -16,12 +16,12 @@ from sklearn.metrics import roc_auc_score
 # G = pp.create_network_from_trailway("../../data/Railway Data_JL.xlsx")
 # TN = tn.TransportNetwork(G, pos_argument=['lon', 'lat'], time_arguments=['dep_time', 'arr_time'], distance_argument='distance')
 
-G = pp.create_network_from_GTFS("../../data/gtfs")
+G = pp.create_network_from_GTFS("../../data/gtfs_3")
 TN = tn.TransportNetwork(G, pos_argument=['lon', 'lat'], time_arguments=['dep_time', 'arr_time'])
 print(TN)
 
 # Get the bniggest connected component
-graph = TN.graph
+graph = TN.get_higher_complexity()
 # print("Number of nodes: ", graph.number_of_nodes())
 # print("Number of edges: ", graph.number_of_edges())
 #
@@ -39,7 +39,7 @@ graph = TN.graph
 
 
 args = {
-    "node_features" : ["degree_one_hot"], # choices are ["degree_one_hot", "one_hot", "constant", "pagerank", "degree", "betweenness", "closeness", "eigenvector", "clustering", "position", "distance"]
+    "node_features" : ["one_hot", "degree_one_hot"], # choices are ["degree_one_hot", "one_hot", "constant", "pagerank", "degree", "betweenness", "closeness", "eigenvector", "clustering", "position", "distance"]
     "node_attrs" : None,
     "edge_attrs" : None, # choices are ["distance", "dep_time", "arr_time"]
     "train_ratio" : 0.8,
@@ -193,7 +193,7 @@ import numpy as np
 from sklearn.cluster import SpectralClustering, KMeans
 
 # Set the number of clusters you want to obtain
-n_clusters = 8
+n_clusters = 12
 
 # Run K-means clustering on the embeddings
 # clustering = SpectralClustering(

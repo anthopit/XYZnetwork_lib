@@ -43,9 +43,12 @@ def convertTimetoMinute(time, day=None):
         try:
             time = datetime.strptime(time, "%H:%M:%S")
         except:
-            time = time.replace("24:", "23:")
+            # Parse time to get the first 2 digits
+            time_slipt = time.split(":")[0]
+            dif = 24 - int(time_slipt)
+            time = time.replace(time_slipt+":", "23:")
             time = datetime.strptime(time, "%H:%M:%S")
-            time += timedelta(hours=1)
+            time += timedelta(hours=dif)
 
     if day == "Day 1" or day == None:
         minutes = time.hour * 60 + time.minute
@@ -129,24 +132,27 @@ def create_network_from_GTFS(path):
     prev_dep_time = 0
     print("Network creation: ")
     for index, row in tqdm(gtfs_df.iterrows(), total=gtfs_df.shape[0]):
-        if not G.has_node(row["stop_id"]):
-            G.add_node(row["stop_id"], lon=row["stop_lon"], lat=row["stop_lat"])
+        # Remove the last character of the stop_id
+        stop_id = row["stop_id"][:-1]
+        if not G.has_node(stop_id):
+            G.add_node(stop_id, lon=row["stop_lon"], lat=row["stop_lat"])
         if row["stop_sequence"] == st_no_comp:
-            G.add_edge(prev_node, row["stop_id"], \
+            G.add_edge(prev_node, stop_id, \
                        arrival_time=convertTimetoMinute(row["arrival_time"]),
                        departure_time=prev_dep_time, \
                        trip_id=row["trip_id"], \
-                       distance=row["shape_dist_traveled"] - prev_mileage)
+                       distance=row["shape_dist_traveled"] - prev_mileage,
+                       route_id=row["route_id"])
 
             st_no_comp = row["stop_sequence"] + 1
-            prev_node = row["stop_id"]
+            prev_node = stop_id
             prev_mileage = row["shape_dist_traveled"]
             prev_dep_time = convertTimetoMinute(row["departure_time"])
 
         else:
             prev_dep_time = convertTimetoMinute(row["departure_time"])
             st_no_comp = row["stop_sequence"] + 1
-            prev_node = row["stop_id"]
+            prev_node = stop_id
             prev_mileage = 0
 
     return G
