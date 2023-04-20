@@ -123,8 +123,9 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html", data
                 showland=True,
                 landcolor='rgb(243, 243, 243)',
                 countrycolor='rgb(204, 204, 204)',
-                lataxis=dict(range=[TN.get_min_lat() - 1, TN.get_max_lat() + 1]),
-                lonaxis=dict(range=[TN.get_min_lon() - 1, TN.get_max_lon() + 1]),
+                lataxis=dict(range=[TN.get_min_lat(), TN.get_max_lat()]),
+                lonaxis=dict(range=[TN.get_min_lon(), TN.get_max_lon()]),
+                resolution=50,
             ),
             width=1200,
             height=900
@@ -315,8 +316,9 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
                 showland=True,
                 landcolor='rgb(243, 243, 243)',
                 countrycolor='rgb(204, 204, 204)',
-                lataxis=dict(range=[TN.get_min_lat() - 1, TN.get_max_lat() + 1]),
-                lonaxis=dict(range=[TN.get_min_lon() - 1, TN.get_max_lon() + 1]),
+                lataxis=dict(range=[TN.get_min_lat(), TN.get_max_lat()]),
+                lonaxis=dict(range=[TN.get_min_lon(), TN.get_max_lon()]),
+                resolution=50,
             ),
             width=1200,
             height=900
@@ -484,8 +486,9 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
             showland=True,
             landcolor='rgb(243, 243, 243)',
             countrycolor='rgb(204, 204, 204)',
-            lataxis=dict(range=[TN.get_min_lat() - 1, TN.get_max_lat() + 1]),  # set the latitude range to [40, 60]
-            lonaxis=dict(range=[TN.get_min_lon() - 1, TN.get_max_lon() + 1]),
+            lataxis=dict(range=[TN.get_min_lat(), TN.get_max_lat()]),
+            lonaxis=dict(range=[TN.get_min_lon(), TN.get_max_lon()]),
+            resolution=50,
             # set the longitude range to [-10, 20]
         ),
         width=1200,
