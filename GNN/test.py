@@ -85,8 +85,8 @@ data = data.to(args.device)
 optimizer = torch.optim.Adam(ssl_model.parameters(), lr=args.lr)
 
 # Train model
-
 train_self_supervised(data, ssl_model, optimizer, args)
+
 #
 #
 # # Create the link prediction model
@@ -217,3 +217,59 @@ print(comm_dct)
 
 plot_tsne_embedding(emb, node_cluster=comm_dct)
 map_weighted_network(TN, custom_node_weigth=comm_dct, edge_weigth=False, scale=2, node_size=5, discrete_color=True)
+
+
+####################################################### Training with labels #######################################################
+
+G = pp.create_network_from_trailway("../../data/Railway Data_JL.xlsx")
+TN = tn.TransportNetwork(G, pos_argument=['lon', 'lat'], time_arguments=['dep_time', 'arr_time'], distance_argument='distance')
+
+
+data = create_data_from_transport_network(graph, TN, node_features=args.node_features, edge_attrs=args.edge_attrs, train_ratio=args.train_ratio, val_ratio=args.val_ratio, num_workers=args.num_workers)
+
+import torch
+import torch.nn.functional as F
+from torch_geometric.nn import GCNConv
+
+class GNN(torch.nn.Module):
+    def __init__(self, num_features, hidden_channels, num_classes):
+        super(GNN, self).__init__()
+        self.conv1 = GCNConv(num_features, hidden_channels)
+        self.conv2 = GCNConv(hidden_channels, num_classes)
+
+    def forward(self, x, edge_index):
+        x = self.conv1(x, edge_index)
+        x = F.relu(x)
+        x = F.dropout(x, p=0.5, training=self.training)
+        x = self.conv2(x, edge_index)
+        return x
+
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model = GNN(num_features, hidden_channels, num_classes).to(device)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+criterion = torch.nn.MSELoss()
+
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=32)
+
+def train():
+    model.train()
+    loss_all = 0
+    for data in train_loader:
+        data = data.to(device)
+        optimizer.zero_grad()
+        output = model(data.x, data.edge_index)
+        loss = criterion(output[data.train_mask], data.y[data.train_mask])
+        loss.backward()
+        optimizer.step()
+        loss_all += loss.item() * data.num_graphs
+    return loss_all / len(train_dataset)
+
+def validate():
+    model.eval()
+    loss_all = 0
+    for data in val_loader:
+        data = data.to(device)
+        output = model(data.x, data.edge_index)
+        loss

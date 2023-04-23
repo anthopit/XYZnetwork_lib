@@ -3,7 +3,7 @@ import networkx as nx
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
-from visualisation.utils import *
+from utils import *
 
 def convert_minutes_to_ddhhmm(minutes):
     days = minutes // (24 * 60)
@@ -43,28 +43,9 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html", data
     elif TN.is_spatial and spatial:
         pos = TN.pos_dict
 
-    #TODO : add ineractuive etiquette
+    edge_x, edge_y = get_edge_position(pos, TN.graph)
 
-    # Define the edges and nodes positions
-    edge_x = []
-    edge_y = []
-    for edge in TN.graph.edges():
-        x0 = pos[edge[0]][0]
-        y0 = pos[edge[0]][1]
-        x1 = pos[edge[1]][0]
-        y1 = pos[edge[1]][1]
-        edge_x.extend([x0, x1, None])
-        edge_y.extend([y0, y1, None])
-
-    node_x = []
-    node_y = []
-    txt = []
-    for node in TN.graph.nodes():
-        x = pos[node][0]
-        y = pos[node][1]
-        node_x.append(x)
-        node_y.append(y)
-        txt.append(f'Node: {node}')
+    node_x, node_y, txt = get_node_position(pos, TN.graph)
 
 
     if TN.is_spatial == False or spatial == False:
@@ -190,34 +171,16 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
     elif TN.is_spatial and spatial:
         pos = TN.pos_dict
 
-    #TODO : add ineractuive etiquette
+    edge_x, edge_y = get_edge_position(pos, TN.graph)
 
-    # Define the edges and nodes positions
-    edge_x = []
-    edge_y = []
-    for edge in TN.graph.edges():
-        x0 = pos[edge[0]][0]
-        y0 = pos[edge[0]][1]
-        x1 = pos[edge[1]][0]
-        y1 = pos[edge[1]][1]
-        edge_x.extend([x0, x1, None])
-        edge_y.extend([y0, y1, None])
+    if node_weigth:
+        node_x, node_y, txt = get_node_position(pos, TN.graph, node_weigth_dict)
+    else:
+        node_x, node_y, txt = get_node_position(pos, TN.graph)
 
     if discrete_color:
         comm_colors = create_comm_colors(len(set(list_node_weigth)))
         node_colors = [comm_colors[node_weigth_dict[node]-1] for node in TN.graph.nodes()]
-
-    node_x = []
-    node_y = []
-    txt = []
-    for node in TN.graph.nodes():
-        x = pos[node][0]
-        y = pos[node][1]
-        node_x.append(x)
-        node_y.append(y)
-        if node_weigth:
-            txt.append(f'{node}: {node_weigth_dict[node]}')
-
 
 
     if node_weigth == True:
@@ -382,14 +345,7 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
     elif TN.is_spatial and spatial:
         pos = TN.pos_dict
 
-    # Define the node trace
-    node_x = []
-    node_y = []
-    for node in TN.graph.nodes():
-        x = pos[node][0]
-        y = pos[node][1]
-        node_x.append(x)
-        node_y.append(y)
+    node_x, node_y, txt = get_node_position(pos, TN.graph)
 
     if TN.is_spatial == False or spatial == False:
         node_trace = go.Scatter(
@@ -401,7 +357,8 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
                 reversescale=True,
                 color='#888',
                 size=5,
-            )
+            ),
+            text = txt
         )
     else:
         node_trace = go.Scattergeo(
@@ -413,7 +370,8 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
                 reversescale=True,
                 color='#888',
                 size=5,
-            )
+            ),
+            text=txt
         )
 
     # Add node trace as the first layer of the figure
@@ -423,8 +381,6 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
     for step in np.arange(start, end, step):
         G2 = nx.DiGraph(((source, target, attr) for source, target, attr in TN.multidigraph.edges(data=True) if
                          attr['dep_time'] < step and attr['arr_time'] > step))
-
-        # TODO add edge weight and node weight
 
         # sub_network_edges_attr = nx.get_edge_attributes(G2, TN.edge_weight_attribute)
         # sub_network_nodes_attr_list = list(nx.get_node_attributes(G2, TN.node_weight_attribute).values())
