@@ -3,7 +3,7 @@ import networkx as nx
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
-from utils import *
+from visualisation.utils import *
 
 def convert_minutes_to_ddhhmm(minutes):
     days = minutes // (24 * 60)
@@ -304,8 +304,7 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
     fig.show()
 
 
-def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True,
-                        edge_weigth=False, custom_node_weigth=None, custom_edge_weigth=None, step=None):
+def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.html", step=None):
     if TN.is_dynamic == False:
         raise Exception("The graph is not dynamic")
 
@@ -317,22 +316,6 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
     start = TN.get_min_time()
     end = TN.get_max_time()
     step = (end - start) / step
-
-    if custom_node_weigth is None:
-        node_weigth_dict = TN.get_node_weight_dict()
-        list_node_weigth = list(node_weigth_dict.values())
-        list_node_weigth_scaled = [x * scale for x in list_node_weigth]
-    else:
-        list_node_weigth = list(custom_node_weigth.values())
-        list_node_weigth_scaled = [x * scale for x in list_node_weigth]
-
-    if custom_edge_weigth is None:
-        edge_weigth_dict = TN.get_edge_weight_dict()
-        list_edge_weigth = list(edge_weigth_dict.values())
-        list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
-    else:
-        list_edge_weigth = list(custom_edge_weigth.values())
-        list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
 
     # Define the dictionary postions depdending of is the network is spatial or not
     pos = {}
@@ -380,7 +363,7 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
     # Add traces, one for each slider step
     for step in np.arange(start, end, step):
         G2 = nx.DiGraph(((source, target, attr) for source, target, attr in TN.multidigraph.edges(data=True) if
-                         attr['dep_time'] < step and attr['arr_time'] > step))
+                         attr[TN.time_arguments[0]] < step and attr[TN.time_arguments[1]] > step))
 
         # sub_network_edges_attr = nx.get_edge_attributes(G2, TN.edge_weight_attribute)
         # sub_network_nodes_attr_list = list(nx.get_node_attributes(G2, TN.node_weight_attribute).values())

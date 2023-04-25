@@ -86,23 +86,23 @@ def plot_distribution_degree_analysis(TN):
         fig = make_subplots(rows=1, cols=2, subplot_titles=("Normal Scale", "Log Scale"))
 
         fig.add_trace(go.Scatter(x=np.arange(len(in_degree_prob)), y=in_degree_prob,
-                                 mode='lines+markers',
+                                 mode='markers',
                                  name='in-degree',
                                  marker=dict(color='#e8463a')),
                       row=1, col=1)
         fig.add_trace(go.Scatter(x=np.arange(len(out_degree_prob)), y=out_degree_prob,
-                                 mode='lines+markers',
+                                 mode='markers',
                                  name='out-degree',
                                  marker = dict(color='#3a80e8')),
                       row=1, col=1)
 
         fig.add_trace(go.Scatter(x=np.arange(len(in_degree_prob)), y=in_degree_prob,
-                                 mode='lines+markers',
+                                 mode='markers',
                                  name='in-degree (log)',
                                  marker=dict(color='#e8463a')),
                       row=1, col=2)
         fig.add_trace(go.Scatter(x=np.arange(len(out_degree_prob)), y=out_degree_prob,
-                                 mode='lines+markers',
+                                 mode='markers',
                                  name='out-degree (log)',
                                  marker=dict(color='#3a80e8')),
                       row=1, col=2)
@@ -113,7 +113,10 @@ def plot_distribution_degree_analysis(TN):
         fig.update_xaxes(title_text="k", type='log', row=1, col=2)
         fig.update_yaxes(title_text="P(k)", type='log', row=1, col=2)
 
-        fig.update_layout(title='Degree Distribution Probability')
+        fig.update_layout(title='Degree Distribution Probability',
+                          width=1400,
+                          height=700,
+                          )
 
         fig.show()
 

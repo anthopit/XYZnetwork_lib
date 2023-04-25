@@ -7,6 +7,37 @@ import multiprocessing as mp
 from networkx import NetworkXNoPath
 from tqdm import tqdm
 
+class AttributeDict(dict):
+    def __init__(self, *args, **kwargs):
+        super(AttributeDict, self).__init__(*args, **kwargs)
+        self.__dict__ = self
+
+
+
+class GNNConfig(AttributeDict):
+    def __init__(self, *args, **kwargs):
+        super(GNNConfig, self).__init__(*args, **kwargs)
+        self.set_default_values()
+
+    def set_default_values(self):
+        self.setdefault('node_features', ['one_hot'])
+        self.setdefault('node_attrs', None)
+        self.setdefault('edge_attrs', None)
+        self.setdefault('node_label', None)
+        self.setdefault('train_ratio', 0.8)
+        self.setdefault('val_ratio', 0.2)
+        self.setdefault('device', torch.device('cuda' if torch.cuda.is_available() else 'cpu'))
+        self.setdefault('model', 'gcn')
+        self.setdefault('layers', 2)
+        self.setdefault('hidden_dim', 128)
+        self.setdefault('dim_embedding', 64)
+        self.setdefault('save', 'ssl_model.pth')
+        self.setdefault('lr', 0.001)
+        self.setdefault('epochs', 100)
+        self.setdefault('num_workers', 1)
+        self.setdefault('loss', 'infonce')
+        self.setdefault('augment_list', ['edge_perturbation', 'node_dropping'])
+
 def get_max_deg(data):
     """
     Find the max degree across all nodes in graphs.

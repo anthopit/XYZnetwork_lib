@@ -1,6 +1,6 @@
 import torch
-from utils import augment_data
-from loss import *
+from GNN.utils import augment_data
+from GNN.loss import *
 def train_self_supervised(data, model, optimizer, args):
     best_loss = float("inf")
 
