@@ -1,25 +1,25 @@
 from torch_geometric.utils import from_networkx
 from torch_geometric.utils import negative_sampling
-from utils import *
+from GNN.utils import *
 import numpy as np
-def create_data_from_transport_network(graph, TN,
-                                       node_features=['degree_one_hot'],
-                                       node_attrs=None, edge_attrs=None,
-                                       node_label=None,
-                                       train_ratio = 0.8, val_ratio = 0.2,
-                                       num_workers=1):
+def create_data_from_transport_network(graph, TN, *args, **kwargs):
+
+    if args and isinstance(args[0], GNNConfig):
+        config = args[0]
+    else:
+        config = GNNConfig(*args, **kwargs)
 
     # Create a graph from the transport network
-    data = from_networkx(graph, group_edge_attrs=edge_attrs, group_node_attrs=node_attrs)
+    data = from_networkx(graph, group_edge_attrs=config.edge_attrs, group_node_attrs=config.node_attrs)
 
     # Add the differents node features
-    for feature in node_features:
-        data = cat_node_feature(data, graph, TN, feature=feature, num_workers=num_workers)
+    for feature in config.node_features:
+        data = cat_node_feature(data, graph, TN, feature=feature, num_workers=config.num_workers)
 
     # Divide the data into train and validation
     num_nodes = data.num_nodes
-    num_train_nodes = int(num_nodes * train_ratio)
-    num_val_nodes = int(num_nodes * val_ratio)
+    num_train_nodes = int(num_nodes * config.train_ratio)
+    num_val_nodes = int(num_nodes * config.val_ratio)
 
     indices = np.arange(num_nodes)
     np.random.shuffle(indices)

@@ -146,7 +146,9 @@ def plot_centrality_analysis(TN):
     fig.update_xaxes(title_text="rank", type='linear', row=2, col=2)
     fig.update_yaxes(title_text="betweenness", type='linear', row=2, col=2)
 
-    fig.update_layout(title='Statistical distibution of centrality measures')
+    fig.update_layout(title='Statistical distibution of centrality measures',
+                      width=1200,
+                      height=1000,)
 
     fig.show()
 

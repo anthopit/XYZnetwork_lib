@@ -53,7 +53,7 @@ def compute_robustness_analysis(TN, node_attack=True, edge_attack=False, precisi
             node_list = sorted(betweenness_centralities.items(), key=lambda x: x[1], reverse=True)
             node_list = [node[0] for node in node_list]
         elif attack == 'eigenvector':
-            eigenvector_centralities = nx.eigenvector_centrality(TN.graph, max_iter=1000)
+            eigenvector_centralities = nx.eigenvector_centrality(TN.graph, max_iter=10000)
             node_list = sorted(eigenvector_centralities.items(), key=lambda x: x[1], reverse=True)
             node_list = [node[0] for node in node_list]
 
@@ -264,7 +264,10 @@ def plot_robustness_analysis(TN, node_attack=True, edge_attack=False, precision=
         fig.update_xaxes(title_text="Link disrupted (%)k", type='linear', row=2, col=2)
         fig.update_yaxes(title_text="Average Reachability", type='linear', row=2, col=2)
 
-        fig.update_layout(title='Resilience again node failure analysis')
+        fig.update_layout(title='Resilience again node failure analysis',
+                          width=1200,
+                          height=900,
+                          )
 
     fig.show()
 

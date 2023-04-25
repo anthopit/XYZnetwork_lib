@@ -2,6 +2,7 @@ import torch.nn.functional as F
 from torch_geometric.nn import GCNConv, SAGEConv, GATConv, GINConv, GINConv
 from torch.nn import Sequential, Linear, ReLU
 import torch
+from GNN.utils import GNNConfig
 
 class GCNLinkPrediction(torch.nn.Module):
     def __init__(self, model, grad=True):
@@ -44,20 +45,27 @@ class GCNLinkPrediction(torch.nn.Module):
         return scores
 
 class SSL_GNN(torch.nn.Module):
-    def __init__(self, feat_dim, num_layers, hidden_dim, embed_dim, model='gcn'):
+    def __init__(self, feat_dim, *args, **kwargs):
         super(SSL_GNN, self).__init__()
-        self.model = model
+
+        if args and isinstance(args[0], GNNConfig):
+            config = args[0]
+        else:
+            config = GNNConfig(*args, **kwargs)
+
         self.feat_dim = feat_dim
-        self.hidden_dim = hidden_dim
-        self.embed_dim = embed_dim
-        if model == 'gcn':
-            self.gnn = GCN(feat_dim, num_layers, hidden_dim, embed_dim)
-        elif model == 'sage':
-            self.gnn = GraphSAGE(feat_dim, num_layers, hidden_dim, embed_dim)
-        elif model == 'gat':
-            self.gnn = GAT(feat_dim, num_layers, hidden_dim, embed_dim, in_heads=1, out_heads=1)
-        elif model == 'gin':
-            self.gnn = GIN(feat_dim, num_layers, hidden_dim, embed_dim)
+        self.model = config.model
+        self.hidden_dim = config.hidden_dim
+        self.embed_dim = config.dim_embedding
+        if config.model == 'gcn':
+            self.gnn = GCN(feat_dim, config.layers, config.hidden_dim, config.dim_embedding)
+        elif config.model == 'sage':
+            self.gnn = GraphSAGE(feat_dim, config.layers, config.hidden_dim, config.dim_embedding)
+        elif config.model == 'gat':
+            self.gnn = GAT(feat_dim, config.layers, config.hidden_dim, config.dim_embedding, in_heads=1,
+                               out_heads=1)
+        elif config.model == 'gin':
+            self.gnn = GIN(feat_dim, config.layers, config.hidden_dim, config.dim_embedding)
 
     def forward(self, data, data_aug):
         x, edge_index = data.x, data.edge_index

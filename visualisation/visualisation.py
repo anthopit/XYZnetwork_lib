@@ -43,28 +43,9 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html", data
     elif TN.is_spatial and spatial:
         pos = TN.pos_dict
 
-    #TODO : add ineractuive etiquette
+    edge_x, edge_y = get_edge_position(pos, TN.graph)
 
-    # Define the edges and nodes positions
-    edge_x = []
-    edge_y = []
-    for edge in TN.graph.edges():
-        x0 = pos[edge[0]][0]
-        y0 = pos[edge[0]][1]
-        x1 = pos[edge[1]][0]
-        y1 = pos[edge[1]][1]
-        edge_x.extend([x0, x1, None])
-        edge_y.extend([y0, y1, None])
-
-    node_x = []
-    node_y = []
-    txt = []
-    for node in TN.graph.nodes():
-        x = pos[node][0]
-        y = pos[node][1]
-        node_x.append(x)
-        node_y.append(y)
-        txt.append(f'Node: {node}')
+    node_x, node_y, txt = get_node_position(pos, TN.graph)
 
 
     if TN.is_spatial == False or spatial == False:
@@ -190,34 +171,16 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
     elif TN.is_spatial and spatial:
         pos = TN.pos_dict
 
-    #TODO : add ineractuive etiquette
+    edge_x, edge_y = get_edge_position(pos, TN.graph)
 
-    # Define the edges and nodes positions
-    edge_x = []
-    edge_y = []
-    for edge in TN.graph.edges():
-        x0 = pos[edge[0]][0]
-        y0 = pos[edge[0]][1]
-        x1 = pos[edge[1]][0]
-        y1 = pos[edge[1]][1]
-        edge_x.extend([x0, x1, None])
-        edge_y.extend([y0, y1, None])
+    if node_weigth:
+        node_x, node_y, txt = get_node_position(pos, TN.graph, node_weigth_dict)
+    else:
+        node_x, node_y, txt = get_node_position(pos, TN.graph)
 
     if discrete_color:
         comm_colors = create_comm_colors(len(set(list_node_weigth)))
         node_colors = [comm_colors[node_weigth_dict[node]-1] for node in TN.graph.nodes()]
-
-    node_x = []
-    node_y = []
-    txt = []
-    for node in TN.graph.nodes():
-        x = pos[node][0]
-        y = pos[node][1]
-        node_x.append(x)
-        node_y.append(y)
-        if node_weigth:
-            txt.append(f'{node}: {node_weigth_dict[node]}')
-
 
 
     if node_weigth == True:
@@ -341,8 +304,7 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
     fig.show()
 
 
-def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True,
-                        edge_weigth=False, custom_node_weigth=None, custom_edge_weigth=None, step=None):
+def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.html", step=None):
     if TN.is_dynamic == False:
         raise Exception("The graph is not dynamic")
 
@@ -355,22 +317,6 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
     end = TN.get_max_time()
     step = (end - start) / step
 
-    if custom_node_weigth is None:
-        node_weigth_dict = TN.get_node_weight_dict()
-        list_node_weigth = list(node_weigth_dict.values())
-        list_node_weigth_scaled = [x * scale for x in list_node_weigth]
-    else:
-        list_node_weigth = list(custom_node_weigth.values())
-        list_node_weigth_scaled = [x * scale for x in list_node_weigth]
-
-    if custom_edge_weigth is None:
-        edge_weigth_dict = TN.get_edge_weight_dict()
-        list_edge_weigth = list(edge_weigth_dict.values())
-        list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
-    else:
-        list_edge_weigth = list(custom_edge_weigth.values())
-        list_edge_weigth_scaled = [x * scale for x in list_edge_weigth]
-
     # Define the dictionary postions depdending of is the network is spatial or not
     pos = {}
     if TN.is_spatial == False or spatial == False:
@@ -382,14 +328,7 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
     elif TN.is_spatial and spatial:
         pos = TN.pos_dict
 
-    # Define the node trace
-    node_x = []
-    node_y = []
-    for node in TN.graph.nodes():
-        x = pos[node][0]
-        y = pos[node][1]
-        node_x.append(x)
-        node_y.append(y)
+    node_x, node_y, txt = get_node_position(pos, TN.graph)
 
     if TN.is_spatial == False or spatial == False:
         node_trace = go.Scatter(
@@ -401,7 +340,8 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
                 reversescale=True,
                 color='#888',
                 size=5,
-            )
+            ),
+            text = txt
         )
     else:
         node_trace = go.Scattergeo(
@@ -413,7 +353,8 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
                 reversescale=True,
                 color='#888',
                 size=5,
-            )
+            ),
+            text=txt
         )
 
     # Add node trace as the first layer of the figure
@@ -422,9 +363,7 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
     # Add traces, one for each slider step
     for step in np.arange(start, end, step):
         G2 = nx.DiGraph(((source, target, attr) for source, target, attr in TN.multidigraph.edges(data=True) if
-                         attr['dep_time'] < step and attr['arr_time'] > step))
-
-        # TODO add edge weight and node weight
+                         attr[TN.time_arguments[0]] < step and attr[TN.time_arguments[1]] > step))
 
         # sub_network_edges_attr = nx.get_edge_attributes(G2, TN.edge_weight_attribute)
         # sub_network_nodes_attr_list = list(nx.get_node_attributes(G2, TN.node_weight_attribute).values())
