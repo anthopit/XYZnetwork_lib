@@ -1,5 +1,12 @@
 import networkx as nx
 def compute_assortativity_analysis(TN):
+    """
+    Computes assortativity analysis
+
+    :param TN: TransportNetwork
+
+    :return: Assortativity results
+    """
     graph = TN.get_higher_complexity()
 
     degree_assortativity = nx.degree_assortativity_coefficient(graph)

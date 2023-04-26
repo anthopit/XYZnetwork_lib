@@ -5,6 +5,13 @@ import plotly.io as pio
 from visualisation.visualisation import *
 
 def compute_shortest_path_analysis(TN):
+    """
+    Computes shortest path analysis. Used for plotting and mapping.
+
+    :param TN: TransportNetwork
+
+    :return: Shortest path analysis results
+    """
 
     diameter = nx.diameter(TN.graph)
     average_shortest_path_length = nx.average_shortest_path_length(TN.graph)
@@ -38,6 +45,9 @@ def compute_shortest_path_analysis(TN):
     return shortest_path_analysis
 
 def plot_shortest_path_analysis(TN):
+    """
+    Plots compute_shortest_path_analysis() results
+    """
     # Compute shortest path lengths
     shortest_path_length = dict(nx.shortest_path_length(TN.graph))
 
@@ -79,6 +89,9 @@ def plot_shortest_path_analysis(TN):
 
 
 def map_shortest_path_analysis(TN, source_node=None, target_node=None):
+    """
+    Maps compute_shortest_path_analysis() results
+    """
     # Calculate the diameter
     diameter = nx.diameter(TN.graph)
 
@@ -172,6 +185,13 @@ def map_shortest_path_analysis(TN, source_node=None, target_node=None):
 
 
 def compute_eccentricity_analysis(TN, data=False):
+    """
+    Computes eccentricity analysis. Used for plotting and mapping.
+
+    :param TN: TransportNetwork
+
+    :return: Eccentricity analysis results
+    """
 
     eccentricity = nx.eccentricity(TN.graph)
 
@@ -191,6 +211,9 @@ def compute_eccentricity_analysis(TN, data=False):
     return eccentricity_analysis
 
 def plot_eccentricity_analysis(TN):
+    """
+    Plots compute_eccentricity_analysis() results
+    """
     # Compute the eccentricity of each node in the graph
     eccentricity = nx.eccentricity(TN.graph)
 
@@ -225,6 +248,9 @@ def plot_eccentricity_analysis(TN):
     pio.show(fig)
 
 def map_eccentricity_analysis(TN, scale=5):
+    """
+    Maps compute_eccentricity_analysis() results
+    """
     # Compute the eccentricity of each node in the graph
     eccentricity = nx.eccentricity(TN.graph)
 

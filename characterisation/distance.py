@@ -3,6 +3,15 @@ from geopy.distance import distance
 from visualisation.visualisation import *
 
 def compute_distances_analysis(TN, data=False):
+    """
+    Computes distance analysis. Eliminates any negative cycle or problem with the distances.
+    Used for plotting and mapping.
+
+    :param TN: TransportNetwork
+    :param data: Return data as dict?
+
+    :return: Distances analysis results
+    """
 
     if not TN.is_distance:
         raise Exception("The network does not have a distance attribute")
@@ -89,6 +98,9 @@ def compute_distances_analysis(TN, data=False):
 
 
 def map_detour_analysis(TN):
+    """
+    Maps compute_distances_analysis() results
+    """
 
     if not TN.is_distance:
         raise Exception("The network does not have a distance attribute")

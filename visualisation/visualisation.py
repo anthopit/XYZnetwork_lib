@@ -6,6 +6,14 @@ from sklearn.manifold import TSNE
 from visualisation.utils import *
 
 def convert_minutes_to_ddhhmm(minutes):
+    """
+    Utility function
+
+    :param minutes: Number of minutes to convert
+
+    :return: Formatted date
+    :rtype: str
+    """
     days = minutes // (24 * 60)
     hours = (minutes // 60) % 24
     minutes = minutes % 60
@@ -16,12 +24,11 @@ def get_gradient_color(value):
     """
     Returns a color from a gradient based on a given value.
 
-    Parameters:
-    value (float): The input value to use for determining the color.
-    cmap_name (str): The name of the Matplotlib colormap to use.
+    :param float value: The input value to use for determining the color.
+    :param str cmap_name: The name of the Matplotlib colormap to use.
 
-    Returns:
-    tuple: A tuple represG.edges((1351, 692))enting the RGB values of the color at the given value on the gradient.
+    :return: A tuple representing the RGB values of the color at the given value on the gradient.
+    :rtype: tuple
     """
     cmap = plt.get_cmap('viridis')
     norm = plt.Normalize(vmin=0, vmax=1)
@@ -29,6 +36,17 @@ def get_gradient_color(value):
     return tuple(int(x * 255) for x in rgba[:3])
 
 def map_network(TN, spatial=True, generate_html=False, filename="map.html", data=False):
+    """
+    Maps the network
+
+    :param TransportNetwork TN: The transport network to map
+    :param bool spatial: Is the transport network's graph spatial?
+    :param bool generate_html: Generate a html file with the map?
+    :param filename: Name of the html file to be generated
+    :param bool data: if True, will only display the data of the map.
+
+    :return: mapped network overlayed on an actual map of the world (e.g. for the Chinese railway dataset, shows the network on a map of China
+    """
 
     fig = go.Figure()
 
@@ -150,6 +168,18 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html", data
 
 
 def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True, edge_weigth=True, custom_node_weigth=None, custom_edge_weigth=None, node_size=0, discrete_color=False, data=False, node_weight_name="Custom"):
+    """
+    Maps the network with node/edge weights. Based on map_network
+
+    :param scale: How zoomed in the map should be
+    :param node_weigth: Show node weights (color index)
+    :param edge_weigth: Show edge weights (color index)
+    :param custom_node_weigth: Default None, use different color index for node weights
+    :param custom_edge_weigth: Like custom_node_weigth but for edges
+    :param node_size: Size scale of nodes
+    :param discrete_color: Use discrete colors for nodes?
+    :param node_weight_name: Name of node weights
+    """
 
     fig = go.Figure()
 
@@ -343,6 +373,11 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
 
 def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.html", scale=1, node_weigth=True,
                         edge_weigth=False, custom_node_weigth=None, custom_edge_weigth=None, step=None):
+    """
+    Maps a dynamic transport network. Based on map_network
+
+    :param step: How many steps to map (e.g. 10 = 10 time periods)
+    """
     if TN.is_dynamic == False:
         raise Exception("The graph is not dynamic")
 
@@ -505,6 +540,14 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
 
 
 def plot_tsne_embedding(emb_df, node_cluster=None):
+    """
+    Plots the TSNE embedding from an embedding dataframe
+
+    :param emb_df: The embedding dataframe
+    :param node_cluster: Default None, potential node cluster.
+
+    :return: Plot of the embedding
+    """
 
     if node_cluster is not None:
         comm_colors = create_comm_colors(len(set(node_cluster.values())))

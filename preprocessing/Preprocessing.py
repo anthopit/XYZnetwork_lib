@@ -7,6 +7,13 @@ from datetime import datetime, timedelta
 ############################################# Utils #############################################
 
 def getTrainMaxSpeed(train_id):
+    """
+    Utility function, gives max train speed based on its ID.
+
+    :param train_id: ID of the train
+
+    :return: String with max speed of the train
+    """
     train_id = str(train_id)
     if train_id[0].isdigit():
         return "80"
@@ -27,6 +34,10 @@ def convertTimetoMinute(time, day=None):
     Process outliers time datas
     Some arrive and depart time are in fraction of a day, so we need to convert them to minutes
     ex: 0.8884 = 21:30:00
+
+    :param time: Raw time data (number)
+
+    :return: Number of minutes
     """
 
     try:
@@ -64,6 +75,14 @@ def convertTimetoMinute(time, day=None):
 ###################################### Network ###############################################
 
 def create_network_from_trailway(path):
+    """
+    Create a network from the Chinese railway dataset.
+
+    :param path: Path to the dataset's file
+
+    :return: A graph of the network
+    :rtype: nx.MultiDiGraph
+    """
 
     df = pd.read_excel(path)
     df = df.replace(" ", 0)
@@ -115,6 +134,14 @@ def create_network_from_trailway(path):
 
 
 def create_network_from_GTFS(path):
+    """
+    Creates network from the other chosen dataset
+
+    :param path: Path to the dataset's file
+
+    :return: Graph of the network
+    :rtype: nx.MultiDiGraph
+    """
     df_stop_time = pd.read_csv(path + '/stop_times.txt')
     df_stop = pd.read_csv(path + '/stops.txt')
     df_trip = pd.read_csv(path + '/trips.txt')
@@ -158,6 +185,14 @@ def create_network_from_GTFS(path):
     return G
 
 def create_network_from_edges(path):
+    """
+    Create graph from edges file
+
+    :param path: Path to .edges file
+
+    :return: Graph of network
+    :rtype: nx.Graph
+    """
 
     #Read data from file
     with open(path, "r") as f:

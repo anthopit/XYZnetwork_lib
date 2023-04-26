@@ -38,6 +38,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -229,8 +230,84 @@ document.write(`
     <h3><a href="#">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">What is XYZnetwork?</a></li>
+<li><a class="reference internal" href="#what-is-a-transport-network">What is a transport network?</a><ul>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork"><code class="docutils literal notranslate"><span class="pre">TransportNetwork</span></code></a><ul>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.convert_dirgraph_to_graph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.convert_dirgraph_to_graph()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.convert_multidigraph_to_digraph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.convert_multidigraph_to_digraph()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.convert_multidirgraph_to_multigraph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.convert_multidirgraph_to_multigraph()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.dirgraph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.dirgraph</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.distance_argument"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.distance_argument</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.edges_weight_argument"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.edges_weight_argument</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.edges_weight_attr"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.edges_weight_attr</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.get_edge_weight_dict"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_edge_weight_dict()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.get_higher_complexity"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_higher_complexity()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.get_max_lat"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_max_lat()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.get_max_lon"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_max_lon()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.get_max_time"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_max_time()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.get_min_lat"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_min_lat()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.get_min_lon"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_min_lon()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.get_min_time"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_min_time()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.get_node_weight_dict"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_node_weight_dict()</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.graph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.graph</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.is_directed"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_directed</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.is_distance"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_distance</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.is_dynamic"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_dynamic</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.is_interval"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_interval</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.is_multi"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_multi</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.is_spatial"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_spatial</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.is_weighted"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_weighted</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.multidigraph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.multidigraph</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.multigraph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.multigraph</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.nodes_weight_argument"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.nodes_weight_argument</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.nodes_weight_attr"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.nodes_weight_attr</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.pos_argument"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.pos_argument</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.pos_dict"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.pos_dict</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.spring_pos_dict"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.spring_pos_dict</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.time_arguments"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.time_arguments</span></code></a></li>
+<li><a class="reference internal" href="#classes.transportnetwork.TransportNetwork.updata_graph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.updata_graph()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#modules">Modules</a><ul>
-<li><a class="reference internal" href="#visualisation">Visualisation</a><ul>
+<li><a class="reference internal" href="#module-preprocessing.Preprocessing">Preprocessing</a><ul>
+<li><a class="reference internal" href="#preprocessing.Preprocessing.convertTimetoMinute"><code class="docutils literal notranslate"><span class="pre">convertTimetoMinute()</span></code></a></li>
+<li><a class="reference internal" href="#preprocessing.Preprocessing.create_network_from_GTFS"><code class="docutils literal notranslate"><span class="pre">create_network_from_GTFS()</span></code></a></li>
+<li><a class="reference internal" href="#preprocessing.Preprocessing.create_network_from_edges"><code class="docutils literal notranslate"><span class="pre">create_network_from_edges()</span></code></a></li>
+<li><a class="reference internal" href="#preprocessing.Preprocessing.create_network_from_trailway"><code class="docutils literal notranslate"><span class="pre">create_network_from_trailway()</span></code></a></li>
+<li><a class="reference internal" href="#preprocessing.Preprocessing.getTrainMaxSpeed"><code class="docutils literal notranslate"><span class="pre">getTrainMaxSpeed()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-characterisation.assortativity">Characterisation</a><ul>
+<li><a class="reference internal" href="#characterisation.assortativity.compute_assortativity_analysis"><code class="docutils literal notranslate"><span class="pre">compute_assortativity_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.centrality.compute_centrality_analysis"><code class="docutils literal notranslate"><span class="pre">compute_centrality_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.centrality.map_centrality_analysis"><code class="docutils literal notranslate"><span class="pre">map_centrality_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.centrality.plot_centrality_analysis"><code class="docutils literal notranslate"><span class="pre">plot_centrality_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.clustering.compute_clustering_analysis"><code class="docutils literal notranslate"><span class="pre">compute_clustering_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.clustering.map_clustering_analysis"><code class="docutils literal notranslate"><span class="pre">map_clustering_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.clustering.plot_clustering_analysis"><code class="docutils literal notranslate"><span class="pre">plot_clustering_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.degree.compute_node_degree_analysis"><code class="docutils literal notranslate"><span class="pre">compute_node_degree_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.degree.map_node_degree_analysis"><code class="docutils literal notranslate"><span class="pre">map_node_degree_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.degree.plot_distribution_degree_analysis"><code class="docutils literal notranslate"><span class="pre">plot_distribution_degree_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.distance.compute_distances_analysis"><code class="docutils literal notranslate"><span class="pre">compute_distances_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.distance.map_detour_analysis"><code class="docutils literal notranslate"><span class="pre">map_detour_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.page_rank.compute_page_rank_analysis"><code class="docutils literal notranslate"><span class="pre">compute_page_rank_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.page_rank.map_page_rank_analysis"><code class="docutils literal notranslate"><span class="pre">map_page_rank_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.path.compute_eccentricity_analysis"><code class="docutils literal notranslate"><span class="pre">compute_eccentricity_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.path.compute_shortest_path_analysis"><code class="docutils literal notranslate"><span class="pre">compute_shortest_path_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.path.map_eccentricity_analysis"><code class="docutils literal notranslate"><span class="pre">map_eccentricity_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.path.map_shortest_path_analysis"><code class="docutils literal notranslate"><span class="pre">map_shortest_path_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.path.plot_eccentricity_analysis"><code class="docutils literal notranslate"><span class="pre">plot_eccentricity_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#characterisation.path.plot_shortest_path_analysis"><code class="docutils literal notranslate"><span class="pre">plot_shortest_path_analysis()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-0">Clustering</a><ul>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">compute_clustering_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">map_clustering_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">plot_clustering_analysis()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-visualisation.visualisation">Visualisation</a><ul>
 <li><a class="reference internal" href="#visualisation.visualisation.convert_minutes_to_ddhhmm"><code class="docutils literal notranslate"><span class="pre">convert_minutes_to_ddhhmm()</span></code></a></li>
 <li><a class="reference internal" href="#visualisation.visualisation.get_gradient_color"><code class="docutils literal notranslate"><span class="pre">get_gradient_color()</span></code></a></li>
 <li><a class="reference internal" href="#visualisation.visualisation.map_dynamic_network"><code class="docutils literal notranslate"><span class="pre">map_dynamic_network()</span></code></a></li>
@@ -239,6 +316,7 @@ document.write(`
 <li><a class="reference internal" href="#visualisation.visualisation.plot_tsne_embedding"><code class="docutils literal notranslate"><span class="pre">plot_tsne_embedding()</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#deep-learning">Deep Learning</a></li>
 </ul>
 </li>
 </ul>
@@ -290,13 +368,197 @@ methods and networks.</p>
 <p>In this document, we will go over the different modules contained in the
 library and explain their purpose and functionalities.</p>
 </section>
+<section id="what-is-a-transport-network">
+<h1>What is a transport network?<a class="headerlink" href="#what-is-a-transport-network" title="Permalink to this heading">#</a></h1>
+<p>A transport network is a network of a public transport. For instance, we
+will be using the Chinese railway dataset. This dataset contains data
+relative to the railway network of China. That is, trains, stations and
+the different routes linking them, along with departure and arrival times,
+distances and duration.</p>
+<p>These networks will be represented by our main class, TransportNetwork:</p>
+<span class="target" id="module-classes.transportnetwork"></span><dl class="py class">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">classes.transportnetwork.</span></span><span class="sig-name descname"><span class="pre">TransportNetwork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_weight_argument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges_weight_argument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_argument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_argument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.convert_dirgraph_to_graph">
+<span class="sig-name descname"><span class="pre">convert_dirgraph_to_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.convert_dirgraph_to_graph" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert a directed graph to an undirected graph</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.convert_multidigraph_to_digraph">
+<span class="sig-name descname"><span class="pre">convert_multidigraph_to_digraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.convert_multidigraph_to_digraph" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert a multidigraph to a multigraph</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.convert_multidirgraph_to_multigraph">
+<span class="sig-name descname"><span class="pre">convert_multidirgraph_to_multigraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.convert_multidirgraph_to_multigraph" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert a multidigraph to a multigraph</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.dirgraph">
+<span class="sig-name descname"><span class="pre">dirgraph</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DiGraph</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.dirgraph" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.distance_argument">
+<span class="sig-name descname"><span class="pre">distance_argument</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.distance_argument" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.edges_weight_argument">
+<span class="sig-name descname"><span class="pre">edges_weight_argument</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.edges_weight_argument" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.edges_weight_attr">
+<span class="sig-name descname"><span class="pre">edges_weight_attr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.edges_weight_attr" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.get_edge_weight_dict">
+<span class="sig-name descname"><span class="pre">get_edge_weight_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.get_edge_weight_dict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.get_higher_complexity">
+<span class="sig-name descname"><span class="pre">get_higher_complexity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.get_higher_complexity" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.get_max_lat">
+<span class="sig-name descname"><span class="pre">get_max_lat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.get_max_lat" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.get_max_lon">
+<span class="sig-name descname"><span class="pre">get_max_lon</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.get_max_lon" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.get_max_time">
+<span class="sig-name descname"><span class="pre">get_max_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.get_max_time" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.get_min_lat">
+<span class="sig-name descname"><span class="pre">get_min_lat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.get_min_lat" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.get_min_lon">
+<span class="sig-name descname"><span class="pre">get_min_lon</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.get_min_lon" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.get_min_time">
+<span class="sig-name descname"><span class="pre">get_min_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.get_min_time" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.get_node_weight_dict">
+<span class="sig-name descname"><span class="pre">get_node_weight_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.get_node_weight_dict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.graph">
+<span class="sig-name descname"><span class="pre">graph</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Graph</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.graph" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.is_directed">
+<span class="sig-name descname"><span class="pre">is_directed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.is_directed" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.is_distance">
+<span class="sig-name descname"><span class="pre">is_distance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.is_distance" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.is_dynamic">
+<span class="sig-name descname"><span class="pre">is_dynamic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.is_dynamic" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.is_interval">
+<span class="sig-name descname"><span class="pre">is_interval</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.is_interval" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.is_multi">
+<span class="sig-name descname"><span class="pre">is_multi</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.is_multi" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.is_spatial">
+<span class="sig-name descname"><span class="pre">is_spatial</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.is_spatial" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.is_weighted">
+<span class="sig-name descname"><span class="pre">is_weighted</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'bool'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'bool'&gt;]</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.is_weighted" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.multidigraph">
+<span class="sig-name descname"><span class="pre">multidigraph</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MultiDiGraph</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.multidigraph" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.multigraph">
+<span class="sig-name descname"><span class="pre">multigraph</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MultiGraph</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.multigraph" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.nodes_weight_argument">
+<span class="sig-name descname"><span class="pre">nodes_weight_argument</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.nodes_weight_argument" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.nodes_weight_attr">
+<span class="sig-name descname"><span class="pre">nodes_weight_attr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.nodes_weight_attr" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.pos_argument">
+<span class="sig-name descname"><span class="pre">pos_argument</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.pos_argument" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.pos_dict">
+<span class="sig-name descname"><span class="pre">pos_dict</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.pos_dict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.spring_pos_dict">
+<span class="sig-name descname"><span class="pre">spring_pos_dict</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.spring_pos_dict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.time_arguments">
+<span class="sig-name descname"><span class="pre">time_arguments</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.time_arguments" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.transportnetwork.TransportNetwork.updata_graph">
+<span class="sig-name descname"><span class="pre">updata_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classes.transportnetwork.TransportNetwork.updata_graph" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<p>This class will be used for plotting, mapping and analysing its graph, which
+represents the dataset’s network. This will be done via our modules.</p>
+</section>
 <section id="modules">
 <h1>Modules<a class="headerlink" href="#modules" title="Permalink to this heading">#</a></h1>
 <p>There are 5 modules in this library:</p>
 <ul>
-<li><p>Preprocessing</p></li>
-<li><p><span class="xref std std-ref">char-ref</span></p></li>
-<li><p><span class="xref std std-ref">clus-ref</span></p>
+<li><p><a class="reference internal" href="#prep-ref"><span class="std std-ref">Preprocessing</span></a></p></li>
+<li><p><a class="reference internal" href="#char-ref"><span class="std std-ref">Characterisation</span></a></p></li>
+<li><p><a class="reference internal" href="#clus-ref"><span class="std std-ref">Clustering</span></a></p>
 <blockquote>
 <div><ul class="simple">
 <li><p><span class="xref std std-ref">embed-ref</span></p></li>
@@ -305,7 +567,7 @@ library and explain their purpose and functionalities.</p>
 </div></blockquote>
 </li>
 <li><p><a class="reference internal" href="#visu-ref"><span class="std std-ref">Visualisation</span></a></p></li>
-<li><p><span class="xref std std-ref">deepl-ref</span></p>
+<li><p><a class="reference internal" href="#deepl-ref"><span class="std std-ref">Deep Learning</span></a></p>
 <blockquote>
 <div><ul class="simple">
 <li><p>GNN framework</p></li>
@@ -316,45 +578,490 @@ library and explain their purpose and functionalities.</p>
 </div></blockquote>
 </li>
 </ul>
-<section id="visualisation">
-<span id="visu-ref"></span><h2>Visualisation<a class="headerlink" href="#visualisation" title="Permalink to this heading">#</a></h2>
-<hr class="docutils" />
-<span class="target" id="module-visualisation.visualisation"></span><dl class="py function">
+<section id="module-preprocessing.Preprocessing">
+<span id="preprocessing"></span><span id="prep-ref"></span><h2>Preprocessing<a class="headerlink" href="#module-preprocessing.Preprocessing" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="preprocessing.Preprocessing.convertTimetoMinute">
+<span class="sig-prename descclassname"><span class="pre">preprocessing.Preprocessing.</span></span><span class="sig-name descname"><span class="pre">convertTimetoMinute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.Preprocessing.convertTimetoMinute" title="Permalink to this definition">#</a></dt>
+<dd><p>Process outliers time datas
+Some arrive and depart time are in fraction of a day, so we need to convert them to minutes
+ex: 0.8884 = 21:30:00</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Raw time data (number)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of minutes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="preprocessing.Preprocessing.create_network_from_GTFS">
+<span class="sig-prename descclassname"><span class="pre">preprocessing.Preprocessing.</span></span><span class="sig-name descname"><span class="pre">create_network_from_GTFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.Preprocessing.create_network_from_GTFS" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates network from the other chosen dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – Path to the dataset’s file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Graph of the network</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nx.MultiDiGraph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="preprocessing.Preprocessing.create_network_from_edges">
+<span class="sig-prename descclassname"><span class="pre">preprocessing.Preprocessing.</span></span><span class="sig-name descname"><span class="pre">create_network_from_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.Preprocessing.create_network_from_edges" title="Permalink to this definition">#</a></dt>
+<dd><p>Create graph from edges file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – Path to .edges file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Graph of network</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nx.Graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="preprocessing.Preprocessing.create_network_from_trailway">
+<span class="sig-prename descclassname"><span class="pre">preprocessing.Preprocessing.</span></span><span class="sig-name descname"><span class="pre">create_network_from_trailway</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.Preprocessing.create_network_from_trailway" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a network from the Chinese railway dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – Path to the dataset’s file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A graph of the network</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nx.MultiDiGraph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="preprocessing.Preprocessing.getTrainMaxSpeed">
+<span class="sig-prename descclassname"><span class="pre">preprocessing.Preprocessing.</span></span><span class="sig-name descname"><span class="pre">getTrainMaxSpeed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.Preprocessing.getTrainMaxSpeed" title="Permalink to this definition">#</a></dt>
+<dd><p>Utility function, gives max train speed based on its ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>train_id</strong> – ID of the train</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>String with max speed of the train</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-characterisation.assortativity">
+<span id="characterisation"></span><span id="char-ref"></span><h2>Characterisation<a class="headerlink" href="#module-characterisation.assortativity" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.assortativity.compute_assortativity_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.assortativity.</span></span><span class="sig-name descname"><span class="pre">compute_assortativity_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.assortativity.compute_assortativity_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes assortativity analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TN</strong> – TransportNetwork</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Assortativity results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-characterisation.centrality"></span><dl class="py function">
+<dt class="sig sig-object py" id="characterisation.centrality.compute_centrality_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.centrality.</span></span><span class="sig-name descname"><span class="pre">compute_centrality_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.centrality.compute_centrality_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes centrality analysis. Used for plotting and mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TN</strong> – TransportNetwork</p></li>
+<li><p><strong>data</strong> – Return data as dict?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analysis results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.centrality.map_centrality_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.centrality.</span></span><span class="sig-name descname"><span class="pre">map_centrality_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.centrality.map_centrality_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps results from compute_centrality_analysis()</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.centrality.plot_centrality_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.centrality.</span></span><span class="sig-name descname"><span class="pre">plot_centrality_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.centrality.plot_centrality_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Plots results from compute_centrality_analysis()</p>
+</dd></dl>
+
+<span class="target" id="module-characterisation.clustering"></span><dl class="py function">
+<dt class="sig sig-object py" id="characterisation.clustering.compute_clustering_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.clustering.</span></span><span class="sig-name descname"><span class="pre">compute_clustering_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.clustering.compute_clustering_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute the clustering analysis. Used in plot_clustering_analysis and map_clustering_analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TN</strong> – TransportNetwork to analyse</p></li>
+<li><p><strong>data</strong> – Return data only?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analysis data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.clustering.map_clustering_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.clustering.</span></span><span class="sig-name descname"><span class="pre">map_clustering_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.clustering.map_clustering_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps the clustering analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TN</strong> – TransportNetwork</p></li>
+<li><p><strong>scale</strong> – Scale of the mapped analysis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plotly figure of mapped clustering analysis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.clustering.plot_clustering_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.clustering.</span></span><span class="sig-name descname"><span class="pre">plot_clustering_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.clustering.plot_clustering_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot clustering analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TN</strong> – TransportNetwork to analyse</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plotly plot of the clustering analysis data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-characterisation.degree"></span><dl class="py function">
+<dt class="sig sig-object py" id="characterisation.degree.compute_node_degree_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.degree.</span></span><span class="sig-name descname"><span class="pre">compute_node_degree_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.degree.compute_node_degree_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes node degree analysis. Used for plotting &amp; mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TN</strong> – TransportNetwork</p></li>
+<li><p><strong>data</strong> – Return only data of analysis?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analysis data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.degree.map_node_degree_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.degree.</span></span><span class="sig-name descname"><span class="pre">map_node_degree_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.degree.map_node_degree_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps results of degree analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Plotly map of the analysis results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.degree.plot_distribution_degree_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.degree.</span></span><span class="sig-name descname"><span class="pre">plot_distribution_degree_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.degree.plot_distribution_degree_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Plots results of degree analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Plotted results of the analysis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-characterisation.distance"></span><dl class="py function">
+<dt class="sig sig-object py" id="characterisation.distance.compute_distances_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.distance.</span></span><span class="sig-name descname"><span class="pre">compute_distances_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.distance.compute_distances_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes distance analysis. Eliminates any negative cycle or problem with the distances.
+Used for plotting and mapping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TN</strong> – TransportNetwork</p></li>
+<li><p><strong>data</strong> – Return data as dict?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Distances analysis results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.distance.map_detour_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.distance.</span></span><span class="sig-name descname"><span class="pre">map_detour_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.distance.map_detour_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps compute_distances_analysis() results</p>
+</dd></dl>
+
+<span class="target" id="module-characterisation.page_rank"></span><dl class="py function">
+<dt class="sig sig-object py" id="characterisation.page_rank.compute_page_rank_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.page_rank.</span></span><span class="sig-name descname"><span class="pre">compute_page_rank_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.page_rank.compute_page_rank_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes page rank analysis. Used for plotting and mapping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TN</strong> – TransportNetwork</p></li>
+<li><p><strong>data</strong> – Return data as dict?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Page rank analysis results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.page_rank.map_page_rank_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.page_rank.</span></span><span class="sig-name descname"><span class="pre">map_page_rank_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.page_rank.map_page_rank_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Plots results of compute_page_rank_analysis()</p>
+</dd></dl>
+
+<span class="target" id="module-characterisation.path"></span><dl class="py function">
+<dt class="sig sig-object py" id="characterisation.path.compute_eccentricity_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.path.</span></span><span class="sig-name descname"><span class="pre">compute_eccentricity_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.path.compute_eccentricity_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes eccentricity analysis. Used for plotting and mapping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TN</strong> – TransportNetwork</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Eccentricity analysis results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.path.compute_shortest_path_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.path.</span></span><span class="sig-name descname"><span class="pre">compute_shortest_path_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.path.compute_shortest_path_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes shortest path analysis. Used for plotting and mapping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TN</strong> – TransportNetwork</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shortest path analysis results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.path.map_eccentricity_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.path.</span></span><span class="sig-name descname"><span class="pre">map_eccentricity_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.path.map_eccentricity_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps compute_eccentricity_analysis() results</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.path.map_shortest_path_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.path.</span></span><span class="sig-name descname"><span class="pre">map_shortest_path_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_node</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_node</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.path.map_shortest_path_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps compute_shortest_path_analysis() results</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.path.plot_eccentricity_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.path.</span></span><span class="sig-name descname"><span class="pre">plot_eccentricity_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.path.plot_eccentricity_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Plots compute_eccentricity_analysis() results</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="characterisation.path.plot_shortest_path_analysis">
+<span class="sig-prename descclassname"><span class="pre">characterisation.path.</span></span><span class="sig-name descname"><span class="pre">plot_shortest_path_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#characterisation.path.plot_shortest_path_analysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Plots compute_shortest_path_analysis() results</p>
+</dd></dl>
+
+</section>
+<section id="module-0">
+<span id="clustering"></span><span id="clus-ref"></span><h2>Clustering<a class="headerlink" href="#module-0" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">characterisation.clustering.</span></span><span class="sig-name descname"><span class="pre">compute_clustering_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute the clustering analysis. Used in plot_clustering_analysis and map_clustering_analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TN</strong> – TransportNetwork to analyse</p></li>
+<li><p><strong>data</strong> – Return data only?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analysis data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-prename descclassname"><span class="pre">characterisation.clustering.</span></span><span class="sig-name descname"><span class="pre">map_clustering_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps the clustering analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TN</strong> – TransportNetwork</p></li>
+<li><p><strong>scale</strong> – Scale of the mapped analysis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plotly figure of mapped clustering analysis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-prename descclassname"><span class="pre">characterisation.clustering.</span></span><span class="sig-name descname"><span class="pre">plot_clustering_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot clustering analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TN</strong> – TransportNetwork to analyse</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plotly plot of the clustering analysis data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-visualisation.visualisation">
+<span id="visualisation"></span><span id="visu-ref"></span><h2>Visualisation<a class="headerlink" href="#module-visualisation.visualisation" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
 <dt class="sig sig-object py" id="visualisation.visualisation.convert_minutes_to_ddhhmm">
 <span class="sig-prename descclassname"><span class="pre">visualisation.visualisation.</span></span><span class="sig-name descname"><span class="pre">convert_minutes_to_ddhhmm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minutes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualisation.visualisation.convert_minutes_to_ddhhmm" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Utility function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>minutes</strong> – Number of minutes to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted date</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="visualisation.visualisation.get_gradient_color">
 <span class="sig-prename descclassname"><span class="pre">visualisation.visualisation.</span></span><span class="sig-name descname"><span class="pre">get_gradient_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualisation.visualisation.get_gradient_color" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns a color from a gradient based on a given value.</p>
-<p>Parameters:
-value (float): The input value to use for determining the color.
-cmap_name (str): The name of the Matplotlib colormap to use.</p>
-<p>Returns:
-tuple: A tuple represG.edges((1351, 692))enting the RGB values of the color at the given value on the gradient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The input value to use for determining the color.</p></li>
+<li><p><strong>cmap_name</strong> (<em>str</em>) – The name of the Matplotlib colormap to use.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple representing the RGB values of the color at the given value on the gradient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="visualisation.visualisation.map_dynamic_network">
 <span class="sig-prename descclassname"><span class="pre">visualisation.visualisation.</span></span><span class="sig-name descname"><span class="pre">map_dynamic_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generate_html</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'map.html'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_weigth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_weigth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_node_weigth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_edge_weigth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualisation.visualisation.map_dynamic_network" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Maps a dynamic transport network. Based on map_network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>step</strong> – How many steps to map (e.g. 10 = 10 time periods)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="visualisation.visualisation.map_network">
 <span class="sig-prename descclassname"><span class="pre">visualisation.visualisation.</span></span><span class="sig-name descname"><span class="pre">map_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generate_html</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'map.html'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualisation.visualisation.map_network" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Maps the network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TN</strong> (<a class="reference internal" href="#classes.transportnetwork.TransportNetwork" title="classes.transportnetwork.TransportNetwork"><em>TransportNetwork</em></a>) – The transport network to map</p></li>
+<li><p><strong>spatial</strong> (<em>bool</em>) – Is the transport network’s graph spatial?</p></li>
+<li><p><strong>generate_html</strong> (<em>bool</em>) – Generate a html file with the map?</p></li>
+<li><p><strong>filename</strong> – Name of the html file to be generated</p></li>
+<li><p><strong>data</strong> (<em>bool</em>) – if True, will only display the data of the map.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mapped network overlayed on an actual map of the world (e.g. for the Chinese railway dataset, shows the network on a map of China</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="visualisation.visualisation.map_weighted_network">
 <span class="sig-prename descclassname"><span class="pre">visualisation.visualisation.</span></span><span class="sig-name descname"><span class="pre">map_weighted_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generate_html</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'map.html'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_weigth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_weigth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_node_weigth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_edge_weigth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Custom'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualisation.visualisation.map_weighted_network" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Maps the network with node/edge weights. Based on map_network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> – How zoomed in the map should be</p></li>
+<li><p><strong>node_weigth</strong> – Show node weights (color index)</p></li>
+<li><p><strong>edge_weigth</strong> – Show edge weights (color index)</p></li>
+<li><p><strong>custom_node_weigth</strong> – Default None, use different color index for node weights</p></li>
+<li><p><strong>custom_edge_weigth</strong> – Like custom_node_weigth but for edges</p></li>
+<li><p><strong>node_size</strong> – Size scale of nodes</p></li>
+<li><p><strong>discrete_color</strong> – Use discrete colors for nodes?</p></li>
+<li><p><strong>node_weight_name</strong> – Name of node weights</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="visualisation.visualisation.plot_tsne_embedding">
 <span class="sig-prename descclassname"><span class="pre">visualisation.visualisation.</span></span><span class="sig-name descname"><span class="pre">plot_tsne_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emb_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualisation.visualisation.plot_tsne_embedding" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Plots the TSNE embedding from an embedding dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>emb_df</strong> – The embedding dataframe</p></li>
+<li><p><strong>node_cluster</strong> – Default None, potential node cluster.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plot of the embedding</p>
+</dd>
+</dl>
+</dd></dl>
 
+</section>
+<section id="deep-learning">
+<span id="deepl-ref"></span><h2>Deep Learning<a class="headerlink" href="#deep-learning" title="Permalink to this heading">#</a></h2>
+<p>Which module is for ML?</p>
 </section>
 </section>
 
@@ -388,8 +1095,84 @@ tuple: A tuple represG.edges((1351, 692))enting the RGB values of the color at t
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">What is XYZnetwork?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-transport-network">What is a transport network?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork"><code class="docutils literal notranslate"><span class="pre">TransportNetwork</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.convert_dirgraph_to_graph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.convert_dirgraph_to_graph()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.convert_multidigraph_to_digraph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.convert_multidigraph_to_digraph()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.convert_multidirgraph_to_multigraph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.convert_multidirgraph_to_multigraph()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.dirgraph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.dirgraph</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.distance_argument"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.distance_argument</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.edges_weight_argument"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.edges_weight_argument</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.edges_weight_attr"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.edges_weight_attr</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.get_edge_weight_dict"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_edge_weight_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.get_higher_complexity"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_higher_complexity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.get_max_lat"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_max_lat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.get_max_lon"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_max_lon()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.get_max_time"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_max_time()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.get_min_lat"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_min_lat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.get_min_lon"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_min_lon()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.get_min_time"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_min_time()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.get_node_weight_dict"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.get_node_weight_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.graph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.graph</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.is_directed"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_directed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.is_distance"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_distance</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.is_dynamic"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_dynamic</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.is_interval"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_interval</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.is_multi"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_multi</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.is_spatial"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_spatial</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.is_weighted"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.is_weighted</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.multidigraph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.multidigraph</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.multigraph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.multigraph</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.nodes_weight_argument"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.nodes_weight_argument</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.nodes_weight_attr"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.nodes_weight_attr</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.pos_argument"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.pos_argument</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.pos_dict"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.pos_dict</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.spring_pos_dict"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.spring_pos_dict</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.time_arguments"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.time_arguments</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes.transportnetwork.TransportNetwork.updata_graph"><code class="docutils literal notranslate"><span class="pre">TransportNetwork.updata_graph()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">Modules</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation">Visualisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-preprocessing.Preprocessing">Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.Preprocessing.convertTimetoMinute"><code class="docutils literal notranslate"><span class="pre">convertTimetoMinute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.Preprocessing.create_network_from_GTFS"><code class="docutils literal notranslate"><span class="pre">create_network_from_GTFS()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.Preprocessing.create_network_from_edges"><code class="docutils literal notranslate"><span class="pre">create_network_from_edges()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.Preprocessing.create_network_from_trailway"><code class="docutils literal notranslate"><span class="pre">create_network_from_trailway()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.Preprocessing.getTrainMaxSpeed"><code class="docutils literal notranslate"><span class="pre">getTrainMaxSpeed()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-characterisation.assortativity">Characterisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.assortativity.compute_assortativity_analysis"><code class="docutils literal notranslate"><span class="pre">compute_assortativity_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.centrality.compute_centrality_analysis"><code class="docutils literal notranslate"><span class="pre">compute_centrality_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.centrality.map_centrality_analysis"><code class="docutils literal notranslate"><span class="pre">map_centrality_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.centrality.plot_centrality_analysis"><code class="docutils literal notranslate"><span class="pre">plot_centrality_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.clustering.compute_clustering_analysis"><code class="docutils literal notranslate"><span class="pre">compute_clustering_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.clustering.map_clustering_analysis"><code class="docutils literal notranslate"><span class="pre">map_clustering_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.clustering.plot_clustering_analysis"><code class="docutils literal notranslate"><span class="pre">plot_clustering_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.degree.compute_node_degree_analysis"><code class="docutils literal notranslate"><span class="pre">compute_node_degree_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.degree.map_node_degree_analysis"><code class="docutils literal notranslate"><span class="pre">map_node_degree_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.degree.plot_distribution_degree_analysis"><code class="docutils literal notranslate"><span class="pre">plot_distribution_degree_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.distance.compute_distances_analysis"><code class="docutils literal notranslate"><span class="pre">compute_distances_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.distance.map_detour_analysis"><code class="docutils literal notranslate"><span class="pre">map_detour_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.page_rank.compute_page_rank_analysis"><code class="docutils literal notranslate"><span class="pre">compute_page_rank_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.page_rank.map_page_rank_analysis"><code class="docutils literal notranslate"><span class="pre">map_page_rank_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.path.compute_eccentricity_analysis"><code class="docutils literal notranslate"><span class="pre">compute_eccentricity_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.path.compute_shortest_path_analysis"><code class="docutils literal notranslate"><span class="pre">compute_shortest_path_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.path.map_eccentricity_analysis"><code class="docutils literal notranslate"><span class="pre">map_eccentricity_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.path.map_shortest_path_analysis"><code class="docutils literal notranslate"><span class="pre">map_shortest_path_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.path.plot_eccentricity_analysis"><code class="docutils literal notranslate"><span class="pre">plot_eccentricity_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.path.plot_shortest_path_analysis"><code class="docutils literal notranslate"><span class="pre">plot_shortest_path_analysis()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-0">Clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">compute_clustering_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">map_clustering_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">plot_clustering_analysis()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-visualisation.visualisation">Visualisation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation.visualisation.convert_minutes_to_ddhhmm"><code class="docutils literal notranslate"><span class="pre">convert_minutes_to_ddhhmm()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation.visualisation.get_gradient_color"><code class="docutils literal notranslate"><span class="pre">get_gradient_color()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation.visualisation.map_dynamic_network"><code class="docutils literal notranslate"><span class="pre">map_dynamic_network()</span></code></a></li>
@@ -398,6 +1181,7 @@ tuple: A tuple represG.edges((1351, 692))enting the RGB values of the color at t
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation.visualisation.plot_tsne_embedding"><code class="docutils literal notranslate"><span class="pre">plot_tsne_embedding()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning">Deep Learning</a></li>
 </ul>
 </li>
 </ul>

@@ -1,9 +1,3 @@
-"""
-BASE GRAPH FILE
-
-Base file for characteristics & visualisation stuff
-"""
-
 from enum import Enum
 from typing import List, Tuple
 import networkx as nx
