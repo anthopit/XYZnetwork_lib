@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "XYZnetwork_lib"
+version = "1.0.0"
+authors = [
+    { name="Maxime Chevrier", email="maxime.chevrier.409@cranfield.ac.uk" },
+    { name="Anthony Pitra", email="anthony.pitra.502@cranfield.ac.uk" },
+    { name="Chandni Saha", email="chandni.saha.796@cranfield.ac.uk" },
+    { name="Firas Zaarouri", email="firas.zaarouri.656@cranfield.ac.uk" },
+]
+description = "XYZnetwork's transport network package"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/anthopit/XYZnetwork_lib"

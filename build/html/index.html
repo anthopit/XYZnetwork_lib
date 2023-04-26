@@ -302,7 +302,33 @@ document.write(`
 </ul>
 </li>
 <li><a class="reference internal" href="#machine-learning">Machine Learning</a><ul>
-<li><a class="reference internal" href="#embedding">Embedding</a></li>
+<li><a class="reference internal" href="#module-ML.embedding">Embedding</a><ul>
+<li><a class="reference internal" href="#ML.embedding.AdjencyMatrix"><code class="docutils literal notranslate"><span class="pre">AdjencyMatrix</span></code></a><ul>
+<li><a class="reference internal" href="#ML.embedding.AdjencyMatrix.get_embedding"><code class="docutils literal notranslate"><span class="pre">AdjencyMatrix.get_embedding()</span></code></a></li>
+<li><a class="reference internal" href="#ML.embedding.AdjencyMatrix.plot_embedding"><code class="docutils literal notranslate"><span class="pre">AdjencyMatrix.plot_embedding()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ML.embedding.Embedding"><code class="docutils literal notranslate"><span class="pre">Embedding</span></code></a><ul>
+<li><a class="reference internal" href="#ML.embedding.Embedding.get_embedding"><code class="docutils literal notranslate"><span class="pre">Embedding.get_embedding()</span></code></a></li>
+<li><a class="reference internal" href="#ML.embedding.Embedding.get_embedding_df"><code class="docutils literal notranslate"><span class="pre">Embedding.get_embedding_df()</span></code></a></li>
+<li><a class="reference internal" href="#ML.embedding.Embedding.plot_embedding"><code class="docutils literal notranslate"><span class="pre">Embedding.plot_embedding()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ML.embedding.GraphWave"><code class="docutils literal notranslate"><span class="pre">GraphWave</span></code></a><ul>
+<li><a class="reference internal" href="#ML.embedding.GraphWave.get_embedding"><code class="docutils literal notranslate"><span class="pre">GraphWave.get_embedding()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ML.embedding.LaplacianEigenmaps"><code class="docutils literal notranslate"><span class="pre">LaplacianEigenmaps</span></code></a><ul>
+<li><a class="reference internal" href="#ML.embedding.LaplacianEigenmaps.get_embedding"><code class="docutils literal notranslate"><span class="pre">LaplacianEigenmaps.get_embedding()</span></code></a></li>
+<li><a class="reference internal" href="#ML.embedding.LaplacianEigenmaps.plot_embedding"><code class="docutils literal notranslate"><span class="pre">LaplacianEigenmaps.plot_embedding()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ML.embedding.Node2Vec"><code class="docutils literal notranslate"><span class="pre">Node2Vec</span></code></a><ul>
+<li><a class="reference internal" href="#ML.embedding.Node2Vec.get_embedding"><code class="docutils literal notranslate"><span class="pre">Node2Vec.get_embedding()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-clustering.cluster">Clustering</a><ul>
 <li><a class="reference internal" href="#clustering.cluster.find_optimal_k_elbow"><code class="docutils literal notranslate"><span class="pre">find_optimal_k_elbow()</span></code></a></li>
 <li><a class="reference internal" href="#clustering.cluster.get_clusters"><code class="docutils literal notranslate"><span class="pre">get_clusters()</span></code></a></li>
@@ -952,8 +978,78 @@ Used for plotting and mapping.</p>
 </section>
 <section id="machine-learning">
 <span id="ml-ref"></span><h2>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this heading">#</a></h2>
-<section id="embedding">
-<span id="embed-ref"></span><h3>Embedding<a class="headerlink" href="#embedding" title="Permalink to this heading">#</a></h3>
+<section id="module-ML.embedding">
+<span id="embedding"></span><span id="embed-ref"></span><h3>Embedding<a class="headerlink" href="#module-ML.embedding" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="ML.embedding.AdjencyMatrix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ML.embedding.</span></span><span class="sig-name descname"><span class="pre">AdjencyMatrix</span></span><a class="headerlink" href="#ML.embedding.AdjencyMatrix" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="ML.embedding.AdjencyMatrix.get_embedding">
+<span class="sig-name descname"><span class="pre">get_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.AdjencyMatrix.get_embedding" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ML.embedding.AdjencyMatrix.plot_embedding">
+<span class="sig-name descname"><span class="pre">plot_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.AdjencyMatrix.plot_embedding" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ML.embedding.Embedding">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ML.embedding.</span></span><span class="sig-name descname"><span class="pre">Embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.Embedding" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="ML.embedding.Embedding.get_embedding">
+<span class="sig-name descname"><span class="pre">get_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.Embedding.get_embedding" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ML.embedding.Embedding.get_embedding_df">
+<span class="sig-name descname"><span class="pre">get_embedding_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.Embedding.get_embedding_df" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ML.embedding.Embedding.plot_embedding">
+<span class="sig-name descname"><span class="pre">plot_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.Embedding.plot_embedding" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ML.embedding.GraphWave">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ML.embedding.</span></span><span class="sig-name descname"><span class="pre">GraphWave</span></span><a class="headerlink" href="#ML.embedding.GraphWave" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="ML.embedding.GraphWave.get_embedding">
+<span class="sig-name descname"><span class="pre">get_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.GraphWave.get_embedding" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ML.embedding.LaplacianEigenmaps">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ML.embedding.</span></span><span class="sig-name descname"><span class="pre">LaplacianEigenmaps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emb_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.LaplacianEigenmaps" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="ML.embedding.LaplacianEigenmaps.get_embedding">
+<span class="sig-name descname"><span class="pre">get_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.LaplacianEigenmaps.get_embedding" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ML.embedding.LaplacianEigenmaps.plot_embedding">
+<span class="sig-name descname"><span class="pre">plot_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.LaplacianEigenmaps.plot_embedding" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ML.embedding.Node2Vec">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ML.embedding.</span></span><span class="sig-name descname"><span class="pre">Node2Vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_word</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emb_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walk_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_walks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.Node2Vec" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="ML.embedding.Node2Vec.get_embedding">
+<span class="sig-name descname"><span class="pre">get_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ML.embedding.Node2Vec.get_embedding" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-clustering.cluster">
 <span id="clustering"></span><span id="clus-ref"></span><h3>Clustering<a class="headerlink" href="#module-clustering.cluster" title="Permalink to this heading">#</a></h3>
@@ -1415,7 +1511,33 @@ Visual Representations &lt;https://arxiv.org/abs/2002.05709&gt;</cite>.
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">Machine Learning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embedding">Embedding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ML.embedding">Embedding</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.AdjencyMatrix"><code class="docutils literal notranslate"><span class="pre">AdjencyMatrix</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.AdjencyMatrix.get_embedding"><code class="docutils literal notranslate"><span class="pre">AdjencyMatrix.get_embedding()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.AdjencyMatrix.plot_embedding"><code class="docutils literal notranslate"><span class="pre">AdjencyMatrix.plot_embedding()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.Embedding"><code class="docutils literal notranslate"><span class="pre">Embedding</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.Embedding.get_embedding"><code class="docutils literal notranslate"><span class="pre">Embedding.get_embedding()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.Embedding.get_embedding_df"><code class="docutils literal notranslate"><span class="pre">Embedding.get_embedding_df()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.Embedding.plot_embedding"><code class="docutils literal notranslate"><span class="pre">Embedding.plot_embedding()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.GraphWave"><code class="docutils literal notranslate"><span class="pre">GraphWave</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.GraphWave.get_embedding"><code class="docutils literal notranslate"><span class="pre">GraphWave.get_embedding()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.LaplacianEigenmaps"><code class="docutils literal notranslate"><span class="pre">LaplacianEigenmaps</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.LaplacianEigenmaps.get_embedding"><code class="docutils literal notranslate"><span class="pre">LaplacianEigenmaps.get_embedding()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.LaplacianEigenmaps.plot_embedding"><code class="docutils literal notranslate"><span class="pre">LaplacianEigenmaps.plot_embedding()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.Node2Vec"><code class="docutils literal notranslate"><span class="pre">Node2Vec</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ML.embedding.Node2Vec.get_embedding"><code class="docutils literal notranslate"><span class="pre">Node2Vec.get_embedding()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-clustering.cluster">Clustering</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering.cluster.find_optimal_k_elbow"><code class="docutils literal notranslate"><span class="pre">find_optimal_k_elbow()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering.cluster.get_clusters"><code class="docutils literal notranslate"><span class="pre">get_clusters()</span></code></a></li>
