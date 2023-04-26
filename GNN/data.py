@@ -3,6 +3,14 @@ from torch_geometric.utils import negative_sampling
 from GNN.utils import *
 import numpy as np
 def create_data_from_transport_network(graph, TN, *args, **kwargs):
+    """
+    Creates data for Deep Learning from a transportnetwork
+    :param graph: Graph to use
+    :param TN: Transport network to use
+    :param args: Arguments for config
+    :param kwargs: Keyword argument list
+    :return: Formatted data
+    """
 
     if args and isinstance(args[0], GNNConfig):
         config = args[0]
@@ -40,6 +48,12 @@ def create_data_from_transport_network(graph, TN, *args, **kwargs):
 
 # Prepare the dataset for link prediction
 def create_link_prediction_data(data, train_ratio=0.8):
+    """
+    Creates link prediction data for Deep Learning
+    :param data: Data to use
+    :param train_ratio: Ratio of training data compared to total data: Usually 0.8 (80% training, 20% validation)
+    :return: Training and validation examples & labels
+    """
     num_nodes = data.num_nodes
     num_edges = data.num_edges
 
