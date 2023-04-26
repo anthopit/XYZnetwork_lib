@@ -6,8 +6,9 @@
     :maxdepth: 2
     :caption: Contents:
 
+*******************
 What is XYZnetwork?
--------------------
+*******************
 
 XYZnetwork is the name of our team. It is also the name of the library
 you have just installed! This library will help you create, manage and
@@ -18,8 +19,9 @@ methods and networks.
 In this document, we will go over the different modules contained in the
 library and explain their purpose and functionalities.
 
+****************************
 What is a transport network?
-----------------------------
+****************************
 
 A transport network is a network of a public transport. For instance, we
 will be using the Chinese railway dataset. This dataset contains data
@@ -36,31 +38,32 @@ These networks will be represented by our main class, TransportNetwork:
 This class will be used for plotting, mapping and analysing its graph, which
 represents the dataset's network. This will be done via our modules.
 
+*******
 Modules
--------
+*******
 
 There are 5 modules in this library:
 
 * :ref:`prep-ref`
 * :ref:`char-ref`
-* :ref:`clus-ref`
+* :ref:`ML-ref`
 
    * :ref:`embed-ref`
-   * :ref:`MLclus-ref`
+   * :ref:`clus-ref`
 
 * :ref:`visu-ref`
 * :ref:`deepl-ref`
 
-   * GNN framework
-   * Self-supervised training
-   * Transfer learning
-   * Advanced clustering
+   * :ref:`DLmodel-ref`
+   * :ref:`DLdata-ref`
+   * :ref:`DLloss-ref`
+   * :ref:`DLrun-ref`
 
 
 .. _prep-ref:
 
 Preprocessing
-"""""""""""""
+-------------
 
 .. automodule:: preprocessing.Preprocessing
     :members:
@@ -69,7 +72,7 @@ Preprocessing
 .. _char-ref:
 
 Characterisation
-""""""""""""""""
+----------------
 
 .. automodule:: characterisation.assortativity
     :members:
@@ -99,19 +102,33 @@ Characterisation
     :members:
     :undoc-members:
 
+.. _ML-ref:
+
+Machine Learning
+----------------
+
+.. _embed-ref:
+
+Embedding
+"""""""""
+
+.. automodule:: ML.embedding
+    :members:
+    :undoc-members:
+
 .. _clus-ref:
 
 Clustering
 """"""""""
 
-.. automodule:: characterisation.clustering
+.. automodule:: clustering.cluster
     :members:
     :undoc-members:
 
 .. _visu-ref:
 
 Visualisation
-"""""""""""""
+-------------
 
 .. automodule:: visualisation.visualisation
     :members:
@@ -120,6 +137,42 @@ Visualisation
 .. _deepl-ref:
 
 Deep Learning
-"""""""""""""
+-------------
 
-Which module is for ML?
+.. _DLmodel-ref:
+
+Model
+"""""
+
+The model.py file contains classes of models to be used.
+
+.. automodule:: GNN.model
+    :members:
+    :undoc-members:
+
+.. _DLdata-ref:
+
+Data
+""""
+
+.. automodule:: GNN.data
+    :members:
+    :undoc-members:
+
+.. _DLloss-ref:
+
+Loss
+""""
+
+.. automodule:: GNN.loss
+    :members:
+    :undoc-members:
+
+.. _DLrun-ref:
+
+Run
+"""
+
+.. automodule:: GNN.run
+    :members:
+    :undoc-members:
