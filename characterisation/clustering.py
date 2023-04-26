@@ -5,6 +5,15 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
 def compute_clustering_analysis(TN, data=False):
+    """
+    Compute the clustering analysis. Used in plot_clustering_analysis and map_clustering_analysis
+
+    :param TN: TransportNetwork to analyse
+    :param data: Return data only?
+
+    :return: Analysis data
+    :rtype: dict
+    """
 
     if not data:
         triangles = nx.triangles(TN.graph)
@@ -36,6 +45,13 @@ def compute_clustering_analysis(TN, data=False):
 
 
 def plot_clustering_analysis(TN):
+    """
+    Plot clustering analysis
+
+    :param TN: TransportNetwork to analyse
+
+    :return: Plotly plot of the clustering analysis data
+    """
     clustering_analysis = compute_clustering_analysis(TN, data=True)
 
     # Get the list for the two metrics
@@ -72,6 +88,14 @@ def plot_clustering_analysis(TN):
     fig.show()
 
 def map_clustering_analysis(TN, scale=5):
+    """
+    Maps the clustering analysis.
+
+    :param TN: TransportNetwork
+    :param scale: Scale of the mapped analysis
+
+    :return: Plotly figure of mapped clustering analysis
+    """
     clustering_analysis = compute_clustering_analysis(TN, data=True)
 
     print(clustering_analysis['clustering'])

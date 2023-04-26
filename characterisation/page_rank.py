@@ -5,6 +5,14 @@ import plotly.io as pio
 from collections import Counter, OrderedDict
 from visualisation.visualisation import *
 def compute_page_rank_analysis(TN, data=False):
+    """
+    Computes page rank analysis. Used for plotting and mapping.
+
+    :param TN: TransportNetwork
+    :param data: Return data as dict?
+
+    :return: Page rank analysis results
+    """
 
     graph = TN.get_higher_complexity()
 
@@ -27,6 +35,9 @@ def compute_page_rank_analysis(TN, data=False):
 
 
 def map_page_rank_analysis(TN, scale=5):
+    """
+    Plots results of compute_page_rank_analysis()
+    """
 
     graph = TN.get_higher_complexity()
 

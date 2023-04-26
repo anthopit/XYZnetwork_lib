@@ -6,6 +6,14 @@ import plotly.io as pio
 from collections import Counter
 
 def compute_centrality_analysis(TN, data=False):
+    """
+    Computes centrality analysis. Used for plotting and mapping
+
+    :param TN: TransportNetwork
+    :param data: Return data as dict?
+
+    :return: Analysis results
+    """
 
     graph = TN.get_higher_complexity()
 
@@ -60,6 +68,9 @@ def compute_centrality_analysis(TN, data=False):
     return centrality_analysis
 
 def plot_centrality_analysis(TN):
+    """
+    Plots results from compute_centrality_analysis()
+    """
 
     graph = TN.get_higher_complexity()
 
@@ -153,6 +164,9 @@ def plot_centrality_analysis(TN):
     fig.show()
 
 def map_centrality_analysis(TN, scale=5):
+    """
+    Maps results from compute_centrality_analysis()
+    """
 
     graph = TN.get_higher_complexity()
 
