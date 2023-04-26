@@ -2,6 +2,14 @@ import torch
 from GNN.utils import augment_data
 from GNN.loss import *
 def train_self_supervised(data, model, optimizer, args):
+    """
+    Trains a model using a self-supervised method (no human supervision, can use unlabeled data)
+    :param data: Training data to use
+    :param model: Model to train
+    :param optimizer: Optimizer for training
+    :param args: Arguments
+    :return: No data returned, prints train and validation loss every epoch, then prints best val loss.
+    """
     best_loss = float("inf")
 
     for epoch in range(args.epochs):
@@ -47,6 +55,12 @@ def train_self_supervised(data, model, optimizer, args):
 
 
 def get_graph_embedding(data, model):
+    """
+    Gives the graph embedding from a model.
+    :param data: Data to use
+    :param model: Model to use
+    :return: Graph embedding
+    """
     model.eval()
     with torch.no_grad():
         z, _ = model(data, data)

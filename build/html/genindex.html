@@ -254,6 +254,7 @@ document.write(`
  <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#M"><strong>M</strong></a>
@@ -286,7 +287,7 @@ document.write(`
     characterisation.clustering
 
       <ul>
-        <li><a href="index.html#module-0">module</a>, <a href="index.html#module-characterisation.clustering">[1]</a>
+        <li><a href="index.html#module-characterisation.clustering">module</a>
 </li>
       </ul></li>
       <li>
@@ -324,13 +325,20 @@ document.write(`
         <li><a href="index.html#module-classes.transportnetwork">module</a>
 </li>
       </ul></li>
+      <li>
+    clustering.cluster
+
+      <ul>
+        <li><a href="index.html#module-clustering.cluster">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="index.html#characterisation.assortativity.compute_assortativity_analysis">compute_assortativity_analysis() (in module characterisation.assortativity)</a>
 </li>
       <li><a href="index.html#characterisation.centrality.compute_centrality_analysis">compute_centrality_analysis() (in module characterisation.centrality)</a>
 </li>
-      <li><a href="index.html#characterisation.clustering.compute_clustering_analysis">compute_clustering_analysis() (in module characterisation.clustering)</a>, <a href="index.html#id0">[1]</a>
+      <li><a href="index.html#characterisation.clustering.compute_clustering_analysis">compute_clustering_analysis() (in module characterisation.clustering)</a>
 </li>
       <li><a href="index.html#characterisation.distance.compute_distances_analysis">compute_distances_analysis() (in module characterisation.distance)</a>
 </li>
@@ -351,6 +359,10 @@ document.write(`
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.convert_multidirgraph_to_multigraph">convert_multidirgraph_to_multigraph() (classes.transportnetwork.TransportNetwork method)</a>
 </li>
       <li><a href="index.html#preprocessing.Preprocessing.convertTimetoMinute">convertTimetoMinute() (in module preprocessing.Preprocessing)</a>
+</li>
+      <li><a href="index.html#GNN.data.create_data_from_transport_network">create_data_from_transport_network() (in module GNN.data)</a>
+</li>
+      <li><a href="index.html#GNN.data.create_link_prediction_data">create_link_prediction_data() (in module GNN.data)</a>
 </li>
       <li><a href="index.html#preprocessing.Preprocessing.create_network_from_edges">create_network_from_edges() (in module preprocessing.Preprocessing)</a>
 </li>
@@ -385,12 +397,46 @@ document.write(`
   </ul></td>
 </tr></table>
 
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="index.html#clustering.cluster.find_optimal_k_elbow">find_optimal_k_elbow() (in module clustering.cluster)</a>
+</li>
+      <li><a href="index.html#GNN.model.GAT.forward">forward() (GNN.model.GAT method)</a>
+
+      <ul>
+        <li><a href="index.html#GNN.model.GCN.forward">(GNN.model.GCN method)</a>
+</li>
+        <li><a href="index.html#GNN.model.GCNLinkPrediction.forward">(GNN.model.GCNLinkPrediction method)</a>
+</li>
+        <li><a href="index.html#GNN.model.GIN.forward">(GNN.model.GIN method)</a>
+</li>
+        <li><a href="index.html#GNN.model.GraphSAGE.forward">(GNN.model.GraphSAGE method)</a>
+</li>
+        <li><a href="index.html#GNN.model.MLP.forward">(GNN.model.MLP method)</a>
+</li>
+        <li><a href="index.html#GNN.model.SSL_GNN.forward">(GNN.model.SSL_GNN method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="index.html#GNN.model.GAT">GAT (class in GNN.model)</a>
+</li>
+      <li><a href="index.html#GNN.model.GCN">GCN (class in GNN.model)</a>
+</li>
+      <li><a href="index.html#GNN.model.GCNLinkPrediction">GCNLinkPrediction (class in GNN.model)</a>
+</li>
+      <li><a href="index.html#clustering.cluster.get_clusters">get_clusters() (in module clustering.cluster)</a>
+</li>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.get_edge_weight_dict">get_edge_weight_dict() (classes.transportnetwork.TransportNetwork method)</a>
 </li>
       <li><a href="index.html#visualisation.visualisation.get_gradient_color">get_gradient_color() (in module visualisation.visualisation)</a>
+</li>
+      <li><a href="index.html#GNN.run.get_graph_embedding">get_graph_embedding() (in module GNN.run)</a>
 </li>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.get_higher_complexity">get_higher_complexity() (classes.transportnetwork.TransportNetwork method)</a>
 </li>
@@ -400,19 +446,51 @@ document.write(`
 </li>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.get_max_time">get_max_time() (classes.transportnetwork.TransportNetwork method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.get_min_lat">get_min_lat() (classes.transportnetwork.TransportNetwork method)</a>
 </li>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.get_min_lon">get_min_lon() (classes.transportnetwork.TransportNetwork method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.get_min_time">get_min_time() (classes.transportnetwork.TransportNetwork method)</a>
 </li>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.get_node_weight_dict">get_node_weight_dict() (classes.transportnetwork.TransportNetwork method)</a>
 </li>
       <li><a href="index.html#preprocessing.Preprocessing.getTrainMaxSpeed">getTrainMaxSpeed() (in module preprocessing.Preprocessing)</a>
 </li>
+      <li><a href="index.html#GNN.model.GIN">GIN (class in GNN.model)</a>
+</li>
+      <li>
+    GNN.data
+
+      <ul>
+        <li><a href="index.html#module-GNN.data">module</a>
+</li>
+      </ul></li>
+      <li>
+    GNN.loss
+
+      <ul>
+        <li><a href="index.html#module-GNN.loss">module</a>
+</li>
+      </ul></li>
+      <li>
+    GNN.model
+
+      <ul>
+        <li><a href="index.html#module-GNN.model">module</a>
+</li>
+      </ul></li>
+      <li>
+    GNN.run
+
+      <ul>
+        <li><a href="index.html#module-GNN.run">module</a>
+</li>
+      </ul></li>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.graph">graph (classes.transportnetwork.TransportNetwork attribute)</a>
+</li>
+      <li><a href="index.html#GNN.model.GraphSAGE">GraphSAGE (class in GNN.model)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -420,6 +498,8 @@ document.write(`
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="index.html#GNN.loss.info_nce_loss">info_nce_loss() (in module GNN.loss)</a>
+</li>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.is_directed">is_directed (classes.transportnetwork.TransportNetwork attribute)</a>
 </li>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.is_distance">is_distance (classes.transportnetwork.TransportNetwork attribute)</a>
@@ -444,7 +524,9 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="index.html#characterisation.centrality.map_centrality_analysis">map_centrality_analysis() (in module characterisation.centrality)</a>
 </li>
-      <li><a href="index.html#characterisation.clustering.map_clustering_analysis">map_clustering_analysis() (in module characterisation.clustering)</a>, <a href="index.html#id1">[1]</a>
+      <li><a href="index.html#characterisation.clustering.map_clustering_analysis">map_clustering_analysis() (in module characterisation.clustering)</a>
+</li>
+      <li><a href="index.html#clustering.cluster.map_clusters">map_clusters() (in module clustering.cluster)</a>
 </li>
       <li><a href="index.html#characterisation.distance.map_detour_analysis">map_detour_analysis() (in module characterisation.distance)</a>
 </li>
@@ -462,6 +544,8 @@ document.write(`
 </li>
       <li><a href="index.html#visualisation.visualisation.map_weighted_network">map_weighted_network() (in module visualisation.visualisation)</a>
 </li>
+      <li><a href="index.html#GNN.model.MLP">MLP (class in GNN.model)</a>
+</li>
       <li>
     module
 
@@ -470,7 +554,7 @@ document.write(`
 </li>
         <li><a href="index.html#module-characterisation.centrality">characterisation.centrality</a>
 </li>
-        <li><a href="index.html#module-0">characterisation.clustering</a>, <a href="index.html#module-characterisation.clustering">[1]</a>
+        <li><a href="index.html#module-characterisation.clustering">characterisation.clustering</a>
 </li>
         <li><a href="index.html#module-characterisation.degree">characterisation.degree</a>
 </li>
@@ -481,6 +565,16 @@ document.write(`
         <li><a href="index.html#module-characterisation.path">characterisation.path</a>
 </li>
         <li><a href="index.html#module-classes.transportnetwork">classes.transportnetwork</a>
+</li>
+        <li><a href="index.html#module-clustering.cluster">clustering.cluster</a>
+</li>
+        <li><a href="index.html#module-GNN.data">GNN.data</a>
+</li>
+        <li><a href="index.html#module-GNN.loss">GNN.loss</a>
+</li>
+        <li><a href="index.html#module-GNN.model">GNN.model</a>
+</li>
+        <li><a href="index.html#module-GNN.run">GNN.run</a>
 </li>
         <li><a href="index.html#module-preprocessing.Preprocessing">preprocessing.Preprocessing</a>
 </li>
@@ -513,7 +607,9 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="index.html#characterisation.centrality.plot_centrality_analysis">plot_centrality_analysis() (in module characterisation.centrality)</a>
 </li>
-      <li><a href="index.html#characterisation.clustering.plot_clustering_analysis">plot_clustering_analysis() (in module characterisation.clustering)</a>, <a href="index.html#id2">[1]</a>
+      <li><a href="index.html#characterisation.clustering.plot_clustering_analysis">plot_clustering_analysis() (in module characterisation.clustering)</a>
+</li>
+      <li><a href="index.html#clustering.cluster.plot_clusters_embedding">plot_clusters_embedding() (in module clustering.cluster)</a>
 </li>
       <li><a href="index.html#characterisation.degree.plot_distribution_degree_analysis">plot_distribution_degree_analysis() (in module characterisation.degree)</a>
 </li>
@@ -528,6 +624,8 @@ document.write(`
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.pos_argument">pos_argument (classes.transportnetwork.TransportNetwork attribute)</a>
 </li>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.pos_dict">pos_dict (classes.transportnetwork.TransportNetwork attribute)</a>
+</li>
+      <li><a href="index.html#GNN.model.GCNLinkPrediction.predict_link">predict_link() (GNN.model.GCNLinkPrediction method)</a>
 </li>
       <li>
     preprocessing.Preprocessing
@@ -545,6 +643,10 @@ document.write(`
       <li><a href="index.html#classes.transportnetwork.TransportNetwork.spring_pos_dict">spring_pos_dict (classes.transportnetwork.TransportNetwork attribute)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="index.html#GNN.model.SSL_GNN">SSL_GNN (class in GNN.model)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="T">T</h2>
@@ -554,6 +656,8 @@ document.write(`
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="index.html#GNN.run.train_self_supervised">train_self_supervised() (in module GNN.run)</a>
+</li>
       <li><a href="index.html#classes.transportnetwork.TransportNetwork">TransportNetwork (class in classes.transportnetwork)</a>
 </li>
   </ul></td>
