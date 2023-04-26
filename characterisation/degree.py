@@ -5,6 +5,14 @@ from plotly.subplots import make_subplots
 import numpy as np
 
 def compute_node_degree_analysis(TN, data=False):
+    """
+    Computes node degree analysis. Used for plotting & mapping
+
+    :param TN: TransportNetwork
+    :param data: Return only data of analysis?
+
+    :return: Analysis data
+    """
 
     if TN.is_directed:
         if TN.is_multi:
@@ -67,6 +75,11 @@ def compute_node_degree_analysis(TN, data=False):
 
 
 def plot_distribution_degree_analysis(TN):
+    """
+    Plots results of degree analysis
+
+    :return: Plotted results of the analysis
+    """
     if TN.is_directed:
         if TN.is_multi:
             graph = TN.multidigraph
@@ -149,6 +162,11 @@ def plot_distribution_degree_analysis(TN):
 
 
 def map_node_degree_analysis(TN, scale=5):
+    """
+    Maps results of degree analysis
+
+    :return: Plotly map of the analysis results
+    """
 
     if TN.is_directed:
         if TN.is_multi:
