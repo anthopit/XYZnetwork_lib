@@ -434,8 +434,8 @@ def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type=
                 showland=True,
                 landcolor='rgb(243, 243, 243)',
                 countrycolor='rgb(204, 204, 204)',
-                lataxis=dict(range=[TN.get_min_lat() - 1, TN.get_max_lat() + 1]),  # set the latitude range to [40, 60]
-                lonaxis=dict(range=[TN.get_min_lon() - 1, TN.get_max_lon() + 1]),
+                lataxis=dict(range=[TN.get_min_lat(), TN.get_max_lat()]),  # set the latitude range to [40, 60]
+                lonaxis=dict(range=[TN.get_min_lon(), TN.get_max_lon()]),
                 # set the longitude range to [-10, 20]
             ),
             width=1200,
@@ -862,8 +862,8 @@ def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type=
                 showland=True,
                 landcolor='rgb(243, 243, 243)',
                 countrycolor='rgb(204, 204, 204)',
-                lataxis=dict(range=[TN.get_min_lat() - 1, TN.get_max_lat() + 1]),  # set the latitude range to [40, 60]
-                lonaxis=dict(range=[TN.get_min_lon() - 1, TN.get_max_lon() + 1]),
+                lataxis=dict(range=[TN.get_min_lat(), TN.get_max_lat()]),  # set the latitude range to [40, 60]
+                lonaxis=dict(range=[TN.get_min_lon(), TN.get_max_lon()]),
                 # set the longitude range to [-10, 20]
             ),
             width=1200,

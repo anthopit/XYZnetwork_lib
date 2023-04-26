@@ -3,8 +3,8 @@ import numpy as np
 from node2vec import Node2Vec as n2v
 from visualisation.visualisation import *
 import matplotlib.pyplot as plt
-import lib.graphwave
-from lib.graphwave.graphwave import *
+import lib_ext.graphwave
+from lib_ext.graphwave.graphwave import *
 
 
 class Embedding():

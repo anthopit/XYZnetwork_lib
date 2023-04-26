@@ -17,12 +17,15 @@ def get_clusters(graph, type='louvain', embedding=None, k=None):
                 comms_dct[node] = i
     elif type == 'spectral':
         clustering = SpectralClustering(n_clusters=k, assign_labels='discretize', random_state=0).fit(embedding)
-        comm_dct = dict(zip(embedding.index, clustering.labels_))
+        # Get index of the graphs nodes
+        node_index = list(graph.nodes())
+        comm_dct = dict(zip(node_index, clustering.labels_))
         comm_dct = {k: v + 1 for k, v in comm_dct.items()}
         return comm_dct
     elif type == 'kmeans':
         clustering = KMeans(n_clusters=k,random_state=0).fit(embedding)
-        comm_dct = dict(zip(embedding.index, clustering.labels_))
+        node_index = list(graph.nodes())
+        comm_dct = dict(zip(node_index, clustering.labels_))
         comm_dct = {k: v + 1 for k, v in comm_dct.items()}
         return comm_dct
     else:
