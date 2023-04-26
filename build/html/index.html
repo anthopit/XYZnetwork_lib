@@ -301,15 +301,10 @@ document.write(`
 <li><a class="reference internal" href="#characterisation.path.plot_shortest_path_analysis"><code class="docutils literal notranslate"><span class="pre">plot_shortest_path_analysis()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#machine-learning">Machine Learning</a><ul>
-<li><a class="reference internal" href="#embedding">Embedding</a></li>
-<li><a class="reference internal" href="#module-clustering.cluster">Clustering</a><ul>
-<li><a class="reference internal" href="#clustering.cluster.find_optimal_k_elbow"><code class="docutils literal notranslate"><span class="pre">find_optimal_k_elbow()</span></code></a></li>
-<li><a class="reference internal" href="#clustering.cluster.get_clusters"><code class="docutils literal notranslate"><span class="pre">get_clusters()</span></code></a></li>
-<li><a class="reference internal" href="#clustering.cluster.map_clusters"><code class="docutils literal notranslate"><span class="pre">map_clusters()</span></code></a></li>
-<li><a class="reference internal" href="#clustering.cluster.plot_clusters_embedding"><code class="docutils literal notranslate"><span class="pre">plot_clusters_embedding()</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-0">Clustering</a><ul>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">compute_clustering_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">map_clustering_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">plot_clustering_analysis()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-visualisation.visualisation">Visualisation</a><ul>
@@ -321,55 +316,7 @@ document.write(`
 <li><a class="reference internal" href="#visualisation.visualisation.plot_tsne_embedding"><code class="docutils literal notranslate"><span class="pre">plot_tsne_embedding()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#deep-learning">Deep Learning</a><ul>
-<li><a class="reference internal" href="#model">Model</a><ul>
-<li><a class="reference internal" href="#GNN.model.GAT"><code class="docutils literal notranslate"><span class="pre">GAT</span></code></a><ul>
-<li><a class="reference internal" href="#GNN.model.GAT.forward"><code class="docutils literal notranslate"><span class="pre">GAT.forward()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#GNN.model.GCN"><code class="docutils literal notranslate"><span class="pre">GCN</span></code></a><ul>
-<li><a class="reference internal" href="#GNN.model.GCN.forward"><code class="docutils literal notranslate"><span class="pre">GCN.forward()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#GNN.model.GCNLinkPrediction"><code class="docutils literal notranslate"><span class="pre">GCNLinkPrediction</span></code></a><ul>
-<li><a class="reference internal" href="#GNN.model.GCNLinkPrediction.forward"><code class="docutils literal notranslate"><span class="pre">GCNLinkPrediction.forward()</span></code></a></li>
-<li><a class="reference internal" href="#GNN.model.GCNLinkPrediction.predict_link"><code class="docutils literal notranslate"><span class="pre">GCNLinkPrediction.predict_link()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#GNN.model.GIN"><code class="docutils literal notranslate"><span class="pre">GIN</span></code></a><ul>
-<li><a class="reference internal" href="#GNN.model.GIN.forward"><code class="docutils literal notranslate"><span class="pre">GIN.forward()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#GNN.model.GraphSAGE"><code class="docutils literal notranslate"><span class="pre">GraphSAGE</span></code></a><ul>
-<li><a class="reference internal" href="#GNN.model.GraphSAGE.forward"><code class="docutils literal notranslate"><span class="pre">GraphSAGE.forward()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#GNN.model.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul>
-<li><a class="reference internal" href="#GNN.model.MLP.forward"><code class="docutils literal notranslate"><span class="pre">MLP.forward()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#GNN.model.SSL_GNN"><code class="docutils literal notranslate"><span class="pre">SSL_GNN</span></code></a><ul>
-<li><a class="reference internal" href="#GNN.model.SSL_GNN.forward"><code class="docutils literal notranslate"><span class="pre">SSL_GNN.forward()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-GNN.data">Data</a><ul>
-<li><a class="reference internal" href="#GNN.data.create_data_from_transport_network"><code class="docutils literal notranslate"><span class="pre">create_data_from_transport_network()</span></code></a></li>
-<li><a class="reference internal" href="#GNN.data.create_link_prediction_data"><code class="docutils literal notranslate"><span class="pre">create_link_prediction_data()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-GNN.loss">Loss</a><ul>
-<li><a class="reference internal" href="#GNN.loss.info_nce_loss"><code class="docutils literal notranslate"><span class="pre">info_nce_loss()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-GNN.run">Run</a><ul>
-<li><a class="reference internal" href="#GNN.run.get_graph_embedding"><code class="docutils literal notranslate"><span class="pre">get_graph_embedding()</span></code></a></li>
-<li><a class="reference internal" href="#GNN.run.train_self_supervised"><code class="docutils literal notranslate"><span class="pre">train_self_supervised()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a class="reference internal" href="#deep-learning">Deep Learning</a></li>
 </ul>
 </li>
 </ul>
@@ -611,11 +558,11 @@ represents the dataset’s network. This will be done via our modules.</p>
 <ul>
 <li><p><a class="reference internal" href="#prep-ref"><span class="std std-ref">Preprocessing</span></a></p></li>
 <li><p><a class="reference internal" href="#char-ref"><span class="std std-ref">Characterisation</span></a></p></li>
-<li><p><a class="reference internal" href="#ml-ref"><span class="std std-ref">Machine Learning</span></a></p>
+<li><p><a class="reference internal" href="#clus-ref"><span class="std std-ref">Clustering</span></a></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="#embed-ref"><span class="std std-ref">Embedding</span></a></p></li>
-<li><p><a class="reference internal" href="#clus-ref"><span class="std std-ref">Clustering</span></a></p></li>
+<li><p><span class="xref std std-ref">embed-ref</span></p></li>
+<li><p><span class="xref std std-ref">MLclus-ref</span></p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -623,10 +570,10 @@ represents the dataset’s network. This will be done via our modules.</p>
 <li><p><a class="reference internal" href="#deepl-ref"><span class="std std-ref">Deep Learning</span></a></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="#dlmodel-ref"><span class="std std-ref">Model</span></a></p></li>
-<li><p><a class="reference internal" href="#dldata-ref"><span class="std std-ref">Data</span></a></p></li>
-<li><p><a class="reference internal" href="#dlloss-ref"><span class="std std-ref">Loss</span></a></p></li>
-<li><p><a class="reference internal" href="#dlrun-ref"><span class="std std-ref">Run</span></a></p></li>
+<li><p>GNN framework</p></li>
+<li><p>Self-supervised training</p></li>
+<li><p>Transfer learning</p></li>
+<li><p>Advanced clustering</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -950,52 +897,59 @@ Used for plotting and mapping.</p>
 </dd></dl>
 
 </section>
-<section id="machine-learning">
-<span id="ml-ref"></span><h2>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this heading">#</a></h2>
-<section id="embedding">
-<span id="embed-ref"></span><h3>Embedding<a class="headerlink" href="#embedding" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="module-clustering.cluster">
-<span id="clustering"></span><span id="clus-ref"></span><h3>Clustering<a class="headerlink" href="#module-clustering.cluster" title="Permalink to this heading">#</a></h3>
+<section id="module-0">
+<span id="clustering"></span><span id="clus-ref"></span><h2>Clustering<a class="headerlink" href="#module-0" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="clustering.cluster.find_optimal_k_elbow">
-<span class="sig-prename descclassname"><span class="pre">clustering.cluster.</span></span><span class="sig-name descname"><span class="pre">find_optimal_k_elbow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'k-means++'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustering.cluster.find_optimal_k_elbow" title="Permalink to this definition">#</a></dt>
-<dd><p>Find the optimal k for k-means clustering using the Elbow method.</p>
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">characterisation.clustering.</span></span><span class="sig-name descname"><span class="pre">compute_clustering_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute the clustering analysis. Used in plot_clustering_analysis and map_clustering_analysis</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – Input data.</p></li>
-<li><p><strong>max_k</strong> (<em>int</em>) – Maximum value of k to be tested.</p></li>
-<li><p><strong>init</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default: 'k-means++'</em>) – Method for initialization, as accepted by KMeans.</p></li>
-<li><p><strong>n_init</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>default: 10</em>) – Number of time the k-means algorithm will be run with different centroid seeds.</p></li>
-<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>RandomState instance</em><em>, </em><em>default=None</em>) – Determines random number generation for centroid initialization.</p></li>
+<li><p><strong>TN</strong> – TransportNetwork to analyse</p></li>
+<li><p><strong>data</strong> – Return data only?</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Optimal value of k.</p>
+<dd class="field-even"><p>Analysis data</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="clustering.cluster.get_clusters">
-<span class="sig-prename descclassname"><span class="pre">clustering.cluster.</span></span><span class="sig-name descname"><span class="pre">get_clusters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'louvain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embedding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustering.cluster.get_clusters" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="id1">
+<span class="sig-prename descclassname"><span class="pre">characterisation.clustering.</span></span><span class="sig-name descname"><span class="pre">map_clustering_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps the clustering analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TN</strong> – TransportNetwork</p></li>
+<li><p><strong>scale</strong> – Scale of the mapped analysis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plotly figure of mapped clustering analysis</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="clustering.cluster.map_clusters">
-<span class="sig-prename descclassname"><span class="pre">clustering.cluster.</span></span><span class="sig-name descname"><span class="pre">map_clusters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters_dct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustering.cluster.map_clusters" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="id2">
+<span class="sig-prename descclassname"><span class="pre">characterisation.clustering.</span></span><span class="sig-name descname"><span class="pre">plot_clustering_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TN</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot clustering analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TN</strong> – TransportNetwork to analyse</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plotly plot of the clustering analysis data</p>
+</dd>
+</dl>
+</dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="clustering.cluster.plot_clusters_embedding">
-<span class="sig-prename descclassname"><span class="pre">clustering.cluster.</span></span><span class="sig-name descname"><span class="pre">plot_clusters_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embedding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters_dct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clustering.cluster.plot_clusters_embedding" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</section>
 </section>
 <section id="module-visualisation.visualisation">
 <span id="visualisation"></span><span id="visu-ref"></span><h2>Visualisation<a class="headerlink" href="#module-visualisation.visualisation" title="Permalink to this heading">#</a></h2>
@@ -1107,209 +1061,7 @@ Used for plotting and mapping.</p>
 </section>
 <section id="deep-learning">
 <span id="deepl-ref"></span><h2>Deep Learning<a class="headerlink" href="#deep-learning" title="Permalink to this heading">#</a></h2>
-<section id="model">
-<span id="dlmodel-ref"></span><h3>Model<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h3>
-<p>The model.py file contains classes of models to be used.</p>
-<span class="target" id="module-GNN.model"></span><dl class="py class">
-<dt class="sig sig-object py" id="GNN.model.GAT">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GNN.model.</span></span><span class="sig-name descname"><span class="pre">GAT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feat_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_layers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_heads</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_heads</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GAT" title="Permalink to this definition">#</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="GNN.model.GAT.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GAT.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="GNN.model.GCN">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GNN.model.</span></span><span class="sig-name descname"><span class="pre">GCN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feat_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_layers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed_dim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GCN" title="Permalink to this definition">#</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="GNN.model.GCN.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GCN.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="GNN.model.GCNLinkPrediction">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GNN.model.</span></span><span class="sig-name descname"><span class="pre">GCNLinkPrediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GCNLinkPrediction" title="Permalink to this definition">#</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="GNN.model.GCNLinkPrediction.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GCNLinkPrediction.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="GNN.model.GCNLinkPrediction.predict_link">
-<span class="sig-name descname"><span class="pre">predict_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_embeddings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GCNLinkPrediction.predict_link" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="GNN.model.GIN">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GNN.model.</span></span><span class="sig-name descname"><span class="pre">GIN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feat_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_layers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed_dim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GIN" title="Permalink to this definition">#</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="GNN.model.GIN.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GIN.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="GNN.model.GraphSAGE">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GNN.model.</span></span><span class="sig-name descname"><span class="pre">GraphSAGE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feat_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_layers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed_dim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GraphSAGE" title="Permalink to this definition">#</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="GNN.model.GraphSAGE.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.GraphSAGE.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="GNN.model.MLP">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GNN.model.</span></span><span class="sig-name descname"><span class="pre">MLP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.MLP" title="Permalink to this definition">#</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="GNN.model.MLP.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.MLP.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="GNN.model.SSL_GNN">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GNN.model.</span></span><span class="sig-name descname"><span class="pre">SSL_GNN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feat_dim</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.SSL_GNN" title="Permalink to this definition">#</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="GNN.model.SSL_GNN.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_aug</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.model.SSL_GNN.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-GNN.data">
-<span id="data"></span><span id="dldata-ref"></span><h3>Data<a class="headerlink" href="#module-GNN.data" title="Permalink to this heading">#</a></h3>
-<dl class="py function">
-<dt class="sig sig-object py" id="GNN.data.create_data_from_transport_network">
-<span class="sig-prename descclassname"><span class="pre">GNN.data.</span></span><span class="sig-name descname"><span class="pre">create_data_from_transport_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TN</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.data.create_data_from_transport_network" title="Permalink to this definition">#</a></dt>
-<dd><p>Creates data for Deep Learning from a transportnetwork
-:param graph: Graph to use
-:param TN: Transport network to use
-:param args: Arguments for config
-:param kwargs: Keyword argument list
-:return: Formatted data</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="GNN.data.create_link_prediction_data">
-<span class="sig-prename descclassname"><span class="pre">GNN.data.</span></span><span class="sig-name descname"><span class="pre">create_link_prediction_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.data.create_link_prediction_data" title="Permalink to this definition">#</a></dt>
-<dd><p>Creates link prediction data for Deep Learning
-:param data: Data to use
-:param train_ratio: Ratio of training data compared to total data: Usually 0.8 (80% training, 20% validation)
-:return: Training and validation examples &amp; labels</p>
-</dd></dl>
-
-</section>
-<section id="module-GNN.loss">
-<span id="loss"></span><span id="dlloss-ref"></span><h3>Loss<a class="headerlink" href="#module-GNN.loss" title="Permalink to this heading">#</a></h3>
-<dl class="py function">
-<dt class="sig sig-object py" id="GNN.loss.info_nce_loss">
-<span class="sig-prename descclassname"><span class="pre">GNN.loss.</span></span><span class="sig-name descname"><span class="pre">info_nce_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">readout_anchor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readout_positive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.loss.info_nce_loss" title="Permalink to this definition">#</a></dt>
-<dd><p>The InfoNCE (NT-XENT) loss in contrastive learning. The implementation
-follows the paper <cite>A Simple Framework for Contrastive Learning of
-Visual Representations &lt;https://arxiv.org/abs/2002.05709&gt;</cite>.
-:param readout_anchor: Tensor of shape [batch_size, feat_dim]
-:param readout_positive: Tensor of shape [batch_size, feat_dim]
-:param tau: Float. Usually in (0,1].
-:param norm: Boolean. Whether to apply normlization.</p>
-</dd></dl>
-
-</section>
-<section id="module-GNN.run">
-<span id="run"></span><span id="dlrun-ref"></span><h3>Run<a class="headerlink" href="#module-GNN.run" title="Permalink to this heading">#</a></h3>
-<dl class="py function">
-<dt class="sig sig-object py" id="GNN.run.get_graph_embedding">
-<span class="sig-prename descclassname"><span class="pre">GNN.run.</span></span><span class="sig-name descname"><span class="pre">get_graph_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.run.get_graph_embedding" title="Permalink to this definition">#</a></dt>
-<dd><p>Gives the graph embedding from a model.
-:param data: Data to use
-:param model: Model to use
-:return: Graph embedding</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="GNN.run.train_self_supervised">
-<span class="sig-prename descclassname"><span class="pre">GNN.run.</span></span><span class="sig-name descname"><span class="pre">train_self_supervised</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GNN.run.train_self_supervised" title="Permalink to this definition">#</a></dt>
-<dd><p>Trains a model using a self-supervised method (no human supervision, can use unlabeled data)
-:param data: Training data to use
-:param model: Model to train
-:param optimizer: Optimizer for training
-:param args: Arguments
-:return: No data returned, prints train and validation loss every epoch, then prints best val loss.</p>
-</dd></dl>
-
-</section>
+<p>Which module is for ML?</p>
 </section>
 </section>
 
@@ -1414,15 +1166,10 @@ Visual Representations &lt;https://arxiv.org/abs/2002.05709&gt;</cite>.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation.path.plot_shortest_path_analysis"><code class="docutils literal notranslate"><span class="pre">plot_shortest_path_analysis()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">Machine Learning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embedding">Embedding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-clustering.cluster">Clustering</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering.cluster.find_optimal_k_elbow"><code class="docutils literal notranslate"><span class="pre">find_optimal_k_elbow()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering.cluster.get_clusters"><code class="docutils literal notranslate"><span class="pre">get_clusters()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering.cluster.map_clusters"><code class="docutils literal notranslate"><span class="pre">map_clusters()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering.cluster.plot_clusters_embedding"><code class="docutils literal notranslate"><span class="pre">plot_clusters_embedding()</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-0">Clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">compute_clustering_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">map_clustering_analysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">plot_clustering_analysis()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-visualisation.visualisation">Visualisation</a><ul class="nav section-nav flex-column">
@@ -1434,55 +1181,7 @@ Visual Representations &lt;https://arxiv.org/abs/2002.05709&gt;</cite>.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation.visualisation.plot_tsne_embedding"><code class="docutils literal notranslate"><span class="pre">plot_tsne_embedding()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning">Deep Learning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GAT"><code class="docutils literal notranslate"><span class="pre">GAT</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GAT.forward"><code class="docutils literal notranslate"><span class="pre">GAT.forward()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GCN"><code class="docutils literal notranslate"><span class="pre">GCN</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GCN.forward"><code class="docutils literal notranslate"><span class="pre">GCN.forward()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GCNLinkPrediction"><code class="docutils literal notranslate"><span class="pre">GCNLinkPrediction</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GCNLinkPrediction.forward"><code class="docutils literal notranslate"><span class="pre">GCNLinkPrediction.forward()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GCNLinkPrediction.predict_link"><code class="docutils literal notranslate"><span class="pre">GCNLinkPrediction.predict_link()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GIN"><code class="docutils literal notranslate"><span class="pre">GIN</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GIN.forward"><code class="docutils literal notranslate"><span class="pre">GIN.forward()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GraphSAGE"><code class="docutils literal notranslate"><span class="pre">GraphSAGE</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.GraphSAGE.forward"><code class="docutils literal notranslate"><span class="pre">GraphSAGE.forward()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.MLP.forward"><code class="docutils literal notranslate"><span class="pre">MLP.forward()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.SSL_GNN"><code class="docutils literal notranslate"><span class="pre">SSL_GNN</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.model.SSL_GNN.forward"><code class="docutils literal notranslate"><span class="pre">SSL_GNN.forward()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-GNN.data">Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.data.create_data_from_transport_network"><code class="docutils literal notranslate"><span class="pre">create_data_from_transport_network()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.data.create_link_prediction_data"><code class="docutils literal notranslate"><span class="pre">create_link_prediction_data()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-GNN.loss">Loss</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.loss.info_nce_loss"><code class="docutils literal notranslate"><span class="pre">info_nce_loss()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-GNN.run">Run</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.run.get_graph_embedding"><code class="docutils literal notranslate"><span class="pre">get_graph_embedding()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#GNN.run.train_self_supervised"><code class="docutils literal notranslate"><span class="pre">train_self_supervised()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning">Deep Learning</a></li>
 </ul>
 </li>
 </ul>
