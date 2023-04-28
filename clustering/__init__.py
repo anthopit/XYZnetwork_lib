@@ -1,2 +1,2 @@
-import cluster
-from cluster import *
+import clustering.cluster
+from clustering.cluster import *

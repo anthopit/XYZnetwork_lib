@@ -1,14 +1,14 @@
-import assortativity
-from assortativity import *
-import centrality
-from centrality import *
-import clustering
-from clustering import *
-import degree
-from degree import *
-import distance
-from distance import *
-import page_rank
-from page_rank import *
-import path
-from path import *
+import characterisation.assortativity
+from characterisation.assortativity import *
+import characterisation.centrality
+from characterisation.centrality import *
+import characterisation.clustering
+from characterisation.clustering import *
+import characterisation.degree
+from characterisation.degree import *
+import characterisation.distance
+from characterisation.distance import *
+import characterisation.page_rank
+from characterisation.page_rank import *
+import characterisation.path
+from characterisation.path import *
