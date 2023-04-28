@@ -4,6 +4,15 @@ XYZnetwork_lib
 Package for manipulating, analysing and plotting/mapping transport networks
 """
 
+import characterisation
+import classes
+import clustering
+import GNN
+import ML
+import preprocessing
+import robustness_analysis
+import visualisation
+
 from characterisation import assortativity
 from characterisation import centrality
 from characterisation import clustering

@@ -1,4 +1,2 @@
-import utils
-from utils import *
+import visualisation.utils
 import visualisation.visualisation
-from visualisation.visualisation import *
