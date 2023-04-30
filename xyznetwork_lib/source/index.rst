@@ -43,6 +43,10 @@ This class will be used for plotting, mapping and analysing its graph, which
 represents the dataset's network. This will be done via our modules. We will
 refer to this class as TN, especially for function arguments.
 
+Importing TN:
+
+>>> import xyznetwork_lib.classes.transportnetwork as TN
+
 *******
 Modules
 *******
