@@ -1,6 +1,6 @@
 import pandas as pd
 from node2vec import Node2Vec as n2v
-from lib_ext.graphwave.graphwave import *
+from visualisation.visualisation import *
 
 
 class Embedding():

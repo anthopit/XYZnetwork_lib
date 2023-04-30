@@ -1,6 +1,8 @@
 from collections import Counter, OrderedDict
 import plotly.graph_objs as go
 import plotly.io as pio
+from visualisation.visualisation import *
+import networkx as nx
 
 
 def compute_shortest_path_analysis(TN):
@@ -46,6 +48,8 @@ def compute_shortest_path_analysis(TN):
 def plot_shortest_path_analysis(TN):
     """
     Plots compute_shortest_path_analysis() results
+
+    :param TN: TransportNetwork
     """
     # Compute shortest path lengths
     shortest_path_length = dict(nx.shortest_path_length(TN.graph))
@@ -90,6 +94,10 @@ def plot_shortest_path_analysis(TN):
 def map_shortest_path_analysis(TN, source_node=None, target_node=None):
     """
     Maps compute_shortest_path_analysis() results
+
+    :param TN: TransportNetwork
+    :param source_node: Source node to use
+    :param target_node: Target node
     """
     # Calculate the diameter
     diameter = nx.diameter(TN.graph)
@@ -212,6 +220,8 @@ def compute_eccentricity_analysis(TN, data=False):
 def plot_eccentricity_analysis(TN):
     """
     Plots compute_eccentricity_analysis() results
+
+    :param TN: TransportNetwork
     """
     # Compute the eccentricity of each node in the graph
     eccentricity = nx.eccentricity(TN.graph)
@@ -249,6 +259,9 @@ def plot_eccentricity_analysis(TN):
 def map_eccentricity_analysis(TN, scale=5):
     """
     Maps compute_eccentricity_analysis() results
+
+    :param TN: TransportNetwork
+    :param scale: Scale of the map
     """
     # Compute the eccentricity of each node in the graph
     eccentricity = nx.eccentricity(TN.graph)

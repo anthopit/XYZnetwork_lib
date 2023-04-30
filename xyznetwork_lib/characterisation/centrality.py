@@ -1,5 +1,7 @@
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
+import networkx as nx
+from visualisation import visualisation
 
 
 def compute_centrality_analysis(TN, data=False):
@@ -67,6 +69,8 @@ def compute_centrality_analysis(TN, data=False):
 def plot_centrality_analysis(TN):
     """
     Plots results from compute_centrality_analysis()
+
+    :param TN: TransportNetwork
     """
 
     graph = TN.get_higher_complexity()
@@ -163,6 +167,9 @@ def plot_centrality_analysis(TN):
 def map_centrality_analysis(TN, scale=5):
     """
     Maps results from compute_centrality_analysis()
+
+    :param TN: TransportNetwork
+    :param scale: Scale of the map
     """
 
     graph = TN.get_higher_complexity()

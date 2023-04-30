@@ -73,6 +73,11 @@ class TransportNetwork:
             return G
 
     def updata_graph(self, graph):
+        """
+        Updates TN's graph
+
+        :param graph: Graph to update
+        """
         if graph.is_directed() and graph.is_multigraph():
             self.multidigraph = graph
             self.multigraph = self.convert_multidirgraph_to_multigraph()
