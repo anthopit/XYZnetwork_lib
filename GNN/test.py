@@ -40,7 +40,6 @@ graph = TN.get_higher_complexity()
 
 args = {
     "node_features" : ["one_hot"], # choices are ["degree_one_hot", "one_hot", "constant", "pagerank", "degree", "betweenness", "closeness", "eigenvector", "clustering", "position", "distance"]
-    "node_attrs" : None,
     "edge_attrs" : ["departure_time"], # choices are ["distance", "dep_time", "arr_time"]
     "train_ratio" : 0.8,
     "val_ratio" : 0.1,
