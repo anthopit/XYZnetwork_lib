@@ -4,10 +4,10 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 import numpy as np
 
-def compute_node_degree_analysis(TN, data=False):
+def compute_node_degree_analysis(TN, data=False, directed=True, multi=True):
 
-    if TN.is_directed:
-        if TN.is_multi:
+    if TN.is_directed and directed:
+        if TN.is_multi and multi:
             graph = TN.multidigraph
         else:
             graph = TN.dirgraph
@@ -24,20 +24,22 @@ def compute_node_degree_analysis(TN, data=False):
         max_in_degree = max(dict(graph.in_degree()).values())
         min_out_degree = min(dict(graph.out_degree()).values())
         max_out_degree = max(dict(graph.out_degree()).values())
-        avg_degree = sum(dict(graph.out_degree()).values())/len(dict(graph.out_degree()).values())
+        avg_in_degree = sum(dict(graph.in_degree()).values())/len(dict(graph.in_degree()).values())
+        avg_out_degree = sum(dict(graph.out_degree()).values())/len(dict(graph.out_degree()).values())
 
         node_degree_analysis = {
             "min_in_degree": min_in_degree,
             "max_in_degree": max_in_degree,
             "min_out_degree": min_out_degree,
             "max_out_degree": max_out_degree,
-            "avg_out_degree": avg_degree
+            "avg_in_degree": avg_in_degree,
+            "avg_out_degree": avg_out_degree,
         }
 
         return node_degree_analysis
 
-    elif not TN.is_directed:
-        if TN.is_multi:
+    elif not TN.is_directed or not directed:
+        if TN.is_multi and multi:
             graph = TN.multigraph
         else:
             graph = TN.graph
@@ -66,9 +68,12 @@ def compute_node_degree_analysis(TN, data=False):
 
 
 
-def plot_distribution_degree_analysis(TN):
-    if TN.is_directed:
-        graph = TN.dirgraph
+def plot_distribution_degree_analysis(TN, directed=True, multi=True):
+    if TN.is_directed and directed:
+        if TN.is_multi and multi:
+            graph = TN.multidigraph
+        else:
+            graph = TN.dirgraph
 
         in_degrees = list(dict(graph.in_degree()).values())
         out_degrees = list(dict(graph.out_degree()).values())
@@ -117,8 +122,9 @@ def plot_distribution_degree_analysis(TN):
 
         fig.show()
 
-    elif not TN.is_directed:
-        if TN.is_multi:
+
+    elif not TN.is_directed or not directed:
+        if TN.is_multi and multi:
             graph = TN.multigraph
         else:
             graph = TN.graph
@@ -130,13 +136,25 @@ def plot_distribution_degree_analysis(TN):
         degree_prob = degree_prob[degree_prob != 0]
 
         # Create traces
-        fig = go.Figure()
+        # Create traces
+        fig = make_subplots(rows=1, cols=2, subplot_titles=("Normal Scale", "Log Scale"))
         fig.add_trace(go.Scatter(x=np.arange(len(degree_prob)), y=degree_prob,
-                                 mode='lines+markers'))
+                                 mode='lines+markers'),
+                      row=1, col=1)
+        fig.add_trace(go.Scatter(x=np.arange(len(degree_prob)), y=degree_prob,
+                                 mode='lines+markers'),
+                      row=1, col=2)
+
+        fig.update_xaxes(title_text="k", type='linear', row=1, col=1)
+        fig.update_yaxes(title_text="P(k)", type='linear', row=1, col=1)
+
+        fig.update_xaxes(title_text="k", type='log', row=1, col=2)
+        fig.update_yaxes(title_text="P(k)", type='log', row=1, col=2)
 
         fig.update_layout(title='Degree Distribution Probability',
-                          xaxis=dict(title='P(k)'),
-                          yaxis=dict(title='k'))
+                          width=1400,
+                          height=700,
+                          )
 
         fig.show()
 
@@ -145,10 +163,9 @@ def plot_distribution_degree_analysis(TN):
 
 
 
-def map_node_degree_analysis(TN, scale=5):
-
-    if TN.is_directed:
-        if TN.is_multi:
+def map_node_degree_analysis(TN, scale=5, directed=True, multi=True):
+    if TN.is_directed and directed:
+        if TN.is_multi and multi:
             graph = TN.multidigraph
         else:
             graph = TN.dirgraph
@@ -185,8 +202,9 @@ def map_node_degree_analysis(TN, scale=5):
         # Show the figure
         fig.show()
 
-    elif not TN.is_directed:
-        if TN.is_multi:
+
+    elif not TN.is_directed or not directed:
+        if TN.is_multi and multi:
             graph = TN.multigraph
         else:
             graph = TN.graph

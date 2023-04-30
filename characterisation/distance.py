@@ -2,7 +2,7 @@ import networkx as nx
 from geopy.distance import distance
 from visualisation.visualisation import *
 
-def compute_distances_analysis(TN, data=False):
+def compute_distances_analysis(TN, data=False, unit="km"):
 
     if not TN.is_distance:
         raise Exception("The network does not have a distance attribute")
@@ -28,7 +28,12 @@ def compute_distances_analysis(TN, data=False):
         lat1, lon1 = graph.nodes[edge[0]][TN.pos_argument[1]], graph.nodes[edge[0]][TN.pos_argument[0]]
         lat2, lon2 = graph.nodes[edge[1]][TN.pos_argument[1]], graph.nodes[edge[1]][TN.pos_argument[0]]
 
-        euclidian_distances[edge] = distance((lat1, lon1), (lat2, lon2)).km
+        if unit == "km":
+            euclidian_distances[edge] = distance((lat1, lon1), (lat2, lon2)).km
+        elif unit == "m":
+            euclidian_distances[edge] = distance((lat1, lon1), (lat2, lon2)).m
+        else:
+            raise Exception("The unit is not valid")
 
         # Compute the real distance
         real_distances[edge] = graph.edges[edge][TN.distance_argument]
@@ -58,8 +63,12 @@ def compute_distances_analysis(TN, data=False):
     min_lon = TN.get_min_lon()
     max_lon = TN.get_max_lon()
 
-    length = distance((min_lat, min_lon), (max_lat, min_lon)).km
-    width = distance((max_lat, min_lon), (max_lat, max_lon)).km
+    if unit == "km":
+        length = distance((min_lat, min_lon), (max_lat, min_lon)).km
+        width = distance((max_lat, min_lon), (max_lat, max_lon)).km
+    elif unit == "m":
+        length = distance((min_lat, min_lon), (max_lat, min_lon)).m
+        width = distance((max_lat, min_lon), (max_lat, max_lon)).m
 
     area = length * width
 

@@ -6,10 +6,12 @@ from sklearn.manifold import TSNE
 from visualisation.utils import *
 
 def convert_minutes_to_ddhhmm(minutes):
-    days = minutes // (24 * 60)
-    hours = (minutes // 60) % 24
-    minutes = minutes % 60
-    return '{:02d}:{:02d}:{:02d}'.format(int(days), int(hours), int(minutes))
+    total_minutes = int(minutes)
+    days = total_minutes // (60 * 24)
+    remaining_minutes = total_minutes % (60 * 24)
+    hours = remaining_minutes // 60
+    minutes = remaining_minutes % 60
+    return f"{days:02d}:{hours:02d}:{minutes:02d}"
 
 
 def get_gradient_color(value):
@@ -116,13 +118,12 @@ def map_network(TN, spatial=True, generate_html=False, filename="map.html", data
         edge_trace.line.color = 'grey'
         return edge_trace, node_trace, layout, pos
 
+    fig.add_trace(edge_trace)
+    fig.add_trace(node_trace)
 
     fig.update_layout(
         layout
     )
-
-    fig.add_trace(edge_trace)
-    fig.add_trace(node_trace)
 
     if generate_html:
         fig.write_html(filename)
@@ -290,13 +291,15 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
     if data:
         return node_trace, edge_trace, layout
 
-    fig.update_layout(
-        layout
-    )
+
 
     if not edge_weigth:
         fig.add_trace(edge_trace)
     fig.add_trace(node_trace)
+
+    fig.update_layout(
+        layout
+    )
 
     if generate_html:
         fig.write_html(filename)
@@ -313,6 +316,7 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
     if step is None:
         raise Exception("The step is not defined")
 
+    step_num = step
     start = TN.get_min_time()
     end = TN.get_max_time()
     step = (end - start) / step
@@ -361,9 +365,14 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
     fig.add_trace(node_trace)
 
     # Add traces, one for each slider step
-    for step in np.arange(start, end, step):
+    for step in np.arange(start, end+1, step):
+        if step <= start:
+            step = start
+        if step >= end:
+            step = end
+
         G2 = nx.DiGraph(((source, target, attr) for source, target, attr in TN.multidigraph.edges(data=True) if
-                         attr[TN.time_arguments[0]] < step and attr[TN.time_arguments[1]] > step))
+                         attr[TN.time_arguments[0]] <= step and attr[TN.time_arguments[1]] >= step))
 
         # sub_network_edges_attr = nx.get_edge_attributes(G2, TN.edge_weight_attribute)
         # sub_network_nodes_attr_list = list(nx.get_node_attributes(G2, TN.node_weight_attribute).values())
@@ -399,7 +408,7 @@ def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.htm
         step = dict(
             method="update",
             args=[{"visible": [True] + [False] * len(fig.data)},
-                  {"title": "Date time " + str(convert_minutes_to_ddhhmm(i * (end - start) / 100))}],
+                  {"title": "Date time " + str(convert_minutes_to_ddhhmm((i+1) * ((end - start) / step_num)))}],
             # layout attribute
         )
         step["args"][0]["visible"][i] = True  # Toggle i'th trace to "visible"

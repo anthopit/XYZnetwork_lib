@@ -94,7 +94,7 @@ def plot_centrality_analysis(TN):
 
     # Create traces
     if TN.is_directed:
-        fig = make_subplots(rows=3, cols=2, subplot_titles=("In Degree Centrality", "Out Degree Centrality", "Eigenvector Centrality", "Closeness Centrality", "Betweenness Centrality"))
+        fig = make_subplots(rows=3, cols=2, subplot_titles=("Degree Centrality", "Eigenvector Centrality", "Closeness Centrality", "Betweenness Centrality", "In-Degree Centrality", "Out-Degree Centrality"))
 
         fig.add_trace(go.Scatter(x=sorted_in_rank, y=sorted_in_degree,
                                     mode='lines+markers',
