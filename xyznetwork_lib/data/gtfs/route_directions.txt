@@ -1,0 +1,12 @@
+route_id,direction_id,route_direction_name
+153,0,Ehpad
+154,0,Behobia
+147,0,Autoport
+150,0,Vieux Fort
+155,0,Halte Routière
+151,0,Zaldi Xurito
+152,0,Urrugne Bourg
+156,0,Grottes de Sare
+157,0,St Pée Pont d'Amotz
+148,0,Halte Routière
+158,0,Biarritz Gare

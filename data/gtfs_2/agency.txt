@@ -1,2 +1,0 @@
-agency_id,agency_name,agency_url,agency_timezone,agency_lang,agency_phone,agency_fare_url,agency_email
-TXIKTXAK-SUD,TXIK TXAK Sud,https://www.txiktxak.fr/,Europe/Paris,fr,05 47 75 76 64,https://www.txiktxak.fr/titres-et-tarifs/titres-et-abonnements/,
