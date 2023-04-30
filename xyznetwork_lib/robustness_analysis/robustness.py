@@ -4,6 +4,7 @@ import networkx as nx
 from tqdm import tqdm
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
+from xyznetwork_lib.robustness_analysis.utils import *
 
 
 def compute_robustness_analysis(TN, node_attack=True, edge_attack=False, precision=0.1, attack_type=['random', 'degree', 'closeness', 'betweenness', 'eigenvector']):
