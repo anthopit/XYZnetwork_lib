@@ -21,7 +21,6 @@ def compute_clustering_analysis(TN, data=False):
         return clustering_analysis
 
     else:
-        #TODO : Add weigth
         triangles = nx.triangles(TN.graph)
 
         clustering_analysis = {
@@ -45,8 +44,6 @@ def plot_clustering_analysis(TN):
 
     triangles_prob, _ = np.histogram(list_triangles, bins=np.arange(max(list_triangles) + 2), density=True)
     clustering_prob, _ = np.histogram(list_clustering, bins=np.arange(max(list_clustering) + 2), density=True)
-
-    print(clustering_prob)
 
     triangles_prob = triangles_prob[triangles_prob != 0]
     clustering_prob = clustering_prob[clustering_prob != 0]
