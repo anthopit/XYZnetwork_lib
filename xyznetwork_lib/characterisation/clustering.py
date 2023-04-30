@@ -1,5 +1,8 @@
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
+import networkx as nx
+import numpy as np
+from visualisation.visualisation import *
 
 def compute_clustering_analysis(TN, data=False):
     """
@@ -47,8 +50,6 @@ def plot_clustering_analysis(TN):
     Plot clustering analysis
 
     :param TN: TransportNetwork to analyse
-
-    :return: Plotly plot of the clustering analysis data
     """
     clustering_analysis = compute_clustering_analysis(TN, data=True)
 
@@ -93,8 +94,6 @@ def map_clustering_analysis(TN, scale=5):
 
     :param TN: TransportNetwork
     :param scale: Scale of the mapped analysis
-
-    :return: Plotly figure of mapped clustering analysis
     """
     clustering_analysis = compute_clustering_analysis(TN, data=True)
 

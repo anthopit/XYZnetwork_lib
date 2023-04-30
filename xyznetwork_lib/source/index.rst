@@ -40,7 +40,8 @@ These networks will be represented by our main class, TransportNetwork:
     :undoc-members:
 
 This class will be used for plotting, mapping and analysing its graph, which
-represents the dataset's network. This will be done via our modules.
+represents the dataset's network. This will be done via our modules. We will
+refer to this class as TN, especially for function arguments.
 
 *******
 Modules

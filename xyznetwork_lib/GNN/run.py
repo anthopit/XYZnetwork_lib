@@ -1,4 +1,5 @@
 from GNN.loss import *
+from GNN.utils import augment_data
 def train_self_supervised(data, model, optimizer, args):
     """
     Trains a model using a self-supervised method (no human supervision, can use unlabeled data)

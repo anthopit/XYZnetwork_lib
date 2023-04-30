@@ -1,7 +1,7 @@
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 import numpy as np
-import visualisation.visualisation
+from visualisation.visualisation import *
 
 def compute_node_degree_analysis(TN, data=False):
     """

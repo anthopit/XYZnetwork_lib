@@ -1,8 +1,18 @@
 from community import community_louvain
 from sklearn.cluster import SpectralClustering, KMeans
+import networkx as nx
+from visualisation.visualisation import *
 
 
 def get_clusters(graph, type='louvain', embedding=None, k=None):
+    """
+    Get clusters from graph using an algorithm
+
+    :param graph: Graph to use
+    :param type: Type of algorithm to use
+    :param embedding: Embedding of graph
+    :param k: Number of steps
+    """
     if type == 'louvain':
         return community_louvain.best_partition(graph)
     if type== 'greedy':

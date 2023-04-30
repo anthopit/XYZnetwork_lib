@@ -1,4 +1,5 @@
 from geopy.distance import distance
+from visualisation.visualisation import *
 
 
 def compute_distances_analysis(TN, data=False):
@@ -99,6 +100,8 @@ def compute_distances_analysis(TN, data=False):
 def map_detour_analysis(TN):
     """
     Maps compute_distances_analysis() results
+
+    :param TN: TransportNetwork
     """
 
     if not TN.is_distance:
