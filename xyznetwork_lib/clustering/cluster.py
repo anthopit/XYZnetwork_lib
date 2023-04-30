@@ -1,7 +1,7 @@
-from community import community_louvain
 from sklearn.cluster import SpectralClustering, KMeans
 import networkx as nx
 from visualisation.visualisation import *
+import community
 
 
 def get_clusters(graph, type='louvain', embedding=None, k=None):
@@ -14,7 +14,7 @@ def get_clusters(graph, type='louvain', embedding=None, k=None):
     :param k: Number of steps
     """
     if type == 'louvain':
-        return community_louvain.best_partition(graph)
+        return community.best_partition(graph)
     if type== 'greedy':
         communities = nx.community.greedy_modularity_communities(graph)
         comms_dct = {}
