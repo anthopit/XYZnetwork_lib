@@ -5,7 +5,37 @@ from plotly.subplots import make_subplots
 import numpy as np
 
 def compute_node_degree_analysis(TN, data=False, directed=True, multi=True):
+    """
+    Computes the degree analysis of nodes in a transport network.
 
+    This function calculates various degree metrics for each node in the transport network.
+    For directed graphs, it calculates in-degree and out-degree metrics, while for undirected
+    graphs, it calculates the degree of each node. It can return the raw data or aggregated
+    statistics based on the input parameters.
+
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the node degree analysis will be computed.
+    data : bool, optional
+        If True, returns the raw degree data for each node, otherwise returns aggregated statistics,
+        by default False.
+    directed : bool, optional
+        If True, considers the graph as directed, otherwise as undirected, by default True.
+    multi : bool, optional
+        If True, considers the graph as a multigraph, otherwise as a simple graph, by default True.
+
+    Returns
+    -------
+    dict
+        A dictionary containing the degree analysis of the nodes in the transport network.
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> node_degree_analysis = compute_node_degree_analysis(TN, data=False, directed=True, multi=True)
+    """
     if TN.is_directed and directed:
         if TN.is_multi and multi:
             graph = TN.multidigraph
@@ -69,6 +99,32 @@ def compute_node_degree_analysis(TN, data=False, directed=True, multi=True):
 
 
 def plot_distribution_degree_analysis(TN, directed=True, multi=True):
+    """
+    Plots the in-degree and out-degree distributions for a directed transport network.
+
+    This function creates a scatter plot of the in-degree and out-degree distributions
+    for a directed transport network. The plot is displayed with two subplots: one
+    with a normal scale and the other with a log-log scale.
+
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the node degree distribution will be plotted.
+    directed : bool, optional
+        If True, considers the graph as directed, otherwise as undirected, by default True.
+    multi : bool, optional
+        If True, considers the graph as a multigraph, otherwise as a simple graph, by default True.
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> plot_distribution_degree_analysis(TN, directed=True, multi=True)
+    """
     if TN.is_directed and directed:
         if TN.is_multi and multi:
             graph = TN.multidigraph
@@ -164,6 +220,33 @@ def plot_distribution_degree_analysis(TN, directed=True, multi=True):
 
 
 def map_node_degree_analysis(TN, scale=5, directed=True, multi=True):
+    """
+    Creates an interactive map displaying the node degree distribution in the transport network.
+
+    This function creates an interactive map with nodes colored and sized based on
+    their in-degree or out-degree (for directed graphs) or degree (for undirected graphs).
+
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the node degree distribution will be mapped.
+    scale : int, optional
+        Scaling factor for node size, by default 5.
+    directed : bool, optional
+        If True, considers the graph as directed, otherwise as undirected, by default True.
+    multi : bool, optional
+        If True, considers the graph as a multigraph, otherwise as a simple graph, by default True.
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> map_node_degree_analysis(TN, scale=5, directed=True, multi=True)
+    """
     if TN.is_directed and directed:
         if TN.is_multi and multi:
             graph = TN.multidigraph

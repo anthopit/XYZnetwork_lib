@@ -6,15 +6,33 @@ from visualisation.visualisation import *
 
 def compute_clustering_analysis(TN, data=False):
     """
-    Compute the clustering analysis. Used in plot_clustering_analysis and map_clustering_analysis
+    Computes clustering coefficients and triangles for the input transport network.
 
-    :param TN: TransportNetwork to analyse
-    :param data: Return data only?
+    This function calculates the average number of triangles, transitivity, and average clustering
+    coefficient for the input transport network. It can also return the data for each node.
 
-    :return: Analysis data
-    :rtype: dict
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the clustering analysis has been computed.
+    data : bool, optional
+        If True, the function returns the number of triangles and clustering coefficient for each node.
+        If False (default), the function returns the average values.
+
+    Returns
+    -------
+    dict
+        A dictionary containing the clustering analysis results.
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> compute_clustering_analysis(TN)
+    {'avg_triangles': ..., 'transitivity': ..., 'average_clustering_coef': ...}
+    >>> compute_clustering_analysis(TN, data=True)
+    {'triangles': {node1: ..., node2: ..., ...}, 'clustering': {node1: ..., node2: ..., ...}}
     """
-
     if not data:
         triangles = nx.triangles(TN.graph)
         avg_triangles = sum(triangles.values())/len(triangles.values())
@@ -46,9 +64,25 @@ def compute_clustering_analysis(TN, data=False):
 
 def plot_clustering_analysis(TN):
     """
-    Plot clustering analysis
+    Plots the distribution of clustering coefficients and number of triangles for the input transport network.
 
-    :param TN: TransportNetwork to analyse
+    This function creates a plot of the distribution of clustering coefficients and the number of triangles
+    for the input transport network.
+
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the clustering analysis has been computed.
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> plot_clustering_analysis(TN)
     """
     clustering_analysis = compute_clustering_analysis(TN, data=True)
 
@@ -87,11 +121,28 @@ def plot_clustering_analysis(TN):
 
 def map_clustering_analysis(TN, scale=5):
     """
-    Maps the clustering analysis.
+     Plots the triangles and clustering degree per node on a map for the input transport network.
 
-    :param TN: TransportNetwork
-    :param scale: Scale of the mapped analysis
-    """
+     This function creates an interactive map of the input transport network, displaying the triangles and
+     clustering degree for each node. The node size on the map is scaled based on the metric value.
+
+     Parameters
+     ----------
+     TN : TransportNetwork
+         The input TransportNetwork for which the clustering analysis has been computed.
+     scale : float, optional
+         A scaling factor for the size of the nodes on the map, by default 5.
+
+     Returns
+     -------
+     None
+
+     Examples
+     --------
+     >>> G = ...  # Create or load a networkx graph object
+     >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+     >>> map_clustering_analysis(TN)
+     """
     clustering_analysis = compute_clustering_analysis(TN, data=True)
 
     print(clustering_analysis['clustering'])

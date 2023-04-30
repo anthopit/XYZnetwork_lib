@@ -7,13 +7,30 @@ import networkx as nx
 
 def compute_shortest_path_analysis(TN):
     """
-    Computes shortest path analysis. Used for plotting and mapping.
+     Computes the shortest path analysis of the transport network.
 
-    :param TN: TransportNetwork
+     This function calculates the minimum shortest path, diameter, and average shortest path length
+     of the transport network.
 
-    :return: Shortest path analysis results
-    """
+     Parameters
+     ----------
+     TN : TransportNetwork
+         The input TransportNetwork for which the shortest path analysis will be computed.
 
+     Returns
+     -------
+     shortest_path_analysis : dict
+         A dictionary containing the following keys and their corresponding values:
+         - 'min_shortest_path': The minimum shortest path between any two nodes in the network.
+         - 'diameter': The maximum shortest path between any two nodes in the network.
+         - 'average_shortest_path_length': The average shortest path length for all pairs of nodes.
+
+     Examples
+     --------
+     >>> G = ...  # Create or load a networkx graph object
+     >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+     >>> shortest_path_analysis = compute_shortest_path_analysis(TN)
+     """
     diameter = nx.diameter(TN.graph)
     average_shortest_path_length = nx.average_shortest_path_length(TN.graph)
 
@@ -47,11 +64,26 @@ def compute_shortest_path_analysis(TN):
 
 def plot_shortest_path_analysis(TN):
     """
-    Plots compute_shortest_path_analysis() results
+    Plots the shortest path length distribution of the transport network.
 
-    :param TN: TransportNetwork
+    This function creates a scatter plot of the shortest path length distribution in the transport network.
+    It also highlights the maximum and average shortest path lengths on the plot.
+
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the shortest path analysis will be plotted.
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> plot_shortest_path_analysis(TN)
     """
-    # Compute shortest path lengths
     shortest_path_length = dict(nx.shortest_path_length(TN.graph))
 
     # Collect all shortest path lengths, excluding self-loops

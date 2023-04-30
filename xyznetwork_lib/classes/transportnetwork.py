@@ -8,6 +8,88 @@ import warnings
 __all__ = ["TransportNetwork"]
 
 class TransportNetwork:
+    """
+    A class representing a transport network.
+
+    This class is designed to handle different types of graphs (directed, undirected, multi and multi-directed) and
+    store their properties, including spatial and temporal attributes, edge and node weights, and distances.
+
+    Attributes
+    ----------
+    graph : nx.Graph
+        The undirected graph.
+    dirgraph : nx.DiGraph
+        The directed graph.
+    multigraph : nx.MultiGraph
+        The multi-graph.
+    multidigraph : nx.MultiDiGraph
+        The multi-directed graph.
+    is_directed : bool
+        Whether the graph is directed or not.
+    is_multi : bool
+        Whether the graph is a multi-graph or not.
+    spring_pos_dict : dict
+        A dictionary containing the spring layout positions for the graph.
+    is_spatial : bool
+        Whether the graph has spatial attributes or not.
+    pos_argument : list or str
+        The spatial attributes for the graph.
+    pos_dict : dict
+        A dictionary containing the positions of the nodes in the graph.
+    is_weighted : list
+        A list containing booleans indicating if the graph has node and edge weights.
+    nodes_weight_argument : str
+        The attribute name for node weights.
+    edges_weight_argument : str
+        The attribute name for edge weights.
+    nodes_weight_attr : dict
+        A dictionary containing node weights.
+    edges_weight_attr : dict
+        A dictionary containing edge weights.
+    is_distance : bool
+        Whether the graph has distance attributes or not.
+    distance_argument : str
+        The attribute name for the distance.
+    is_dynamic : bool
+        Whether the graph is time-dependent or not.
+    is_interval : bool
+        Whether the graph has time intervals or not.
+    time_arguments : str or list
+        The time attributes for the graph.
+
+    Methods
+    -------
+    convert_multidigraph_to_digraph()
+        Convert a multi-directed graph to a directed graph.
+    convert_multidirgraph_to_multigraph()
+        Convert a multi-directed graph to a multi-graph.
+    convert_dirgraph_to_graph()
+        Convert a directed graph to an undirected graph.
+    updata_graph(graph)
+        Update the TransportNetwork's graph.
+    __init__(graph, nodes_weight_argument, edges_weight_argument, pos_argument, time_arguments, distance_argument)
+        Initialize the TransportNetwork class.
+    get_higher_complexity()
+        Get the graph with the highest complexity.
+    get_max_lat()
+        Get the maximum latitude value.
+    get_min_lat()
+        Get the minimum latitude value.
+    get_max_lon()
+        Get the maximum longitude value.
+    get_min_lon()
+        Get the minimum longitude value.
+    get_max_time()
+        Get the maximum time value.
+    get_min_time()
+        Get the minimum time value.
+    get_node_weight_dict()
+        Get the dictionary of node weights.
+    get_edge_weight_dict()
+        Get the dictionary of edge weights.
+    __str__()
+        Return a string representation of the TransportNetwork.
+    """
 
     graph: nx.Graph = None
     dirgraph: nx.DiGraph = None

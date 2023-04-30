@@ -6,12 +6,44 @@ from visualisation import visualisation
 
 def compute_centrality_analysis(TN, data=False):
     """
-    Computes centrality analysis. Used for plotting and mapping
+    Compute the centrality analysis for a given network.
 
-    :param TN: TransportNetwork
-    :param data: Return data as dict?
+    This function calculates various centrality measures for the input network, including
+    eigenvector centrality, closeness centrality, and betweenness centrality. For directed
+    networks, in-degree and out-degree centrality are also computed. The function returns
+    either a dictionary containing the average centrality measures or the complete
+    centrality data for each node, depending on the 'data' parameter.
 
-    :return: Analysis results
+    Parameters
+    ----------
+    TN : Network
+        The input network for which the centrality analysis will be computed.
+    data : bool, optional
+        If True, returns the complete centrality data for each node. If False (default),
+        returns the average centrality measures.
+
+    Returns
+    -------
+    centrality_analysis : dict
+        A dictionary containing the centrality analysis results. The keys depend on the
+        'data' parameter and the network type (directed or undirected).
+
+    Examples
+    --------
+    >>> TN = Network(...)  # Create or load a Network object
+    >>> results = compute_centrality_analysis(TN)
+    >>> print(results)
+    {
+        'avg_eigenvector_centrality': 0.12345,
+        'avg_closeness_centrality': 0.23456,
+        'avg_betweenness_centrality': 0.34567,
+        'avg_degree_centrality': 0.45678  # only present for undirected networks
+    }
+
+    References
+    ----------
+    .. [1] Freeman, L.C. (1978). Centrality in social networks conceptual clarification.
+           Social Networks, 1(3), 215-239. https://doi.org/10.1016/0378-8733(78)90021-7
     """
 
     graph = TN.get_higher_complexity()
@@ -68,9 +100,23 @@ def compute_centrality_analysis(TN, data=False):
 
 def plot_centrality_analysis(TN):
     """
-    Plots results from compute_centrality_analysis()
+    Plots the results from the compute_centrality_analysis function.
 
-    :param TN: TransportNetwork
+    This function creates a plot of the centrality measures calculated by the
+    compute_centrality_analysis function. The plot displays degree centrality,
+    eigenvector centrality, closeness centrality, and betweenness centrality.
+    For directed networks, in-degree and out-degree centrality are also plotted.
+
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the centrality analysis has been computed.
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> plot_centrality_analysis(TN)
     """
 
     graph = TN.get_higher_complexity()
@@ -166,12 +212,26 @@ def plot_centrality_analysis(TN):
 
 def map_centrality_analysis(TN, scale=5):
     """
-    Maps results from compute_centrality_analysis()
+    Creates an interactive map displaying centrality measures for each node in the transport network.
 
-    :param TN: TransportNetwork
-    :param scale: Scale of the map
+    This function generates an interactive map with nodes sized and colored by their centrality
+    measures, including degree centrality, closeness centrality, betweenness centrality, and
+    eigenvector centrality. The user can toggle between these centrality measures using buttons on
+    the map.
+
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the centrality analysis has been computed.
+    scale : float, optional
+        The scaling factor for node sizes, by default 5.
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> map_centrality_analysis(TN, scale=5)
     """
-
     graph = TN.get_higher_complexity()
 
     if TN.is_directed:

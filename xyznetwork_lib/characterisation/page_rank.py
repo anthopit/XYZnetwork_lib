@@ -3,14 +3,31 @@ import networkx as nx
 
 def compute_page_rank_analysis(TN, data=False):
     """
-    Computes page rank analysis. Used for plotting and mapping.
+    Computes the PageRank analysis of the transport network.
 
-    :param TN: TransportNetwork
-    :param data: Return data as dict?
+    This function calculates the PageRank for each node in the network and returns
+    a summary of the analysis containing the average, minimum, and maximum PageRank values.
+    Optionally, it can return the raw PageRank values for each node if the 'data' parameter is set to True.
 
-    :return: Page rank analysis results
-    """
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the PageRank analysis will be computed.
+    data : bool, optional
+        If True, returns the raw PageRank values for each node. Default is False.
 
+    Returns
+    -------
+    pagerank_analysis : dict
+        A dictionary containing the average, minimum, and maximum PageRank values.
+        If 'data' is True, returns the raw PageRank values for each node instead.
+
+    Examples
+    --------
+       >>> G = ...  # Create or load a networkx graph object
+       >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+       >>> pagerank_analysis = compute_page_rank_analysis(TN)
+       """
     graph = TN.get_higher_complexity()
 
     pagerank = nx.pagerank(graph)
@@ -33,9 +50,29 @@ def compute_page_rank_analysis(TN, data=False):
 
 def map_page_rank_analysis(TN, scale=5):
     """
-    Plots results of compute_page_rank_analysis()
-    """
+    Maps the PageRank analysis of the transport network.
 
+    This function calculates the PageRank for each node in the network and creates
+    a visual representation of the network with nodes scaled according to their PageRank values.
+
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the PageRank analysis will be mapped.
+    scale : float, optional
+        A scaling factor that determines the size of the nodes in the resulting plot.
+        Default is 5.
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> map_page_rank_analysis(TN)
+    """
     graph = TN.get_higher_complexity()
 
     page_rank = nx.pagerank(graph)

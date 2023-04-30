@@ -6,12 +6,28 @@ import community
 
 def get_clusters(graph, type='louvain', embedding=None, k=None):
     """
-    Get clusters from graph using an algorithm
+    Get clusters (communities) of a given graph using different clustering algorithms.
 
-    :param graph: Graph to use
-    :param type: Type of algorithm to use
-    :param embedding: Embedding of graph
-    :param k: Number of steps
+    Parameters
+    ----------
+    graph : nx.Graph
+        The input graph to find communities.
+    type : str, optional
+        The clustering algorithm to use: 'louvain', 'greedy', 'spectral', or 'kmeans'. Default is 'louvain'.
+    embedding : array-like, optional
+        The node embeddings (used for 'spectral' and 'kmeans' clustering). Default is None.
+    k : int, optional
+        The number of clusters for 'spectral' and 'kmeans' clustering. Default is None.
+
+    Returns
+    -------
+    dict
+        A dictionary with nodes as keys and cluster labels as values.
+
+    Raises
+    ------
+    Exception
+        If the input clustering type is not supported.
     """
     if type == 'louvain':
         return community.best_partition(graph)
@@ -38,6 +54,25 @@ def get_clusters(graph, type='louvain', embedding=None, k=None):
         raise Exception(f'Unknown community type: {type}')
 
 def map_clusters(TN, clusters_dct):
+    """
+    Map the clusters (communities) of a TransportNetwork graph.
+
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork object with spatial information.
+    clusters_dct : dict
+        A dictionary with nodes as keys and cluster labels as values, representing the communities of the graph.
+
+    Returns
+    -------
+    None
+
+    Notes
+    -----
+    This function calls the 'map_weighted_network' function to visualize the clusters using a discrete color scheme.
+    The plotted map will have nodes colored according to their cluster label and no edge weights.
+    """
     map_weighted_network(TN, custom_node_weigth=clusters_dct, edge_weigth=False, node_size=5, discrete_color=True)
 
 def plot_clusters_embedding(embedding, clusters_dct):

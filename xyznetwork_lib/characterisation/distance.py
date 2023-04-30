@@ -2,7 +2,39 @@ from geopy.distance import distance
 
 
 def compute_distances_analysis(TN, data=False, unit="km"):
+    """
+     Computes various distance-related metrics for the transport network.
 
+     This function calculates the total cost, average distance, average detour,
+     density, and Pi index for the transport network.
+
+     Parameters
+     ----------
+     TN : TransportNetwork
+         The input TransportNetwork for which the distance analysis will be computed.
+     data : bool, optional
+         If True, returns the data for euclidian distances, real distances, and detours,
+         otherwise returns the computed metrics, by default False.
+     unit : str, optional
+         Unit for distance measurement, "km" for kilometers or "m" for meters, by default "km".
+
+     Returns
+     -------
+     dict or tuple
+         A dictionary containing distance analysis metrics, or a tuple containing
+         euclidian distances, real distances, and detours if data is True.
+
+     Raises
+     ------
+     Exception
+         If the network does not have a distance attribute or the unit is not valid.
+
+     Examples
+     --------
+     >>> G = ...  # Create or load a networkx graph object
+     >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+     >>> compute_distances_analysis(TN, data=False, unit="km")
+     """
     if not TN.is_distance:
         raise Exception("The network does not have a distance attribute")
 
@@ -97,7 +129,30 @@ def compute_distances_analysis(TN, data=False, unit="km"):
 
 
 def map_detour_analysis(TN):
+    """
+    Visualizes the detour analysis of the transport network.
 
+    This function computes the detour for each edge in the network and plots a
+    map of the network where the edges are colored based on their detour values.
+    The detour is calculated as the ratio of the Euclidean distance to the real
+    distance between the nodes of each edge.
+
+    Parameters
+    ----------
+    TN : TransportNetwork
+        The input TransportNetwork for which the detour analysis will be visualized.
+
+    Raises
+    ------
+    Exception
+        If the network does not have a distance attribute.
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> map_detour_analysis(TN)
+    """
     if not TN.is_distance:
         raise Exception("The network does not have a distance attribute")
 
