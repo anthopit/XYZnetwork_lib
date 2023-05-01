@@ -61,6 +61,37 @@ class GCNLinkPrediction(torch.nn.Module):
         return scores
 
 class SSL_GNN(torch.nn.Module):
+    """
+    Initializes the SSL_GNN class, which is a self-supervised learning model on top of a classic graph neural
+    network (GNN) model.
+
+    Parameters
+    ----------
+    feat_dim : int
+        The dimensionality of the input node features.
+    *args : list
+        Variable length argument list. If the first argument is an instance of `GNNConfig`, the configuration is
+        taken from that instance, otherwise the arguments are passed to `GNNConfig` to create a new configuration.
+    **kwargs : dict
+        Keyword arguments that are passed to `GNNConfig` to create a new configuration.
+
+    Attributes
+    ----------
+    feat_dim : int
+        The dimensionality of the input node features.
+    model : str
+        The type of GNN to use.
+    hidden_dim : int
+        The dimensionality of the hidden layers of the GNN.
+    embed_dim : int
+        The dimensionality of the output node embeddings.
+    gnn : torch.nn.Module
+        The GNN module to use.
+
+    Returns
+    -------
+    None
+    """
     def __init__(self, feat_dim, *args, **kwargs):
         super(SSL_GNN, self).__init__()
 
@@ -85,12 +116,19 @@ class SSL_GNN(torch.nn.Module):
 
     def forward(self, data, data_aug):
         """
-        Forwards GNN data
+        Forward propagation of the SSL_GNN class.
 
-        :param data: Data to use
-        :param data_aug: Data augment
+        Parameters
+        ----------
+        data : torch_geometric.data.Data
+            The original data to use.
+        data_aug : torch_geometric.data.Data
+            The augmented data to use.
 
-        :return: GNN data
+        Returns
+        -------
+        tuple(torch.Tensor, torch.Tensor)
+            The embeddings of the original data and the augmented data.
         """
         x, edge_index = data.x, data.edge_index
         x_aug, edge_index_aug = data_aug.x, data_aug.edge_index
@@ -99,7 +137,53 @@ class SSL_GNN(torch.nn.Module):
 
 
 class GCN(torch.nn.Module):
+    """
+    A graph convolutional neural network (GCN) used for graph embedding.
+    Inherits from the torch.nn.Module class.
+
+    Parameters
+    ----------
+    feat_dim : int
+        The dimensionality of the input features.
+    num_layers : int
+        The number of hidden layers in the GCN.
+    hidden_dim : int
+        The dimensionality of the hidden layers.
+    embed_dim : int
+        The dimensionality of the output embedding.
+
+    Attributes
+    ----------
+    input_layer : torch_geometric.nn.conv.GCNConv
+        The input layer of the GCN.
+    hidden_layers : torch.nn.ModuleList
+        A list of hidden layers in the GCN.
+    output_layer : torch_geometric.nn.conv.GCNConv or None
+        The output layer of the GCN, or None if num_layers is 1.
+    fc : torch.nn.Sequential or torch.nn.Linear
+        The fully connected layers used to compute the embedding.
+
+    Methods
+    -------
+    forward(x, edge_index)
+        Computes the forward pass of the GCN.
+
+    """
     def __init__(self, feat_dim, num_layers, hidden_dim, embed_dim):
+        """
+        Initializes a new instance of the GCN class.
+
+        Parameters
+        ----------
+        feat_dim : int
+            The dimensionality of the input features.
+        num_layers : int
+            The number of hidden layers in the GCN.
+        hidden_dim : int
+            The dimensionality of the hidden layers.
+        embed_dim : int
+            The dimensionality of the output embedding.
+        """
         super(GCN, self).__init__()
 
         # Input layer
@@ -131,12 +215,19 @@ class GCN(torch.nn.Module):
 
     def forward(self, x, edge_index):
         """
-        Forwards node embeddings
+        Computes the forward pass of the GCN.
 
-        :param x: Node
-        :param edge_index: Edge index
+        Parameters
+        ----------
+        x : torch.Tensor
+            The input feature matrix.
+        edge_index : torch.Tensor
+            The graph connectivity matrix.
 
-        :return: Node embeddings
+        Returns
+        -------
+        torch.Tensor
+            The output embedding matrix.
         """
         x = F.relu(self.input_layer(x, edge_index))
         x = F.dropout(x, p=0.5, training=self.training)
@@ -153,7 +244,57 @@ class GCN(torch.nn.Module):
 
 
 class GraphSAGE(torch.nn.Module):
+    """
+    A GraphSAGE model used for graph embedding.
+    Inherits from the torch.nn.Module class.
+
+    Parameters
+    ----------
+    feat_dim : int
+        The dimensionality of the input features.
+    num_layers : int
+        The number of hidden layers in the GraphSAGE.
+    hidden_dim : int
+        The dimensionality of the hidden layers.
+    embed_dim : int
+        The dimensionality of the output embedding.
+
+    Attributes
+    ----------
+    input_layer : torch_geometric.nn.conv.SAGEConv
+        The input layer of the GraphSAGE.
+    hidden_layers : torch.nn.ModuleList
+        A list of hidden layers in the GraphSAGE.
+    output_layer : torch_geometric.nn.conv.SAGEConv or None
+        The output layer of the GraphSAGE, or None if num_layers is 1.
+    fc : torch.nn.Sequential or torch.nn.Linear
+        The fully connected layers used to compute the embedding.
+
+    Methods
+    -------
+    forward(x, edge_index)
+        Computes the forward pass of the GraphSAGE.
+
+    References
+    ----------
+    Hamilton, W. L., Ying, Z., & Leskovec, J. (2017). Inductive representation learning on large graphs.
+
+    """
     def __init__(self, feat_dim, num_layers, hidden_dim, embed_dim):
+        """
+        Initializes a new instance of the GraphSAGE class.
+
+        Parameters
+        ----------
+        feat_dim : int
+            The dimensionality of the input features.
+        num_layers : int
+            The number of hidden layers in the GraphSAGE.
+        hidden_dim : int
+            The dimensionality of the hidden layers.
+        embed_dim : int
+            The dimensionality of the output embedding.
+        """
         super(GraphSAGE, self).__init__()
 
         # Input layer
@@ -185,12 +326,19 @@ class GraphSAGE(torch.nn.Module):
 
     def forward(self, x, edge_index):
         """
-        Forwards node embeddings
+        Computes the forward pass of the GraphSAGE.
 
-        :param x: Node
-        :param edge_index: Edge index
+        Parameters
+        ----------
+        x : torch.Tensor
+            The input feature matrix.
+        edge_index : torch.Tensor
+            The graph connectivity matrix.
 
-        :return: Node embeddings
+        Returns
+        -------
+        torch.Tensor
+            The output embedding matrix.
         """
         x = F.relu(self.input_layer(x, edge_index))
         x = F.dropout(x, p=0.5, training=self.training)
@@ -207,7 +355,65 @@ class GraphSAGE(torch.nn.Module):
 
 
 class GAT(torch.nn.Module):
+    """
+    A Graph Attention Network (GAT) model used for graph embedding.
+    Inherits from the torch.nn.Module class.
+
+    Parameters
+    ----------
+    feat_dim : int
+        The dimensionality of the input features.
+    num_layers : int
+        The number of hidden layers in the GAT.
+    hidden_dim : int
+        The dimensionality of the hidden layers.
+    embed_dim : int
+        The dimensionality of the output embedding.
+    in_heads : int
+        The number of attention heads for the input layer.
+    out_heads : int
+        The number of attention heads for the output layer.
+
+    Attributes
+    ----------
+    input_layer : torch_geometric.nn.conv.GATConv
+        The input layer of the GAT.
+    hidden_layers : torch.nn.ModuleList
+        A list of hidden layers in the GAT.
+    output_layer : torch_geometric.nn.conv.GATConv or None
+        The output layer of the GAT, or None if num_layers is 1.
+    fc : torch.nn.Sequential or torch.nn.Linear
+        The fully connected layers used to compute the embedding.
+
+    Methods
+    -------
+    forward(x, edge_index)
+        Computes the forward pass of the GAT.
+
+    References
+    ----------
+    Veličković, P., Cucurull, G., Casanova, A., Romero, A., Lio, P., & Bengio, Y. (2018). Graph attention networks. arXiv preprint arXiv:1710.10903.
+
+    """
     def __init__(self, feat_dim, num_layers, hidden_dim, embed_dim, in_heads, out_heads):
+        """
+        Initializes a new instance of the GAT class.
+
+        Parameters
+        ----------
+        feat_dim : int
+            The dimensionality of the input features.
+        num_layers : int
+            The number of hidden layers in the GAT.
+        hidden_dim : int
+            The dimensionality of the hidden layers.
+        embed_dim : int
+            The dimensionality of the output embedding.
+        in_heads : int
+            The number of attention heads for the input layer.
+        out_heads : int
+            The number of attention heads for the output layer.
+        """
         super(GAT, self).__init__()
 
         # Input layer
@@ -239,12 +445,19 @@ class GAT(torch.nn.Module):
 
     def forward(self, x, edge_index):
         """
-        Forwards node embeddings
+        Computes the forward pass of the GAT.
 
-        :param x: Node
-        :param edge_index: Edge index
+        Parameters
+        ----------
+        x : torch.Tensor
+            The input feature matrix.
+        edge_index : torch.Tensor
+            The graph connectivity matrix.
 
-        :return: Node embeddings
+        Returns
+        -------
+        torch.Tensor
+            The output embedding matrix.
         """
         x = F.relu(self.input_layer(x, edge_index))
         x = F.dropout(x, p=0.5, training=self.training)

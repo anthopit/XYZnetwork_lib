@@ -1,14 +1,8 @@
 from GNN.loss import *
 from GNN.utils import augment_data
+import torch
 def train_self_supervised(data, model, optimizer, args):
-    """
-    Trains a model using a self-supervised method (no human supervision, can use unlabeled data)
-    :param data: Training data to use
-    :param model: Model to train
-    :param optimizer: Optimizer for training
-    :param args: Arguments
-    :return: No data returned, prints train and validation loss every epoch, then prints best val loss.
-    """
+
     best_loss = float("inf")
 
     for epoch in range(args.epochs):
@@ -52,6 +46,38 @@ def train_self_supervised(data, model, optimizer, args):
 
     print(f'Best Val Loss: {best_loss}')
 
+def train_self_supervised(data, ssl_model, optimizer, args):
+    criterion = torch.nn.MSELoss()
+
+    train_data = data.subgraph(data.train_mask)
+    val_data = data.subgraph(data.val_mask)
+
+    # Training loop
+    for epoch in range(400):
+        train_loss = train(train_data)
+        val_loss = validate(val_data)
+        print(f'Epoch: {epoch + 1}, Train Loss: {train_loss:.4f}, Validation Loss: {val_loss:.4f}')
+
+def train(train_data, model, optimizer, criterion, args):
+    model.train()
+    loss_all = 0
+    train_data = train_data.to(args.device)
+    optimizer.zero_grad()
+    output = model(train_data.x, train_data.edge_index)
+    loss = criterion(output[train_data.train_mask], train_data.y[train_data.train_mask])
+    loss.backward()
+    optimizer.step()
+    loss_all += loss.item()
+    return loss_all / len(train_data.y)
+
+def validate(val_data, model, criterion, args):
+    model.eval()
+    loss_all = 0
+    val_data = val_data.to(args.device)
+    output = model(val_data.x, val_data.edge_index)
+    loss = criterion(output[val_data.val_mask], val_data.y[val_data.val_mask])
+    loss_all += loss.item()
+    return loss_all / len(val_data.y)
 
 def get_graph_embedding(data, model):
     """

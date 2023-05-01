@@ -4,14 +4,24 @@ from GNN.utils import *
 import numpy as np
 def create_data_from_transport_network(graph, TN, *args, **kwargs):
     """
-    Creates data for Deep Learning from a transportnetwork
-    :param graph: Graph to use
-    :param TN: Transport network to use
-    :param args: Arguments for config
-    :param kwargs: Keyword argument list
-    :return: Formatted data
-    """
+    Create train and validation data from a transport network graph.
 
+    This function takes a networkx graph representation of a transport network and a `GNNConfig` object, which specifies the parameters for generating the node features and dividing the data into train and validation sets. The function then generates node features for the graph based on the specified features in the `GNNConfig` object, divides the data into train and validation sets according to the specified ratios, and returns a `Data` object from PyTorch Geometric containing the graph data and the train and validation masks.
+
+    Parameters
+    ----------
+    graph : networkx graph
+        A networkx graph representing the transport network.
+    TN : dict
+        A dictionary containing the transport network data.
+    *args, **kwargs : optional
+        Optional arguments and keyword arguments for the `GNNConfig` object.
+
+    Returns
+    -------
+    data : PyTorch Geometric `Data` object
+        The generated graph data and train/validation masks.
+    """
     if args and isinstance(args[0], GNNConfig):
         config = args[0]
     else:
@@ -46,13 +56,34 @@ def create_data_from_transport_network(graph, TN, *args, **kwargs):
 
     return data
 
-# Prepare the dataset for link prediction
+
 def create_link_prediction_data(data, train_ratio=0.8):
     """
-    Creates link prediction data for Deep Learning
-    :param data: Data to use
-    :param train_ratio: Ratio of training data compared to total data: Usually 0.8 (80% training, 20% validation)
-    :return: Training and validation examples & labels
+    Create train and validation data for link prediction.
+
+    This function takes a PyTorch Geometric data object representing a graph, generates positive examples from existing edges, and negative examples using negative sampling. The data is then shuffled and split into training and testing sets according to the specified ratio.
+
+    Parameters
+    ----------
+    data : PyTorch Geometric Data object
+        A graph data object with attributes 'num_nodes', 'num_edges', and 'edge_index'.
+    train_ratio : float, optional
+        The ratio of the dataset to be used for training, defaults to 0.8.
+
+    Returns
+    -------
+    train_examples : numpy array
+        The array of training examples.
+    train_labels : numpy array
+        The array of training labels.
+    test_examples : numpy array
+        The array of testing examples.
+    test_labels : numpy array
+        The array of testing labels.
+
+    Example
+    -------
+    >>> train_examples, train_labels, test_examples, test_labels = create_link_prediction_data(data, train_ratio=0.8)
     """
     num_nodes = data.num_nodes
     num_edges = data.num_edges
