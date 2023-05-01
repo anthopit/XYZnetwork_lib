@@ -7,13 +7,6 @@ from datetime import datetime, timedelta
 ############################################# Utils #############################################
 
 def getTrainMaxSpeed(train_id):
-    """
-    Utility function, gives max train speed based on its ID.
-
-    :param train_id: ID of the train
-
-    :return: String with max speed of the train
-    """
     train_id = str(train_id)
     if train_id[0].isdigit():
         return "80"
@@ -29,17 +22,6 @@ def getTrainMaxSpeed(train_id):
 
 
 def convertTimetoMinute(time, day=None):
-
-    """
-    Process outliers time datas
-    Some arrive and depart time are in fraction of a day, so we need to convert them to minutes
-    ex: 0.8884 = 21:30:00
-
-    :param time: Raw time data (number)
-
-    :return: Number of minutes
-    """
-
     try:
         time_float = float(time)
         # Convert the fraction of a day to a timedelta object
@@ -76,14 +58,22 @@ def convertTimetoMinute(time, day=None):
 
 def create_network_from_trailway(path):
     """
-    Create a network from the Chinese railway dataset.
+    Create a network graph from a trailway data file.
 
-    :param path: Path to the dataset's file
+    This function reads an Excel file containing trailway data, creates a network graph using the NetworkX package,
+    and processes the data to include node and edge attributes.
 
-    :return: A graph of the network
-    :rtype: nx.MultiDiGraph
+    Parameters
+    ----------
+    path : str
+        Path to the Excel file containing the trailway data.
+
+    Returns
+    -------
+    G : nx.MultiDiGraph
+        The created network graph.
+
     """
-
     df = pd.read_excel(path)
     df = df.replace(" ", 0)
     G = nx.MultiDiGraph()
@@ -135,12 +125,21 @@ def create_network_from_trailway(path):
 
 def create_network_from_GTFS(path):
     """
-    Creates network from the other chosen dataset
+    Create a network graph from GTFS data files.
 
-    :param path: Path to the dataset's file
+    This function reads GTFS data files containing public transport information, creates a network graph using the
+    NetworkX package, and processes the data to include node and edge attributes.
 
-    :return: Graph of the network
-    :rtype: nx.MultiDiGraph
+    Parameters
+    ----------
+    path : str
+        Path to the directory containing the GTFS data files (stop_times.txt, stops.txt, trips.txt, and shapes.txt).
+
+    Returns
+    -------
+    G : nx.MultiDiGraph
+        The created network graph.
+
     """
     df_stop_time = pd.read_csv(path + '/stop_times.txt')
     df_stop = pd.read_csv(path + '/stops.txt')
@@ -186,14 +185,22 @@ def create_network_from_GTFS(path):
 
 def create_network_from_edges(path):
     """
-    Create graph from edges file
+    Create a network graph from an edge list file.
 
-    :param path: Path to .edges file
+    This function reads an edge list file containing node connections, creates a network graph using the
+    NetworkX package, and adds nodes and edges to the graph.
 
-    :return: Graph of network
-    :rtype: nx.Graph
+    Parameters
+    ----------
+    path : str
+        Path to the edge list file.
+
+    Returns
+    -------
+    G : nx.Graph
+        The created network graph.
+
     """
-
     #Read data from file
     with open(path, "r") as f:
         lines = f.readlines()

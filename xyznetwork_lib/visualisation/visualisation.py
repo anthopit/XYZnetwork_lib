@@ -15,23 +15,39 @@ def convert_minutes_to_ddhhmm(minutes):
 
 
 def get_gradient_color(value):
-    """
-    Returns a color from a gradient based on a given value.
-
-    Parameters:
-    value (float): The input value to use for determining the color.
-    cmap_name (str): The name of the Matplotlib colormap to use.
-
-    Returns:
-    tuple: A tuple represG.edges((1351, 692))enting the RGB values of the color at the given value on the gradient.
-    """
     cmap = plt.get_cmap('viridis')
     norm = plt.Normalize(vmin=0, vmax=1)
     rgba = cmap(norm(value))
     return tuple(int(x * 255) for x in rgba[:3])
 
 def map_network(TN, spatial=True, generate_html=False, filename="map.html", data=False):
+    """
+    Create a visual representation of the network.
 
+    This function creates a visual representation of the network using the Plotly package. The network can be
+    displayed using a spring layout or a spatial layout, depending on the input parameters.
+
+    Parameters
+    ----------
+    TN : object
+        Network object.
+    spatial : bool, optional
+        If True, the network will be displayed using a spatial layout; otherwise, a spring layout will be used.
+        Default is True.
+    generate_html : bool, optional
+        If True, the function will generate an HTML file with the plot. Default is False.
+    filename : str, optional
+        Filename for the generated HTML file. Default is "map.html".
+    data : bool, optional
+        If True, the function will return the edge_trace, node_trace, layout, and pos instead of showing the plot.
+        Default is False.
+
+    Returns
+    -------
+    None or tuple
+        None if data is False, or a tuple (edge_trace, node_trace, layout, pos) if data is True.
+
+    """
     fig = go.Figure()
 
     # Define the dictionary postions depdending of is the network is spatial or not
@@ -308,6 +324,50 @@ def map_weighted_network(TN, spatial=True, generate_html=False, filename="map.ht
 
 
 def map_dynamic_network(TN, spatial=True, generate_html=False, filename="map.html", step=None):
+    """
+    Create a visual representation of the weighted network.
+
+    This function creates a visual representation of the weighted network using the Plotly package. The network can be
+    displayed using a spring layout or a spatial layout, depending on the input parameters. It supports custom node and
+    edge weights, as well as discrete colors for nodes.
+
+    Parameters
+    ----------
+    TN : object
+        Network object.
+    spatial : bool, optional
+        If True, the network will be displayed using a spatial layout; otherwise, a spring layout will be used.
+        Default is True.
+    generate_html : bool, optional
+        If True, the function will generate an HTML file with the plot. Default is False.
+    filename : str, optional
+        Filename for the generated HTML file. Default is "map.html".
+    scale : float, optional
+        Scale factor for node and edge sizes. Default is 1.
+    node_weigth : bool, optional
+        If True, node weights will be displayed. Default is True.
+    edge_weigth : bool, optional
+        If True, edge weights will be displayed. Default is True.
+    custom_node_weigth : dict, optional
+        A dictionary with custom node weights. Default is None.
+    custom_edge_weigth : dict, optional
+        A dictionary with custom edge weights. Default is None.
+    node_size : int, optional
+        Fixed node size. Default is 0 (variable node size).
+    discrete_color : bool, optional
+        If True, discrete colors will be used for nodes. Default is False.
+    data : bool, optional
+        If True, the function will return the node_trace, edge_trace, and layout instead of showing the plot.
+        Default is False.
+    node_weight_name : str, optional
+        Name of the custom node weight. Default is "Custom".
+
+    Returns
+    -------
+    None or tuple
+        None if data is False, or a tuple (node_trace, edge_trace, layout) if data is True.
+
+    """
     if TN.is_dynamic == False:
         raise Exception("The graph is not dynamic")
 

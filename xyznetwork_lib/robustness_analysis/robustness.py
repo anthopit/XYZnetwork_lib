@@ -8,15 +8,31 @@ from xyznetwork_lib.robustness_analysis.utils import *
 
 
 def compute_robustness_analysis(TN, node_attack=True, edge_attack=False, precision=0.1, attack_type=['random', 'degree', 'closeness', 'betweenness', 'eigenvector']):
-    r"""
-    References
-    ----------
-    .. [1] Kammer, Frank and Hanjo Taubig. Graph Connectivity. in Brandes and
-        Erlebach, 'Network Analysis: Methodological Foundations', Lecture
-        Notes in Computer Science, Volume 3418, Springer-Verlag, 2005.
-        http://www.informatik.uni-augsburg.de/thi/personen/kammer/Graph_Connectivity.pdf
     """
+    Compute the robustness analysis of a network under various types of attacks.
 
+    This function takes a network instance and calculates its robustness under different attack types by measuring
+    various network properties such as efficiency, subgraph ratio, giant component ratio, and average reachability.
+
+    Parameters
+    ----------
+    TN : Network
+        A Network instance.
+    node_attack : bool, optional
+        Whether to perform a node attack, defaults to True.
+    edge_attack : bool, optional
+        Whether to perform an edge attack, defaults to False.
+    precision : float, optional
+        The percentage of nodes to remove in each step, defaults to 0.1.
+    attack_type : list, optional
+        A list of attack types to perform, defaults to ['random', 'degree', 'closeness', 'betweenness', 'eigenvector'].
+
+    Returns
+    -------
+    robustness_analysis : dict
+        A dictionary containing the robustness analysis results.
+
+    """
     mask_attack = ['random', 'degree', 'closeness', 'betweenness', 'eigenvector']
     compare_arrays(mask_attack, attack_type, 'This type of attack is not supported')
 
@@ -191,6 +207,33 @@ def compute_robustness_analysis(TN, node_attack=True, edge_attack=False, precisi
 
 
 def plot_robustness_analysis(TN, node_attack=True, edge_attack=False, precision=0.1, attack_type=['random', 'degree', 'closeness', 'betweenness', 'eigenvector']):
+    """
+    Plot the robustness analysis of a network under various types of attacks.
+
+    This function takes a Network instance and plots its robustness analysis results under different attack types.
+    The plot includes four metrics: subgraph ratio, global efficiency, giant component ratio, and average reachability.
+
+    Parameters
+    ----------
+    TN : Network
+        A Network instance.
+    node_attack : bool, optional
+        Whether to perform a node attack, defaults to True.
+    edge_attack : bool, optional
+        Whether to perform an edge attack, defaults to False.
+    precision : float, optional
+        The percentage of nodes to remove in each step, defaults to 0.1.
+    attack_type : list, optional
+        A list of attack types to perform, defaults to ['random', 'degree', 'closeness', 'betweenness', 'eigenvector'].
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> # Plot the robustness analysis under different attack types
+    >>> plot_robustness_analysis(TN, node_attack=True, edge_attack=False, precision=0.1)
+
+    """
     robustness_analysis = compute_robustness_analysis(TN, node_attack=node_attack, edge_attack=edge_attack, precision=precision, attack_type=attack_type)
 
     marker_symbol = {
@@ -273,6 +316,33 @@ def plot_robustness_analysis(TN, node_attack=True, edge_attack=False, precision=
 
 
 def map_robustness_analysis(TN, node_attack=True, edge_attack=True, attack_type='random', precision=0.1, custome_node_list=None):
+    """
+    Create a dynamic map of the evolution of the network during nodes disruption.
+
+
+    Parameters
+    ----------
+    TN : Network
+        A Network instance.
+    node_attack : bool, optional
+        Whether to perform a node attack, defaults to True.
+    edge_attack : bool, optional
+        Whether to perform an edge attack, defaults to False.
+    precision : float, optional
+        The percentage of nodes to remove in each step, defaults to 0.1.
+    attack_type : list, optional
+        A list of attack types to perform, defaults to ['random', 'degree', 'closeness', 'betweenness', 'eigenvector'].
+    custome_node_list : list, optional
+        A list of nodes to remove, defaults to None.
+
+    Examples
+    --------
+    >>> G = ...  # Create or load a networkx graph object
+    >>> TN = tn.TransportNetwork(G)  # Create a TransportNetwork object
+    >>> # Plot the robustness analysis under different attack types
+    >>> plot_robustness_analysis(TN, node_attack=True, edge_attack=False, precision=0.1)
+
+    """
     fig = go.Figure()
 
     # Define the dictionary postions depdending of is the network is spatial or not
