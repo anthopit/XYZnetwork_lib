@@ -4,6 +4,28 @@ import torch.nn.functional as F
 
 def info_nce_loss(readout_anchor, readout_positive, tau=0.5, norm=True):
     """
+    Compute InfoNCE loss for contrastive learning.
+
+    This function computes the InfoNCE loss, a measure used in contrastive learning, given the readout representations of anchor and positive samples. The InfoNCE loss measures the similarity between anchor and positive samples and encourages the model to learn useful representations.
+
+    Parameters
+    ----------
+    readout_anchor : torch.Tensor
+        The readout representation of the anchor samples.
+    readout_positive : torch.Tensor
+        The readout representation of the positive samples.
+    tau : float, optional
+        The temperature scaling factor. Defaults to 0.5.
+    norm : bool, optional
+        Whether to normalize the readout vectors before computing the similarity matrix. Defaults to True.
+
+    Returns
+    -------
+    loss : torch.Tensor
+        The computed InfoNCE loss.
+
+    References
+    -------
     The InfoNCE (NT-XENT) loss in contrastive learning. The implementation
     follows the paper `A Simple Framework for Contrastive Learning of
     Visual Representations <https://arxiv.org/abs/2002.05709>`.

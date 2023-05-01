@@ -6,7 +6,11 @@ from visualisation.visualisation import *
 class Embedding():
     """
     Base class for graph embedding methods.
+
+    This class provides a base for implementing various graph embedding methods. It includes methods for obtaining
+    the graph embedding as a NumPy array or a pandas DataFrame, and for plotting the embedding.
     """
+
     def __init__(self, **kwargs):
         """
         Initializes a new instance of the Embedding class.
@@ -21,11 +25,17 @@ class Embedding():
         """
         Computes the embedding of the input graph.
 
-        Args:
-            graph (nx.Graph): The graph to be embedded.
+        This method should be implemented in the derived classes.
 
-        Returns:
-            numpy.ndarray or gensim.models.KeyedVectors: The embedding of the input graph.
+        Parameters
+        ----------
+        graph : networkx.Graph
+            The graph to be embedded.
+
+        Returns
+        -------
+        numpy.ndarray or gensim.models.KeyedVectors
+            The embedding of the input graph.
         """
         raise NotImplementedError
 
@@ -33,11 +43,15 @@ class Embedding():
         """
         Returns the embedding of the input graph as a pandas DataFrame.
 
-        Args:
-            graph (nx.Graph): The graph to be embedded.
+        Parameters
+        ----------
+        graph : networkx.Graph
+            The graph to be embedded.
 
-        Returns:
-            pandas.DataFrame: A DataFrame containing the embedding of the input graph.
+        Returns
+        -------
+        pandas.DataFrame
+            A DataFrame containing the embedding of the input graph, with nodes as the index.
         """
         if self._cached_embedding is None:
             emb = self.get_embedding(graph)
@@ -60,12 +74,16 @@ class Embedding():
         """
         Plots the embedding of the input graph.
 
-        Args:
-            graph (nx.Graph): The graph to be embedded.
-            node_cluster (numpy.ndarray): (optional) An array of cluster assignments for each node in the graph.
+        Parameters
+        ----------
+        graph : networkx.Graph
+            The graph to be embedded.
+        node_cluster : numpy.ndarray, optional
+            An array of cluster assignments for each node in the graph. Default is None.
 
-        Returns:
-            None
+        Returns
+        -------
+        None
         """
         emb_df = self.get_embedding_df(graph)
         plot_tsne_embedding(emb_df)
@@ -74,6 +92,9 @@ class GraphWave(Embedding):
     """
     A graph embedding method that uses the GraphWave algorithm to learn node representations.
     Inherits from the Embedding base class.
+
+    The GraphWave algorithm is a spectral graph-based method that captures both local and global structural
+    information of the graph by using diffusion wavelets.
 
     References
     ----------
@@ -90,11 +111,15 @@ class GraphWave(Embedding):
         """
         Computes the GraphWave embedding of the input graph.
 
-        Args:
-            graph (nx.Graph): The graph to be embedded.
+        Parameters
+        ----------
+        graph : networkx.Graph
+            The graph to be embedded.
 
-        Returns:
-            numpy.ndarray: The GraphWave embedding of the input graph.
+        Returns
+        -------
+        numpy.ndarray
+            The GraphWave embedding of the input graph, with each row representing the embedding of a node.
         """
         chi, heat_print, taus = graphwave_alg(graph, np.linspace(0, 100, 25), taus='auto', verbose=True)
 
@@ -105,27 +130,30 @@ class Node2Vec(Embedding):
     A graph embedding method that uses the Node2Vec algorithm to learn node representations.
     Inherits from the Embedding base class.
 
+    The Node2Vec algorithm is a scalable feature learning method for networks that generates node embeddings
+    using random walks and the skip-gram model.
+
     Parameters
     ----------
-    window_size : int, optional
+    window_size : int, optional, default=10
         The maximum distance between the current and predicted node within a walk.
-    min_count : int, optional
+    min_count : int, optional, default=1
         Minimum count of occurrences of a node in the graph to be included in the embedding.
-    batch_word : int, optional
+    batch_word : int, optional, default=4
         The size of the batch for the skip-gram model training.
-    emb_size : int, optional
+    emb_size : int, optional, default=64
         The dimensionality of the embedding vector.
-    walk_length : int, optional
+    walk_length : int, optional, default=4
         The length of each random walk.
-    num_walks : int, optional
+    num_walks : int, optional, default=100
         The number of random walks to be generated for each node.
-    weight_key : str, optional
+    weight_key : str, optional, default=None
         The key for edge weights in the graph.
-    workers : int, optional
+    workers : int, optional, default=1
         The number of worker threads to use for parallelization.
-    p : float, optional
+    p : float, optional, default=1
         Parameter for Node2Vec algorithm.
-    q : float, optional
+    q : float, optional, default=0.5
         Parameter for Node2Vec algorithm.
 
     References
@@ -210,6 +238,20 @@ class Node2Vec(Embedding):
 
 
 class LaplacianEigenmaps(Embedding):
+    """
+    A graph embedding method that uses the Laplacian Eigenmaps algorithm to learn node representations.
+    Inherits from the Embedding base class.
+
+    The Laplacian Eigenmaps algorithm is a dimensionality reduction method that finds a low-dimensional
+    representation of the graph based on its Laplacian matrix. The method captures the intrinsic geometric
+    structure of the graph, preserving the pairwise distances between nodes.
+
+    Parameters
+    ----------
+    emb_size : int, optional, default=3
+        The dimensionality of the embedding vector.
+
+    """
     def __init__(self, emb_size=3):
         super().__init__()
         self.emb_size = emb_size
@@ -248,15 +290,24 @@ class LaplacianEigenmaps(Embedding):
 
 class AdjencyMatrix(Embedding):
     """
-    An embedding method that creates an adjacency matrix representation of a graph.
+    A graph embedding method that creates an adjacency matrix representation of a graph.
     Inherits from the Embedding base class.
+
+    The adjacency matrix is a simple and intuitive graph representation, where each entry (i, j)
+    in the matrix represents the presence or absence of an edge between nodes i and j.
     """
     def __init__(self):
         super().__init__()
 
     def get_embedding(self, graph):
         """
-        Initializes a new instance of the AdjacencyMatrix class.
+        Computes the adjacency matrix of the input graph.
+
+        Args:
+            graph (nx.Graph): The graph to be embedded.
+
+        Returns:
+            numpy.ndarray: The adjacency matrix of the input graph.
         """
         A = nx.to_numpy_array(graph)
 
@@ -268,7 +319,7 @@ class AdjencyMatrix(Embedding):
 
         Args:
             graph (nx.Graph): The graph to be embedded.
-            node_cluster (numpy.ndarray): (optional) An array of cluster assignments for each node in the graph.
+            node_cluster (numpy.ndarray, optional): An array of cluster assignments for each node in the graph.
 
         Returns:
             None
