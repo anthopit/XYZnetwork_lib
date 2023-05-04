@@ -64,6 +64,8 @@ class Node2Vec(Embedding):
         if self._cached_embedding is not None:
             return self._cached_embedding
 
+        print(self.p, self.q)
+
         g_emb_struct = n2v(
             graph,
             dimensions=self.emb_size,
