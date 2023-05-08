@@ -1,0 +1,8 @@
+README.rst
+setup.cfg
+setup.py
+xyznetwork/xyznetwork_lib.egg-info/PKG-INFO
+xyznetwork/xyznetwork_lib.egg-info/SOURCES.txt
+xyznetwork/xyznetwork_lib.egg-info/dependency_links.txt
+xyznetwork/xyznetwork_lib.egg-info/requires.txt
+xyznetwork/xyznetwork_lib.egg-info/top_level.txt

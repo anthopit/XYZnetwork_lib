@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: xyznetwork-lib
+Version: 0.0.2
+Home-page: https://github.com/anthopit/XYZnetwork_lib
+Author: Anthony Pitra
+Author-email: anthony.pitra01@gmail.com
+License: MIT
+Keywords: network graph visualization transportation railway GNN
