@@ -233,10 +233,10 @@ def map_centrality_analysis(TN, scale=5):
     betweenness_centrality = nx.betweenness_centrality(graph)
 
 
-    node_trace_degree, edge_trace, layout = visualisation.map_weighted_network(TN, custom_node_weigth=degree_centrality, edge_weigth=False, scale=scale, node_weight_name="degree", data=True)
-    node_trace_closeness, edge_trace, layout = visualisation.map_weighted_network(TN, custom_node_weigth=closeness_centrality, edge_weigth=False, scale=scale, node_weight_name="closeness", data=True)
-    node_trace_betweenness, edge_trace, layout = visualisation.map_weighted_network(TN, custom_node_weigth=betweenness_centrality, edge_weigth=False, scale=scale, node_weight_name="betweenness", data=True)
-    node_trace_eigenvector, edge_trace, layout = visualisation.map_weighted_network(TN, custom_node_weigth=eigenvector_centrality, edge_weigth=False, scale=scale, node_weight_name="eigenvector", data=True)
+    node_trace_degree, edge_trace, layout = map_weighted_network(TN, custom_node_weigth=degree_centrality, edge_weigth=False, scale=scale, node_weight_name="degree", data=True)
+    node_trace_closeness, edge_trace, layout = map_weighted_network(TN, custom_node_weigth=closeness_centrality, edge_weigth=False, scale=scale, node_weight_name="closeness", data=True)
+    node_trace_betweenness, edge_trace, layout = map_weighted_network(TN, custom_node_weigth=betweenness_centrality, edge_weigth=False, scale=scale, node_weight_name="betweenness", data=True)
+    node_trace_eigenvector, edge_trace, layout = map_weighted_network(TN, custom_node_weigth=eigenvector_centrality, edge_weigth=False, scale=scale, node_weight_name="eigenvector", data=True)
 
 
     # Set the visible attribute of trace1 to False
