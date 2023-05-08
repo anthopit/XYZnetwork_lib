@@ -141,4 +141,4 @@ def get_graph_embedding(data, model):
     with torch.no_grad():
         z, _ = model(data, data)
 
-    return
+    return z
